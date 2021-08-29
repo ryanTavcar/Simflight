@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link'
+import Head from 'next/head'
 import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Grid, Hidden, Paper } from '@material-ui/core';
@@ -35,6 +36,10 @@ const About = () => {
     <Container 
     maxWidth="xl" 
     className={styles.about}>
+      <Head>
+          <title>Simflight | About</title>
+          <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+      </Head>
       <Grid 
       container
       >

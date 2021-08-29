@@ -5,6 +5,7 @@ import Box from '@material-ui/core/Box';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link'
+import Head from 'next/head'
 import ProductCard from '../../components/ProductCard';
 import products, {elite, igate} from '../../util/products';
 
@@ -27,8 +28,12 @@ const Products = () => {
 
     return (
         <Container maxWidth="xl">
-            <Grid container>
-                <Grid item xs={12} md={12}>
+            <Head>
+                <title>Simflight | Products</title>
+                <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
+            </Head>
+            <Grid container className="border">
+                <Grid item xs={12} >
 
                 <Box my={4}>
                     <Typography variant="h4" component="h1" >
@@ -48,7 +53,7 @@ const Products = () => {
                     </Button>
                 </Box>
                     {prods.map(product => (
-                        <Box my={4} key={product.name}>
+                        <Box my={4} key={product.name} className="border">
                             <ProductCard product={product}/>
                         </Box>
                     ))}

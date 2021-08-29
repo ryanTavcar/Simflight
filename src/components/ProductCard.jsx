@@ -1,4 +1,5 @@
 import React from 'react';
+import Link from 'next/link'
 import { makeStyles, useTheme } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
@@ -29,7 +30,7 @@ const useStyles = makeStyles((theme) => ({
         [theme.breakpoints.down('xs')]: {
             height: 100,
         },
-        minWidth: '30%',
+        minWidth: 350,
         maxHeight: 200
     },
     button: {
@@ -58,9 +59,15 @@ const ProductCard = ({product}) => {
                     </Typography>
                     </CardContent>
                     <Box mx={2} my={1}>
-                            <Button variant="contained" color="primary" size="small" className={styles.button}>
-                                Details
-                            </Button>
+                        <Link href={{
+                                pathname: '/products/[id]',
+                                query: { id: product.id },
+                            }}
+                            >
+                                <Button variant="contained" color="primary" size="small" className={styles.button}>
+                                    Details
+                                </Button>
+                        </Link>
                             <Button variant="outlined" color="secondary" size="small" className={styles.button}>
                                 Download
                             </Button>
