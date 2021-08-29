@@ -4,6 +4,7 @@ import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link'
+import ProductCard from '../../components/ProductCard';
 
 const Products = () => {
     return (
@@ -12,11 +13,7 @@ const Products = () => {
                 <Typography variant="h4" component="h1" gutterBottom>
                     Product page
                 </Typography>
-                <Link  href="/">
-                    <Button variant="contained" color="primary">
-                        Go to the main page
-                    </Button>
-                </Link>
+                <ProductCard/>
             </Box>
         </Container>
     );
