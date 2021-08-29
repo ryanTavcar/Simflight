@@ -8,6 +8,7 @@ import Image from 'next/image'
 import styles from '../styles/Home.module.css'
 import { Grid, Hidden, Paper } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
+import { useMediaQuery } from "@material-ui/core";
 
 
 const useStyles = makeStyles(theme => ({
@@ -28,29 +29,33 @@ const useStyles = makeStyles(theme => ({
 const About = () => {
 
   const styles = useStyles()
+  const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
 
   return (
     <Container 
     maxWidth="xl" 
     className={styles.about}>
       <Grid 
-      container>
+      container
+      >
         <Grid 
+        container
         item 
         xs={12} 
         sm={12} 
         md={12} 
         lg={6}
+        alignItems="center"
         className={styles.mission}>
           <Box
           my={5}
-          mx={5}
+          mx={isMobile ? 5 : 10}
           className="border">
           <Box
           my={2}>
             <Typography 
             variant="h4" 
-            component="h3">
+            component="h4">
               Our Mission
             </Typography>
           </Box>
