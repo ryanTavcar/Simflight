@@ -5,41 +5,51 @@ import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
+import Button from '@material-ui/core/Button';
+import Box from '@material-ui/core/Box';
 import products from '../util/products'
 
 const useStyles = makeStyles((theme) => ({
     root: {
-      display: 'flex',
-      border: '1px solid blue',
-      width: '90%', 
-
+        display: 'flex',
+        width: '100%', 
+        [theme.breakpoints.down('xs')]: {
+            flexDirection: 'column'
+        },
+        flexDirection: 'row'
     },
     details: {
-      display: 'flex',
-      flexDirection: 'column',
-      border: '1px solid red',
+        display: 'flex',
+        flexDirection: 'column',
     },
     content: {
-      flex: 'auto 0 1',
+        flex: 'auto 0 1',
     },
     cover: {
-      width: '100%',
+        [theme.breakpoints.down('xs')]: {
+            height: 100,
+        },
+        minWidth: '30%',
+        maxHeight: 200
+    },
+    button: {
+        marginRight: 20,
     },
   }));
 
 const ProductCard = ({product}) => {
 
-    const classes = useStyles();
+    const styles = useStyles();
 
     return (
-            <Card className={classes.root}>
+            <Card className={styles.root}>
                 <CardMedia
-                    className={classes.cover}
+                    className={styles.cover}
                     image={product.image}
-                    title="at11"
+                    title={product.name}
                 />
-                <div className={classes.details}>
-                    <CardContent className={classes.content}>
+                <div className={styles.details}>
+                    <CardContent className={styles.content}>
                     <Typography component="h5" variant="h5">
                         {product.name}
                     </Typography>
@@ -47,6 +57,14 @@ const ProductCard = ({product}) => {
                         {product.description}
                     </Typography>
                     </CardContent>
+                    <Box mx={2} my={1}>
+                            <Button variant="contained" color="primary" size="small" className={styles.button}>
+                                Details
+                            </Button>
+                            <Button variant="outlined" color="secondary" size="small" className={styles.button}>
+                                Download
+                            </Button>
+                    </Box>
                 </div>
             </Card>
     );
