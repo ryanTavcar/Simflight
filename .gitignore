@@ -34,6 +34,3 @@ yarn-error.log*
 .vercel
 
 # extra
-.gitignore
-next.config.js
-eslintrc.json

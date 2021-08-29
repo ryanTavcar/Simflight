@@ -30,8 +30,8 @@ const Landing = () => {
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
     
     return (
-        <main 
-        // maxWidth="lg" 
+        <Container 
+        maxWidth="xl" 
         className={styles.border}
         >
             <Grid 
@@ -91,7 +91,7 @@ const Landing = () => {
                 </Box>
                 </Grid>
             </Grid>
-      </main>
+      </Container>
     );
 }
 
