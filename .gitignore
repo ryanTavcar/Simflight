@@ -35,5 +35,5 @@ yarn-error.log*
 
 # extra
 .gitignore
-.next.config.js
-.eslintrc.json
+next.config.js
+eslintrc.json
