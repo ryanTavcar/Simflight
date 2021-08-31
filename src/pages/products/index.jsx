@@ -12,9 +12,9 @@ import products, {elite, igate} from '../../util/products';
 const Products = () => {
 
     const [prods, setProds] = useState([])
-    const handleProducts = (e) => {
-        console.log(e.target.innerText)
-        switch (e.target.innerText) {
+
+    const handleProducts = (model) => {
+        switch (model) {
             case 'ELITE':
                 return setProds(elite)
             case 'IGATE':
@@ -41,12 +41,12 @@ const Products = () => {
                     </Typography>
                 </Box>
                 <Box>
-                    <Button variant="contained" color="default" onClick={(e) => handleProducts(e)}>
+                    <Button variant="contained" color="default" onClick={() => handleProducts('ELITE')}>
                         <Typography variant="h5" component="h5" gutterBottom>
                             Elite
                         </Typography>
                     </Button>
-                    <Button variant="contained" color="default" onClick={(e) => handleProducts(e)}>
+                    <Button variant="contained" color="default" onClick={() => handleProducts('IGATE')}>
                         <Typography variant="h5" component="h5" gutterBottom>
                             iGate
                         </Typography>
