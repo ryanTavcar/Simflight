@@ -3,7 +3,7 @@ import thunk from 'redux-thunk'
 import { createWrapper } from "next-redux-wrapper"
 import {productList} from './reducers'
 
-const initialState = ['init store']
+const initialState = {}
 
 const reducer = combineReducers({
     productList

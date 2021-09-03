@@ -1,163 +1,131 @@
-import Link from 'next/link'
-import Container from '@material-ui/core/Container';
-import Typography from '@material-ui/core/Typography';
-import Grid from '@material-ui/core/Grid';
-
+import React from "react";
+// import "bootstrap/dist/css/bootstrap.min.css";
+// import "../../../styling/css/Footer.css";
+// import PrivacyStatement from "./PrivacyStatementPopup";
+// import TermsOfUse from "./TermsOfUsePopup";
+import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
-import {
-    List,
-    ListItem,
-    ListItemIcon,
-    ListItemText,
-    Hidden,
-  } from '@material-ui/core'
 
 const useStyles = makeStyles(theme => ({
-    footer: {
-        backgroundColor: '#dfdadaf5',
-        // height: 'auto',
-        // padding: 0,
-        // margin: 0,
-    },
-    border: {
-      border: '1px solid red'
-    },
-    title: {
-    },
-    subtitle: {
-      margin: '2rem 0'
-    },
-    listItem: {
-        margin: 0,
-        padding: 0,
-    },
-    listTitle: {
-        fontWeight: 'bold'
-    },
-    navlink: {
-        color: '#000',
-        textDecoration: 'none',
-        '&:hover': {
-          backgroundColor: '#F2F4F5'
-        },
-    },
-}));
-
-const products = [
-    {
-        text: 'Products',
-        pathname: `/products/`
-    },
-    {
-        text: 'Downloads',
-        pathname: '/products/downloads'
-    },
-    {
-        text: 'Support Pilot Services',
-        pathname: '/contact'
-    },
-];
-
-const about = [
-    {
-        text: 'About us',
-        pathname: `/about-us`
-    },
-    {
-        text: 'news',
-        pathname: '/news'
-    }
-];
+  container: {
+      background: theme.palette.background.default,
+      padding: 0,
+      margin: 0,
+      // position:'fixed',
+      left:'0px',
+      // background: 'red',
+      bottom:'0px',
+      // height: 'calc(100% - 60px)',
+      width:'100%',
+      // height: '100%',
+      // border: '2px solid orange',
+      
+  },
+}))
 
 const Footer = () => {
 
-    const styles = useStyles();
+  const classes = useStyles();
 
     return (
-        <Hidden mdDown >
-            <footer className={styles.footer}>
-            <Container maxWidth="xl" className={styles.footer}>
-                    <Grid container>
-                        <Grid item >
-                                <List>
-                                    <Typography
-                                    className={styles.listTitle}
-                                    variant="subtitle1"
-                                    component="h3"
-                                    gutterBottom
-                                    >
-                                        Products
-                                    </Typography>
-                                    {products.map((item) => {
-                                        return (
-                                            <ListItem
-                                            className={styles.listItem}
-                                            button
-                                            component={'a'}
-                                            href={item.pathname}
-                                            key={item.text}
-                                            >
-                                                <ListItemText
-                                                    primary={item.text}
-                                                    className={styles.fontColor}
-                                                />
-                                            </ListItem>
-                                        )
-                                    })}
-                                </List>
-                        </Grid>
+        <Grid
+          component="footer"
+          container
+          align="center"
+          xs={12}
+          spacing={2}
+          justifyContent="center"
+          className={classes.container}
+        >
+          <Grid item xs={12} md={4} justify="center">
+            {/* <Link className="terms" to={`/term-privacy/term-of-use`}>
+                    Terms of Use
+                  </Link> */}
+            {/* <TermsOfUse type="footer" /> */}
+          </Grid>
+          <Grid
+            item
+            xs={12}
+            md={4}
+            container
+            alignItems="center"
+            // spacing={3}
+            justify="center"
+          >
+            <Grid item xs={2} md={1} style={{ margin: "0rem 0.3rem" }}>
+              <a
+                href="https://www.facebook.com/RESORTerapp-720393314994703/"
+                target="_blank"
+              >
+                <i
+                  className="fab fa-facebook "
+                  style={{ fontSize: "30px", color: "black" }}
+                />
+              </a>
+            </Grid>
+            <Grid item xs={2} md={1} style={{ margin: "0rem 0.3rem" }}>
+              <a
+                href="https://instagram.com/resorter.app?igshid=15u0376hpccny"
+                target="_blank"
+              >
+                <i
+                  className="fab fa-instagram"
+                  style={{ fontSize: "30px", color: "black" }}
+                />
+              </a>
+            </Grid>
+          </Grid>
+          <Grid item xs={12} md={4} justify="center">
+            {/* <Link
+                    className="privacy"
+                    to={`/term-privacy/privacy-statement`}
+                  >
+                    Privacy Statement
+                  </Link> */}
+            {/* <PrivacyStatement type="footer" /> */}
+          </Grid>
 
-                        <Grid item>
-                                <List>
-                                    <Typography
-                                    className={styles.listTitle}
-                                    variant="subtitle1"
-                                    component="h3"
-                                    gutterBottom
-                                    >
-                                        About
-                                    </Typography>
-                                    {about.map((item) => {
-                                        return (
-                                            <ListItem
-                                            className={styles.listItem}
-                                            button
-                                            component={'a'}
-                                            href={item.pathname}
-                                            key={item.text}
-                                            >
-                                                <ListItemText
-                                                    primary={item.text}
-                                                    className={styles.fontColor}
-                                                />
-                                            </ListItem>
-                                        )
-                                    })}
-                                </List>
-                        </Grid>
+          <Grid
+            container
+            item
+            xs={12}
+            md={6}
+            align="center"
+            justify="center"
+            style={{
+              fontFamily: "Roboto",
+              fontSize: "16px",
+              fontWeight: "700"
+            }}
+          >
+            Melbourne, Australia
+          </Grid>
+          <Grid item xs={12} md={6} align="center" justify="center">
+            <a
+              href="mailto:info@resorter.app"
+              style={{
+                fontFamily: "Roboto",
+                fontSize: "16px",
+                fontWeight: "700"
+              }}
+            >simflight@airtrainer.com
+            </a>
+          </Grid>
 
-                        <Grid item>
-                                <List>
-                                <Typography
-                                    className={styles.listTitle}
-                                    variant="subtitle1"
-                                    component="h3"
-                                    gutterBottom
-                                    >
-                                        Contact
-                                    </Typography>
-                                    <Link href="contact">
-                                        <a className={styles.navlink}>
-                                            Contact us
-                                        </a>
-                                    </Link>
-                                </List>
-                        </Grid>
-                    </Grid>
-                </Container>
-                </footer>
-        </Hidden>
+          <Grid
+            item
+            xs={12}
+            align="center"
+            style={{
+              fontFamily: "Roboto",
+              fontSize: "16px",
+              fontWeight: "700"
+            }}
+          >
+            Copyright 2021 - Simflight - All Rights Reserved
+          </Grid>
+        </Grid>
     );
-}
+};
 
 export default Footer;

@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import products from '../../util/products';
+import products from '../../src/util/products';
 import { useRouter } from 'next/router'
 import Image from 'next/image'
 

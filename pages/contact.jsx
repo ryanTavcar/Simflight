@@ -1,14 +1,14 @@
 import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
-import Box from '@material-ui/core/Box';
+import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Link from 'next/link'
 
 const Contact = () => {
     return (
-        <Container maxWidth="xs">
-            <Box my={4}>
+        <Container maxWidth="xs" style={{minHeight: 'calc(100vh - 170px)'}}>
+            <Grid >
                 <Typography variant="h4" component="h1" gutterBottom>
                     Contact page
                 </Typography>
@@ -17,9 +17,10 @@ const Contact = () => {
                         Go to the main page
                     </Button>
                 </Link>
-            </Box>
+            </Grid>
         </Container>
     );
 }
 
 export default Contact;
+

@@ -1,3 +1,6 @@
+/* Not the right font :/ */
+/* @import url('https://fonts.googleapis.com/css2?family=Prompt:wght@300;400;500;600;700&display=swap'); */
+
 html,
 body {
   height: 100%;
@@ -6,9 +9,11 @@ body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, Segoe UI, Roboto, Oxygen,
     Ubuntu, Cantarell, Fira Sans, Droid Sans, Helvetica Neue, sans-serif;
+    /* border: 1px solid purple; */
+
   /* overflow-x: hidden; */
-  /* height: 100vh;
-  width: 100vw */
+  /* height: 100vh; */
+  /* width: 100vw  */
 }
 
 body::-webkit-scrollbar {
@@ -34,6 +39,3 @@ a {
   box-sizing: border-box;
 }
 
-.border {
-  border: 1px solid purple;
-}

@@ -6,7 +6,7 @@ import Button from '@material-ui/core/Button';
 import Link from 'next/link'
 import Head from 'next/head'
 import Image from 'next/image'
-import styles from '../styles/Home.module.css'
+import styles from '../src/styles/Home.module.css'
 import { Grid, Hidden, Paper } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
@@ -14,9 +14,10 @@ import { useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
   about: {
-    height: '100%',
+    // height: '100%',
     width: '100%',
-    padding: 0
+    padding: 0,
+    minHeight: 'calc(100vh - 170px)',
   },
   mission: {
     backgroundColor: '#d3d7d8'
@@ -60,7 +61,7 @@ const About = () => {
           my={2}>
             <Typography 
             variant="h4" 
-            component="h4">
+            style={{color: 'black'}}>
               Our Mission
             </Typography>
           </Box>
@@ -68,14 +69,15 @@ const About = () => {
           my={2}>
           <Typography 
             variant="p" 
-            component="p">
+            style={{color: 'black'}}
+            >
               To maintain our leading position of providing quality built Category B approved Synthetic Trainers.
             </Typography>
           </Box>
           <Box>
           <Typography 
-            variant="p" 
-            component="p">
+            style={{color: 'black'}}
+            variant="p" >
               The Company first began in 1995 trading as Support Pilot Services. It provided quality ground based IFR training using a LINK Airtrainer model AT-67. This trainer was first built in the early sixties and used for many years by Ansett Australia for airline pilot training. It has two axii of motion in pitch and roll and uses vacuum tubes yet is an excellent IFR trainer. It is still used by the company today. Support Pilot Services still trades today selling Mike (lip) lights to the Australasian market as an exclusive agent for Seitz Scientific Industries, USA.
             </Typography>
           </Box>
@@ -90,8 +92,7 @@ const About = () => {
           md={6} 
           className={styles.simflight}>
             <Typography 
-            variant="h4" 
-            component="h3">
+            variant="h4" >
                 About Simflight
               </Typography>
               <Box my={5}>

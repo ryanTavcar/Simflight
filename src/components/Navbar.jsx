@@ -1,9 +1,7 @@
 import React, { useState, useEffect } from 'react'
-import Image from'next/image';
-import Link from'next/link';
+import Link from 'next/link'
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import Theme from '../util/theme'
 import CameraAltOutlinedIcon from '@material-ui/icons/CameraAltOutlined'
 
 import {
@@ -20,17 +18,22 @@ import {
     IconButton,
     Grid,
     Button,
-    AppBar
+    AppBar,
+    Switch,
   } from '@material-ui/core'
 
 const menuItems = [
+    {
+        text: 'Home',
+        pathname: '/'
+    },
     {
         text: 'About',
         pathname: '/about'
     },
     {
         text: 'Products',
-        pathname: '/products'
+        pathname: '/products/'
     },
     {
         text: 'Contact',
@@ -40,9 +43,8 @@ const menuItems = [
 
 const useStyles = makeStyles(theme =>({
     navbar: {
-        boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
-        // padding: 0,
-        // margin: 0,
+        // minHeight: 40,
+        // border: '1px solid red'
     },
     menuButton: {
         marginRight: theme.spacing(2),
@@ -52,15 +54,20 @@ const useStyles = makeStyles(theme =>({
       },
     navlink: {
       color: '#000',
+      cursor: 'pointer',
       textDecoration: 'none',
       'a:visited': {
         color: '#000',
       },
+        // border: '1px solid red',
+
     },
     drawer: {
       [theme.breakpoints.up('sm')]: {
-        width: '90%',
-        flexShrink: 0,
+        // width: '100%',
+        // flexShrink: 0,
+        // height: 30,
+        // border: '1px solid red',
       },
     },
     drawerPaper: {
@@ -86,96 +93,87 @@ const useStyles = makeStyles(theme =>({
         display: 'none',
       },
     },
-    border: {
-        border: '1px solid red'
-    },
     linkContainer: {
-        width: 400,
-        float: 'right'
+        // width: 400,
+        // float: 'right',
+        height: 20,
+        // border: '1px solid red'
     }
 }))
 
-const Navbar = () => {
+const Navbar = ({lightOrDark, handleLightOrDark}) => {
 
     const styles = useStyles();
     const drawer = Sidebar();
     const [mobileOpen, setMobileOpen] = useState(false)
     const [container, setContainer] = useState(null)
-    
+
     const handleDrawerToggle = () => {
         setMobileOpen(!mobileOpen)
     }
-
-    useEffect(() => {
-        if (typeof windoe !== 'undefined') {
-            setContainer(window().document.body )
-        } else {
-            setContainer(undefined)
-        }
-    }, [])
     
     return (
-        <AppBar 
-        position="static" 
-        color="default"
-        >
+        <AppBar position="sticky" color="default">
             <Toolbar className={styles.navbar}>
-                <IconButton 
-                edge="start" 
-                color="inherit" 
-                aria-label="menu" 
-                className={styles.menuButton} 
-                onClick={handleDrawerToggle}>
+                <IconButton edge="start" color="inherit" aria-label="menu" className={styles.menuButton} onClick={handleDrawerToggle}>
                     <MenuIcon />
                 </IconButton>
-                {/* <Typography variant="h6" className={styles.title}>Simflight</Typography> */}
-                <Link href="/">
-                    <Image src="/images/simflight_logo.jpg" alt="logo" height="20" width="60" />
-                </Link>
-                <nav className={styles.drawer} >
-                    <Hidden 
-                    mdUp 
-                    >
+
+                <Grid container justifyContent="center" className={styles.drawer} >
+                    {/* mobile */}
+                    <Hidden mdUp >
+                        <Grid container direction="row" justifyContent="flex-end">
+                            <Grid item md={4} className={styles.linkContainer}>
+                                <Grid container direction="row" justifyContent="flex-end" >
+                                    <Button size="small" onClick={() => handleLightOrDark()}>
+                                        {lightOrDark}
+                                    </Button>
+                                </Grid>
+                            </Grid>
+                        </Grid>
                         <Drawer
-                        container={container}
-                        variant='temporary'
-                        anchor='left'
-                        classes={{ paper: styles.drawerPaper }}
-                        open={mobileOpen}
-                        onClose={handleDrawerToggle}
-                        ModalProps={{
-                            keepMounted: true,
-                        }}
-                        >
-                        {drawer}
+                            container={container}
+                            variant='temporary'
+                            anchor='left'
+                            classes={{ paper: styles.drawerPaper }}
+                            open={mobileOpen}
+                            onClose={handleDrawerToggle}
+                            ModalProps={{keepMounted: true}}>
+                            {drawer}
                         </Drawer>
                     </Hidden>
-                    <Hidden 
-                    smDown 
-                    // implementation='css'
-                    >
-                        <Grid 
-                        container 
-                        direction="row" 
-                        justifyContent="space-evenly"
-                        className={styles.linkContainer}
-                        >
-                            {menuItems.map(item => {
-                                return (
-                                    <Box key={item.text}>
-                                        <Link 
-                                        href={item.pathname}
-                                        >
-                                        <a className={styles.navlink}>
-                                            {item.text}
-                                        </a>
-                                        </Link>
-                                    </Box>
-                                )
-                            })}
+
+                    {/* tablet, laptop, desktop */}
+                    <Hidden smDown >
+                        <Grid item md={4} className={styles.linkContainer}>
+                            <Typography>
+                                <b>Simflight</b>
+                            </Typography>
                         </Grid>
+                        <Grid item md={4} className={styles.linkContainer}>
+                            <Grid container direction="row" alignItems="center" justifyContent="space-evenly">
+                                {menuItems.map(item => (
+                                    <Grid item key={item.text}>
+                                        <Link href={item.pathname} className={styles.navlink}>
+                                            <Typography color="textPrimary" style={{cursor: 'pointer'}}>
+                                                {item.text}
+                                            </Typography>
+                                        </Link>
+                                    </Grid>
+                                ))}
+                            </Grid>
+                        </Grid>
+                            <Grid item md={4} className={styles.linkContainer}>
+                                <Grid container direction="row" justifyContent="flex-end" >
+                                    <Button size="small" onClick={() => handleLightOrDark()}>
+                                        {lightOrDark}
+                                    </Button>
+                                </Grid>
+                            </Grid>
                     </Hidden>
-                </nav>
+
+                </Grid>
+
             </Toolbar>
         </AppBar>
     );
@@ -187,9 +185,6 @@ const Sidebar = () => {
     return (
         <Box margin='8rem 1rem 0 1rem'>
             <div className={styles.toolbar} >
-                <Link href='/'>
-                    <Image src="/images/simflight_logo.jpg" alt="logo" height="100" width="200" />
-                </Link>
                 <Divider className={styles.dividerColor} />
                 <Box marginTop='2rem'>
                     <List>
@@ -219,3 +214,4 @@ const Sidebar = () => {
 }
 
 export default Navbar;
+
