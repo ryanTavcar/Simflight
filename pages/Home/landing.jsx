@@ -37,7 +37,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Landing = () => {
+const Landing = ({href}) => {
 
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
@@ -58,7 +58,7 @@ const Landing = () => {
                     </Grid>
                     <Grid item >
                         <Grid container direction="row" justifyContent={isMobile ? 'center' : 'flex-start'}>
-                            <Link href="/products">
+                            <Link href="/products" passHref>
                                 <Button color="primary" variant="contained" size="large">
                                     See Products
                                 </Button>
@@ -68,7 +68,7 @@ const Landing = () => {
                 </Grid>
             </Grid>
             <Grid item xs={12} md={6} >
-                <Image src="/images/helicopter-feature.png" alt="helipcopter feature" width="600" height="600" />
+                <Image src="/static/helicopter-feature.png" alt="helipcopter feature" width="600" height="600" />
             </Grid>
         </Grid>
     );

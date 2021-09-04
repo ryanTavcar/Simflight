@@ -85,7 +85,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const ProductCard = ({product}) => {
+const ProductCard = ({product, href}) => {
 
     const classes = useStyles();
     const [productDescription, setProductDescription] = useState('');
@@ -114,7 +114,9 @@ const ProductCard = ({product}) => {
                     href={{
                         pathname: '/products/[id]',
                         query: { id: product.id },
-                    }}>
+                    }}
+                    passHref
+                    >
                         <Button variant="contained"  className={classes.button}>
                             <Typography color="primary">
                                 <b>see details</b>

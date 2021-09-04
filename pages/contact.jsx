@@ -12,7 +12,7 @@ import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 
 const useStyles = makeStyles(theme => ({
     container: {
-        border: '1px solid blue',
+        // border: '1px solid blue',
         padding: '0px 50px',
     },
     formContainer: {

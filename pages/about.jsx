@@ -96,7 +96,7 @@ const About = () => {
                 About Simflight
               </Typography>
               <Box my={5}>
-                <Image src="/images/about-feature.png" alt="about-feature" height="600" width="550"/>
+                <Image src="/static/about-feature.png" alt="about-feature" height="600" width="550"/>
               </Box>
           </Grid>
         </Hidden>

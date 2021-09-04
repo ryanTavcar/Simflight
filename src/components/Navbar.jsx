@@ -102,7 +102,7 @@ const useStyles = makeStyles(theme =>({
     }
 }))
 
-const Navbar = ({lightOrDark, handleLightOrDark}) => {
+const Navbar = ({lightOrDark, handleLightOrDark, href}) => {
 
     const styles = useStyles();
     const drawer = Sidebar();
@@ -156,7 +156,7 @@ const Navbar = ({lightOrDark, handleLightOrDark}) => {
                             <Grid container direction="row" alignItems="center" justifyContent="space-evenly">
                                 {menuItems.map(item => (
                                     <Grid item key={item.text}>
-                                        <Link href={item.pathname} className={styles.navlink}>
+                                        <Link href={item.pathname} className={styles.navlink} passHref>
                                             <Typography color="textPrimary" style={{cursor: 'pointer'}}>
                                                 {item.text}
                                             </Typography>

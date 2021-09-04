@@ -56,6 +56,7 @@ const Footer = () => {
               <a
                 href="https://www.facebook.com/RESORTerapp-720393314994703/"
                 target="_blank"
+                rel="noreferrer"
               >
                 <i
                   className="fab fa-facebook "
@@ -67,6 +68,7 @@ const Footer = () => {
               <a
                 href="https://instagram.com/resorter.app?igshid=15u0376hpccny"
                 target="_blank"
+                rel="noreferrer"
               >
                 <i
                   className="fab fa-instagram"
