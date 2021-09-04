@@ -13,7 +13,7 @@ import {wrapper} from '../src/redux/store'
 const MyApp = (props) => {
 
   const { Component, pageProps } = props;
-  const [theme, setTheme] = useState(lightTheme);
+  const [theme, setTheme] = useState(darkTheme);
   const [lightOrDark, setLightOrDark] = useState('light');
 
   const handleLightOrDark = event => {

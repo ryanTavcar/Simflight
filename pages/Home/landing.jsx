@@ -1,6 +1,6 @@
 import { useMediaQuery } from "@material-ui/core";
 import Head from 'next/head'
-// import Link from 'next/link'
+import Link from 'next/link'
 import Image from 'next/image'
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -17,8 +17,17 @@ const useStyles = makeStyles(theme => ({
         background: theme.palette.background.default,
         // border: '1px solid blue',
     },
+    title : {
+        // border: '1px solid red',
+        // fontFamily: 'Merriweather sans',
+        // fontFamily: 'maven pro',
+        // fontFamily: 'Bungee Shade',
+        fontFamily: 'Bungee',
+        letterSpacing: 1,
+    },
     subtitle: {
-      margin: '2rem 0'
+        // border: '1px solid red',
+    //   margin: '2rem 0'
     },
     textContainer: {
         // border: '1px solid red',
@@ -36,22 +45,24 @@ const Landing = () => {
     return (
         <Grid component="main" container className={classes.container} direction="row" alignItems="center">
             <Grid item xs={12} md={6}> 
-                <Grid container direction="column" className={classes.textContainer}>
+                <Grid container direction="column" spacing={5} className={classes.textContainer}>
                     <Grid item >
-                        <Typography className={classes.title} variant="h1" gutterBottom>
-                            Simflight
+                        <Typography className={classes.title} variant="h1" >
+                            <b>Simflight</b>
                         </Typography>
                     </Grid>
                     <Grid item >
-                        <Typography className={classes.subtitle} variant="subtitle2" gutterBottom>
+                        <Typography className={classes.subtitle} variant="subtitle2" >
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
                         </Typography>
                     </Grid>
                     <Grid item >
                         <Grid container direction="row" justifyContent={isMobile ? 'center' : 'flex-start'}>
-                            <Button color="primary" variant="contained" size="large">
-                                See Products
-                            </Button>
+                            <Link href="/products">
+                                <Button color="primary" variant="contained" size="large">
+                                    See Products
+                                </Button>
+                            </Link>
                         </Grid>
                     </Grid>
                 </Grid>

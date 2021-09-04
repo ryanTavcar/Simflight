@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from 'react'
 import Link from 'next/link'
+import Image from 'next/image'
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
 import CameraAltOutlinedIcon from '@material-ui/icons/CameraAltOutlined'
@@ -146,9 +147,10 @@ const Navbar = ({lightOrDark, handleLightOrDark}) => {
                     {/* tablet, laptop, desktop */}
                     <Hidden smDown >
                         <Grid item md={4} className={styles.linkContainer}>
-                            <Typography>
+                            <Typography style={{fontFamily: 'Bungee', letterSpacing: 1}}>
                                 <b>Simflight</b>
                             </Typography>
+                            {/* <Image src='/images/simflight_logo_transparent_1.png' width='100' height='32' /> */}
                         </Grid>
                         <Grid item md={4} className={styles.linkContainer}>
                             <Grid container direction="row" alignItems="center" justifyContent="space-evenly">

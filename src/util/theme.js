@@ -43,7 +43,8 @@ const darkTheme = createTheme({
   typography: {
     fontFamily: [
       'Prompt', 
-      'sans-serif'
+      'Merriweather Sans',
+      'sans-serif',
     ].join(',')
   }
 });
