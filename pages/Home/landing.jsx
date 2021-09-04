@@ -47,7 +47,7 @@ const Landing = ({href}) => {
             <Grid item xs={12} md={6}> 
                 <Grid container direction="column" spacing={5} className={classes.textContainer}>
                     <Grid item >
-                        <Typography className={classes.title} variant="h1" >
+                        <Typography className={classes.title} variant={isMobile ? 'h3' : 'h1'} >
                             <b>Simflight</b>
                         </Typography>
                     </Grid>

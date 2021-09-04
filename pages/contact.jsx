@@ -9,15 +9,18 @@ import Accordion from '@material-ui/core/Accordion';
 import AccordionSummary from '@material-ui/core/AccordionSummary';
 import AccordionDetails from '@material-ui/core/AccordionDetails';
 import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
+import { useMediaQuery } from "@material-ui/core";
 
 const useStyles = makeStyles(theme => ({
     container: {
         // border: '1px solid blue',
         padding: '0px 50px',
+        minHeight: 'calc(100vh - 170px)'
     },
     formContainer: {
         // border: '1px solid purple',
         height: 'calc(100vh - 170px)',
+        height: '100%',
         padding: 50,
         backgroundColor: theme.palette.type === 'light' ? 'white' : '#424242',
         boxShadow: "5px 2px 10px 5px rgba(0,0,0,0.2),-5px 1px 10px 5px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
@@ -29,7 +32,7 @@ const useStyles = makeStyles(theme => ({
         borderColor: 'rgba(0, 0, 0, 0.26)',
         boxShadow: 'inset 0px 0px 1px 0px rgba(0, 0, 0, 0.54)',
         borderRadius: 5,
-        marginTop: 10
+        marginTop: 10,
     },
     messageInput :{
         width: '100%',
@@ -49,9 +52,11 @@ const useStyles = makeStyles(theme => ({
 const Contact = () => {
 
     const classes = useStyles();
+    const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
+
     return (
         // <Container maxWidth="xs" style={{minHeight: 'calc(100vh - 170px)'}}>
-        <Grid container direction="row" className={classes.container} style={{minHeight: 'calc(100vh - 170px)'}}>
+        <Grid container direction="row" className={classes.container}>
                 <Grid item xs={12} md={5} >
                     <form>
                         <Grid container direction="row" justifyContent="center" spacing={2} className={classes.formContainer}>
