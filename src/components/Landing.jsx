@@ -11,11 +11,12 @@ import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
     container: {
-        // height: '100%',
         minHeight: 'calc(100vh - 170px)',
         width: '100%',
-        background: theme.palette.background.default,
-        // border: '1px solid blue',
+        marginBottom: 100,
+        [theme.breakpoints.between('sm', 'md')]: {
+            minHeight: 0,
+        }
     },
     title : {
         // border: '1px solid red',
@@ -37,15 +38,15 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Landing = ({href}) => {
+const Landing = () => {
 
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
     
     return (
-        <Grid component="main" container className={classes.container} direction="row" alignItems="center">
+        <Grid component="main" container className={classes.container} direction="row" justifyContent="center" alignItems="center">
             <Grid item xs={12} md={6}> 
-                <Grid container direction="column" spacing={5} className={classes.textContainer}>
+                <Grid container direction="column" alignItems={isMobile ? "center" : "flex-start"} spacing={5} className={classes.textContainer}>
                     <Grid item >
                         <Typography className={classes.title} variant={isMobile ? 'h3' : 'h1'} >
                             <b>Simflight</b>
@@ -58,7 +59,7 @@ const Landing = ({href}) => {
                     </Grid>
                     <Grid item >
                         <Grid container direction="row" justifyContent={isMobile ? 'center' : 'flex-start'}>
-                            <Link href="/products" passHref>
+                            <Link href="/productsPage">
                                 <Button color="primary" variant="contained" size="large">
                                     See Products
                                 </Button>
@@ -68,7 +69,7 @@ const Landing = ({href}) => {
                 </Grid>
             </Grid>
             <Grid item xs={12} md={6} >
-                <Image src="/static/helicopter-feature.png" alt="helipcopter feature" width="600" height="600" />
+                <Image src="/images/helicopter-feature.png" alt="helipcopter feature" width="600" height="600" />
             </Grid>
         </Grid>
     );

@@ -1,15 +1,11 @@
 import React from "react";
-// import "bootstrap/dist/css/bootstrap.min.css";
-// import "../../../styling/css/Footer.css";
-// import PrivacyStatement from "./PrivacyStatementPopup";
-// import TermsOfUse from "./TermsOfUsePopup";
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
 const useStyles = makeStyles(theme => ({
   container: {
       background: theme.palette.background.default,
-      padding: 0,
+      padding: 8,
       margin: 0,
       // position:'fixed',
       left:'0px',
@@ -32,12 +28,12 @@ const Footer = () => {
           component="footer"
           container
           align="center"
-          xs={12}
-          spacing={2}
+          // xs={12}
+          // spacing={2}
           justifyContent="center"
           className={classes.container}
         >
-          <Grid item xs={12} md={4} justify="center">
+          <Grid item xs={12} md={4}>
             {/* <Link className="terms" to={`/term-privacy/term-of-use`}>
                     Terms of Use
                   </Link> */}
@@ -50,7 +46,7 @@ const Footer = () => {
             container
             alignItems="center"
             // spacing={3}
-            justify="center"
+            justifyContent="center"
           >
             <Grid item xs={2} md={1} style={{ margin: "0rem 0.3rem" }}>
               <a
@@ -77,7 +73,7 @@ const Footer = () => {
               </a>
             </Grid>
           </Grid>
-          <Grid item xs={12} md={4} justify="center">
+          <Grid item xs={12} md={4}>
             {/* <Link
                     className="privacy"
                     to={`/term-privacy/privacy-statement`}
@@ -93,7 +89,7 @@ const Footer = () => {
             xs={12}
             md={6}
             align="center"
-            justify="center"
+            justifyContent="center"
             style={{
               fontFamily: "Roboto",
               fontSize: "16px",
@@ -102,7 +98,7 @@ const Footer = () => {
           >
             Melbourne, Australia
           </Grid>
-          <Grid item xs={12} md={6} align="center" justify="center">
+          <Grid item xs={12} md={6}>
             <a
               href="mailto:info@resorter.app"
               style={{

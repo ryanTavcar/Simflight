@@ -2,17 +2,14 @@ import React, {useState, useEffect} from 'react';
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
-import { makeStyles } from '@material-ui/core/styles';
+// import { makeStyles } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {lightTheme, darkTheme} from '../src/util/theme';
 import Navbar from '../src/components/Navbar';
 import '../src/styles/globals.css'
 import Footer from '../src/components/Footer';
-import {wrapper} from '../src/redux/store'
 
-const MyApp = (props) => {
-
-  const { Component, pageProps } = props;
+function MyApp({ Component, pageProps }) {
   const [theme, setTheme] = useState(lightTheme);
   const [lightOrDark, setLightOrDark] = useState('light');
 
@@ -54,5 +51,4 @@ MyApp.propTypes = {
   pageProps: PropTypes.object.isRequired,
 };
 
-export default wrapper.withRedux(MyApp);
-// export default MyApp;
+export default MyApp;

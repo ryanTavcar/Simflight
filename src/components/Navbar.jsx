@@ -1,9 +1,7 @@
-import React, { useState, useEffect } from 'react'
+import React, { useState } from 'react'
 import Link from 'next/link'
-import Image from 'next/image'
 import { makeStyles } from '@material-ui/core/styles';
 import MenuIcon from '@material-ui/icons/Menu';
-import CameraAltOutlinedIcon from '@material-ui/icons/CameraAltOutlined'
 
 import {
     Box,
@@ -20,7 +18,6 @@ import {
     Grid,
     Button,
     AppBar,
-    Switch,
   } from '@material-ui/core'
 
 const menuItems = [
@@ -30,15 +27,15 @@ const menuItems = [
     },
     {
         text: 'About',
-        pathname: '/about'
+        pathname: '/aboutPage'
     },
     {
         text: 'Products',
-        pathname: '/products/'
+        pathname: '/productsPage'
     },
     {
         text: 'Contact',
-        pathname: '/contact'
+        pathname: '/contactPage'
     },
 ];
 
@@ -102,7 +99,7 @@ const useStyles = makeStyles(theme =>({
     }
 }))
 
-const Navbar = ({lightOrDark, handleLightOrDark, href}) => {
+const Navbar = ({lightOrDark, handleLightOrDark}) => {
 
     const styles = useStyles();
     const drawer = Sidebar();
@@ -156,7 +153,7 @@ const Navbar = ({lightOrDark, handleLightOrDark, href}) => {
                             <Grid container direction="row" alignItems="center" justifyContent="space-evenly">
                                 {menuItems.map(item => (
                                     <Grid item key={item.text}>
-                                        <Link href={item.pathname} className={styles.navlink} passHref>
+                                        <Link href={item.pathname} className={styles.navlink}>
                                             <Typography color="textPrimary" style={{cursor: 'pointer'}}>
                                                 {item.text}
                                             </Typography>

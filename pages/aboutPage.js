@@ -2,15 +2,10 @@ import React from 'react';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
 import Box from '@material-ui/core/Box';
-import Button from '@material-ui/core/Button';
-import Link from 'next/link'
 import Head from 'next/head'
-import Image from 'next/image'
-import styles from '../src/styles/Home.module.css'
-import { Grid, Hidden, Paper } from '@material-ui/core';
+import { Grid, Hidden } from '@material-ui/core';
 import { makeStyles } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
-
 
 const useStyles = makeStyles(theme => ({
   about: {
@@ -30,17 +25,17 @@ const useStyles = makeStyles(theme => ({
 
 const About = () => {
 
-  const styles = useStyles()
+  const classes = useStyles()
   const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
 
   return (
     <Container 
     maxWidth="xl" 
-    className={styles.about}>
-      <Head>
+    className={classes.about}>
+      {/* <Head>
           <title>Simflight | About</title>
           <meta name="viewport" content="minimum-scale=1, initial-scale=1, width=device-width" />
-      </Head>
+      </Head> */}
       <Grid 
       container
       >
@@ -52,7 +47,7 @@ const About = () => {
         md={12} 
         lg={6}
         alignItems="center"
-        className={styles.mission}>
+        className={classes.mission}>
           <Box
           my={5}
           mx={isMobile ? 5 : 10}
@@ -68,7 +63,8 @@ const About = () => {
           <Box
           my={2}>
           <Typography 
-            variant="p" 
+            variant="body1"
+            component="p" 
             style={{color: 'black'}}
             >
               To maintain our leading position of providing quality built Category B approved Synthetic Trainers.
@@ -90,13 +86,13 @@ const About = () => {
           item 
           xs={12} 
           md={6} 
-          className={styles.simflight}>
+          className={classes.simflight}>
             <Typography 
             variant="h4" >
                 About Simflight
               </Typography>
               <Box my={5}>
-                <Image src="/static/about-feature.png" alt="about-feature" height="600" width="550"/>
+                {/* <Image src="/static/about-feature.png" alt="about-feature" height="600" width="550"/> */}
               </Box>
           </Grid>
         </Hidden>

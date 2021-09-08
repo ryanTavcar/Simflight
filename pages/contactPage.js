@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from '@material-ui/core/styles';
 import Container from '@material-ui/core/Container';
 import Typography from '@material-ui/core/Typography';
@@ -33,6 +33,9 @@ const useStyles = makeStyles(theme => ({
         boxShadow: 'inset 0px 0px 1px 0px rgba(0, 0, 0, 0.54)',
         borderRadius: 5,
         marginTop: 10,
+        fontSize: 18,
+        paddingLeft: 10,
+        textTransform: 'capitalize'
     },
     messageInput :{
         width: '100%',
@@ -42,6 +45,9 @@ const useStyles = makeStyles(theme => ({
         order: '1px solid',
         borderColor: 'rgba(0, 0, 0, 0.26)',
         boxShadow: 'inset 0px 0px 1px 0px rgba(0, 0, 0, 0.54)',
+        fontSize: 18,
+        paddingLeft: 10,
+        textTransform: 'capitalize'
     },
     formButton: {
         width: '100%',
@@ -53,6 +59,7 @@ const Contact = () => {
 
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
+    const [value, setValue] = useState('')
 
     return (
         // <Container maxWidth="xs" style={{minHeight: 'calc(100vh - 170px)'}}>
@@ -62,7 +69,7 @@ const Contact = () => {
                         <Grid container direction="row" justifyContent="center" spacing={2} className={classes.formContainer}>
                             <Grid item xs={12} md={6}>
                                 <label htmlFor="firstName">First Name <span>*</span></label>
-                                <input type="text" required className={classes.formInput} />
+                                <input type="text"required className={classes.formInput} />
                             </Grid>
                             <Grid item xs={12} md={6}>
                                 <label htmlFor="lasttName">Last Name <span>*</span></label>
