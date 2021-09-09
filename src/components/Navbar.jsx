@@ -184,6 +184,9 @@ const Sidebar = () => {
     return (
         <Box margin='8rem 1rem 0 1rem'>
             <div className={styles.toolbar} >
+                <Typography style={{fontFamily: 'Bungee', letterSpacing: 1}}>
+                    <b>Simflight</b>
+                </Typography>
                 <Divider className={styles.dividerColor} />
                 <Box marginTop='2rem'>
                     <List>

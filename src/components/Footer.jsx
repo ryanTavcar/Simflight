@@ -1,4 +1,5 @@
 import React from "react";
+import {AiFillFacebook, AiFillYoutube} from 'react-icons/ai'
 import Grid from "@material-ui/core/Grid";
 import { makeStyles } from "@material-ui/core/styles";
 
@@ -50,26 +51,24 @@ const Footer = () => {
           >
             <Grid item xs={2} md={1} style={{ margin: "0rem 0.3rem" }}>
               <a
-                href="https://www.facebook.com/RESORTerapp-720393314994703/"
+                href="#"
                 target="_blank"
                 rel="noreferrer"
               >
-                <i
+                {/* <i
                   className="fab fa-facebook "
                   style={{ fontSize: "30px", color: "black" }}
-                />
+                /> */}
+                <i><AiFillFacebook size={40}/></i>
               </a>
             </Grid>
             <Grid item xs={2} md={1} style={{ margin: "0rem 0.3rem" }}>
               <a
-                href="https://instagram.com/resorter.app?igshid=15u0376hpccny"
+                href="#"
                 target="_blank"
                 rel="noreferrer"
               >
-                <i
-                  className="fab fa-instagram"
-                  style={{ fontSize: "30px", color: "black" }}
-                />
+                <i><AiFillYoutube size={40}/></i>
               </a>
             </Grid>
           </Grid>

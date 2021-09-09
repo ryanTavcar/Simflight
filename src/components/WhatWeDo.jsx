@@ -134,17 +134,17 @@ const WhatWeDo = () => {
 
                             <Grid item xs={12} className={classes.content}>
                                 <List>
-                                    <ListItem style={{color: 'black'}}>
+                                    <ListItem style={{color: 'rgba(0, 0, 0, 0.54)'}}>
                                         <ListItemText 
                                             primary={product.description1}
                                         />
                                     </ListItem>
-                                    <ListItem style={{color: 'black'}}>
+                                    <ListItem style={{color: 'rgba(0, 0, 0, 0.54)'}}>
                                         <ListItemText 
                                             primary={product.description2}
                                         />
                                     </ListItem>
-                                    <ListItem style={{color: 'black'}}>
+                                    <ListItem style={{color: 'rgba(0, 0, 0, 0.54)'}}>
                                         <ListItemText 
                                             primary={product.description3}
                                         />

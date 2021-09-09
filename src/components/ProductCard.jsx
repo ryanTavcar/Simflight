@@ -27,6 +27,8 @@ const useStyles = makeStyles(theme => ({
     name: {
         // border: '1px solid blue',
         height: 64,
+        paddingLeft: 10, 
+        paddingRight: 10 
     },
     detailsContainer: {
         // border: '1px solid blue',
@@ -105,13 +107,7 @@ const ProductCard = ({product}) => {
             {/*  see details */}
             <CardActions className={classes.cardAction}>
                 <Grid container justifyContent="center">
-                    <Link 
-                        href={`/products/${encodeURIComponent(product.id)}`}
-                    // href={{
-                    //     pathname: '/products/[id]',
-                    //     query: { id: product.id },
-                    // }}
-                    >
+                    <Link href={`/products/${product.id}`}>
                         <Button variant="contained"  className={classes.button}>
                             <Typography color="primary">
                                 <b>see details</b>

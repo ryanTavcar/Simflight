@@ -47,13 +47,13 @@ const Landing = () => {
         <Grid component="main" container className={classes.container} direction="row" justifyContent="center" alignItems="center">
             <Grid item xs={12} md={6}> 
                 <Grid container direction="column" alignItems={isMobile ? "center" : "flex-start"} spacing={5} className={classes.textContainer}>
-                    <Grid item >
-                        <Typography className={classes.title} variant={isMobile ? 'h3' : 'h1'} >
+                    <Grid item component="header">
+                        <Typography className={classes.title} variant={isMobile ? 'h3' : 'h1'} component="h1">
                             <b>Simflight</b>
                         </Typography>
                     </Grid>
                     <Grid item >
-                        <Typography className={classes.subtitle} variant="subtitle2" >
+                        <Typography className={classes.subtitle} variant="subtitle2" component="h1">
                             Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
                         </Typography>
                     </Grid>

@@ -4,13 +4,20 @@ import Typography from '@material-ui/core/Typography';
 import Grid from '@material-ui/core/Grid';
 import Button from '@material-ui/core/Button';
 import Head from 'next/head'
+import Link from 'next/link'
 import ProductCard from '../src/components/ProductCard';
 import products from '../src/util/products';
 import { useMediaQuery } from "@material-ui/core";
+import Breadcrumbs from '@material-ui/core/Breadcrumbs';
+import HomeIcon from '@material-ui/icons/Home';
+import WhatshotIcon from '@material-ui/icons/Whatshot';
+import GrainIcon from '@material-ui/icons/Grain'
 import { server } from '../config';
+
 const useStyles = makeStyles(theme => ({
     container: {
         // border: '1px solid blue',
+        // minHeight: 'calc(100vh - 170px)',
         padding: 50,
     },
     filterContainer: {
@@ -20,7 +27,15 @@ const useStyles = makeStyles(theme => ({
     lgFilterContainer: {
         // border: '1px solid purple',
         height: 400,
-    }
+    },
+    link: {
+        display: 'flex',
+      },
+    icon: {
+        marginRight: theme.spacing(0.5),
+        width: 20,
+        height: 20,
+    },
 }))
 
 
@@ -38,11 +53,15 @@ const Products = ({products}) => {
                 return setProds(products.igate)
             case 'ALL':
                 return setProds(products.all)
+            case 'HARDWARE':
+                return setProds(products.hardware)
+            default:
+                return setProds(products.all)
         }
     }
 
     useEffect(() => {
-        setProds(products.elite)
+        setProds(products.all)
     }, [])
 
     return (
@@ -63,21 +82,28 @@ const Products = ({products}) => {
                                             
                             <Grid container direction="column" justifyContent="space-evenly" className={isMobile ? classes.filterContainer : classes.lgFilterContainer}>
                                 <Grid item xs={12} md={1}>
-                                    <Button variant="contained" color="default" onClick={() => handleProducts('ELITE')}>
+                                    <Button variant="outlined" color="primary" onClick={() => handleProducts('ELITE')}>
                                         <Typography variant="h5" gutterBottom>
                                             Elite
                                         </Typography>
                                     </Button>
                                 </Grid>
                                 <Grid item xs={12} md={1}>
-                                    <Button variant="contained" color="default" onClick={() => handleProducts('IGATE')}>
+                                    <Button variant="outlined" color="primary" onClick={() => handleProducts('IGATE')}>
                                         <Typography variant="h5" gutterBottom>
                                             Igate
                                         </Typography>
                                     </Button>
                                 </Grid>
                                 <Grid item xs={12} md={1}>
-                                    <Button variant="contained" color="default" onClick={() => handleProducts('ALL')}>
+                                    <Button variant="outlined" color="primary" onClick={() => handleProducts('HARDWARE')}>
+                                        <Typography variant="h5" gutterBottom>
+                                            Hardware
+                                        </Typography>
+                                    </Button>
+                                </Grid>
+                                <Grid item xs={12} md={1}>
+                                    <Button variant="outlined" color="primary" onClick={() => handleProducts('ALL')}>
                                         <Typography variant="h5" gutterBottom>
                                             All
                                         </Typography>
@@ -87,12 +113,35 @@ const Products = ({products}) => {
                         </Grid>
 
                             <Grid item xs={12} md={10} lg={10} >
+
+                                <Breadcrumbs aria-label="breadcrumb">
+                                    <Link color="inherit" href="/" className={classes.link}>
+                                        <Typography>
+                                            <HomeIcon className={classes.icon} />
+                                            Home
+                                        </Typography>
+                                    </Link>
+                                    {/* <Link
+                                        color="inherit"
+                                        href="/productsPage/"
+                                        // onClick={handleClick}
+                                        className={classes.link}
+                                    >
+                                        <WhatshotIcon className={classes.icon} />
+                                        Core
+                                    </Link> */}
+                                    <Typography color="textPrimary" className={classes.link}>
+                                        <GrainIcon className={classes.icon} />
+                                        Products
+                                    </Typography>
+                                </Breadcrumbs>
+
                                 <Grid container direction="row" justifyContent={isMobile ? 'center' : 'flex-start'} spacing={5} style={{marginTop: 32}}>
                                         {/* <Grid item xs={12} md={3} key={product.name} style={{minWidth: 275,}}>
                                             <ProductCard products={products}/>
                                         </Grid> */}
                                     {products && prods.map(product => (
-                                        <Grid item xs={12} sm={6} md={5} lg={3} key={product.id} style={{minWidth: 275,}}>
+                                        <Grid item xs={10} sm={6} md={5} lg={3} key={product.id} style={{minWidth: 275,}}>
                                             <ProductCard product={product}/>
                                         </Grid>
                                     ))} 
