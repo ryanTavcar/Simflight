@@ -1,18 +1,13 @@
 import React, { useState, useEffect } from 'react';
 import Link from 'next/link'
-import { makeStyles, useTheme } from '@material-ui/core/styles';
+import { makeStyles } from '@material-ui/core/styles';
 import Card from '@material-ui/core/Card';
 import CardContent from '@material-ui/core/CardContent';
 import CardMedia from '@material-ui/core/CardMedia';
 import CardActions from '@material-ui/core/CardActions';
-import IconButton from '@material-ui/core/IconButton';
 import Typography from '@material-ui/core/Typography';
 import Button from '@material-ui/core/Button';
 import Grid from '@material-ui/core/Grid';
-import Accordion from '@material-ui/core/Accordion';
-import AccordionSummary from '@material-ui/core/AccordionSummary';
-import AccordionDetails from '@material-ui/core/AccordionDetails';
-import ExpandMoreIcon from '@material-ui/icons/ExpandMore';
 import products from '../util/products'
 
 const useStyles = makeStyles(theme => ({
@@ -32,6 +27,8 @@ const useStyles = makeStyles(theme => ({
     name: {
         // border: '1px solid blue',
         height: 64,
+        paddingLeft: 10, 
+        paddingRight: 10 
     },
     detailsContainer: {
         // border: '1px solid blue',
@@ -85,7 +82,7 @@ const useStyles = makeStyles(theme => ({
     }
 }))
 
-const ProductCard = ({product, href}) => {
+const ProductCard = ({product}) => {
 
     const classes = useStyles();
     const [productDescription, setProductDescription] = useState('');
@@ -110,13 +107,7 @@ const ProductCard = ({product, href}) => {
             {/*  see details */}
             <CardActions className={classes.cardAction}>
                 <Grid container justifyContent="center">
-                    <Link 
-                    href={{
-                        pathname: '/products/[id]',
-                        query: { id: product.id },
-                    }}
-                    passHref
-                    >
+                    <Link href={`/products/${product.id}`}>
                         <Button variant="contained"  className={classes.button}>
                             <Typography color="primary">
                                 <b>see details</b>
@@ -128,7 +119,7 @@ const ProductCard = ({product, href}) => {
             <CardContent className={classes.detailsContainer}>
                 <Grid container direction="row">
                     <Grid item xs={12} className={classes.name}>
-                        <Typography color="textPrimary" variant="h6" align="left">
+                        <Typography color="textPrimary" variant="h6">
                             <b>{product.name}</b>
                         </Typography>
                     </Grid>
