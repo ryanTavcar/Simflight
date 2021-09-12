@@ -12,7 +12,7 @@ import HomeIcon from '@material-ui/icons/Home';
 import WhatshotIcon from '@material-ui/icons/Whatshot';
 import GrainIcon from '@material-ui/icons/Grain'
 import { useRouter } from 'next/router'
-import { server } from '../../../config';
+// import { server } from '../../../config';
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -163,24 +163,24 @@ const ProductDetails = ({product}) => {
 
 export const getStaticProps = async ({params}) => {
 
-    const res = await fetch(`${server}/api/products/${params.id}`)
-    const product = await res.json()
-    // const {all} = products
-    // const filtered = all.filter((product) => product.id === params.id )
+    // const res = await fetch(`${server}/api/products/${params.id}`)
+    // const product = await res.json()
+    const {all} = products
+    const filtered = all.filter((product) => product.id === params.id )
     return {
       props: {
-        // product: filtered[0]
-        product
+        product: filtered[0]
+        // product
       },
     }
 }
   
 export const getStaticPaths = async () => {
 
-    const res = await fetch(`${server}/api/products`)
-    const {all} = await res.json()
+    // const res = await fetch(`${server}/api/products`)
+    // const {all} = await res.json()
 
-    // const {all} = products;
+    const {all} = products;
     const ids = all.map(product => product.id)
     const paths = ids.map((id) => ({ params: { id: id } }))
 
