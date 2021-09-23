@@ -38,7 +38,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Landing = () => {
+const Landing = (data) => {
 
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
@@ -49,7 +49,7 @@ const Landing = () => {
                 <Grid container direction="column" alignItems={isMobile ? "center" : "flex-start"} spacing={5} className={classes.textContainer}>
                     <Grid item component="header">
                         <Typography className={classes.title} variant={isMobile ? 'h3' : 'h1'} component="h1">
-                            <b>Simflight</b>
+                            <b>{data.headline}</b>
                         </Typography>
                     </Grid>
                     <Grid item >
