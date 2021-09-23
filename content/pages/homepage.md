@@ -1,15 +1,16 @@
 ---
 blocks:
-  - tagline: ""
-    headline: Simflight
+  - tagline: ''
+    headline: welcome to simflight
     text: >
-      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore.
+      Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium
+      doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo
+      inventore.
     actions:
       - label: Get Started
         type: button
         icon: true
         link: /posts
-
       - label: Read Blog
         type: link
         icon: false
@@ -20,3 +21,4 @@ blocks:
     color: default
     _template: hero
 ---
+
