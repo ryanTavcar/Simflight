@@ -90,7 +90,11 @@ function MyApp({ Component, pageProps }) {
             {...pageProps}
           >
             {(livePageProps) => (
+              <>
+                <Navbar lightOrDark={lightOrDark} handleLightOrDark={handleLightOrDark}/>
                 <Component {...livePageProps} />
+                <Footer/>
+              </>
             )}
           </TinaCMS>
         }
