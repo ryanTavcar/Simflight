@@ -144,7 +144,12 @@ type PagesBlocksFeatures {
   color: String
 }
 
-union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures
+type PagesBlocksAbout {
+  title: String
+  text: String
+}
+
+union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout
 
 type Pages {
   blocks: [PagesBlocks]
@@ -230,9 +235,15 @@ input PagesBlocksFeaturesMutation {
   color: String
 }
 
+input PagesBlocksAboutMutation {
+  title: String
+  text: String
+}
+
 input PagesBlocksMutation {
   hero: PagesBlocksHeroMutation
   features: PagesBlocksFeaturesMutation
+  about: PagesBlocksAboutMutation
 }
 
 input PagesMutation {

@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
         // border: '1px solid yellow',
     },
     cover: {
-        height: 200,
+        height: 215,
         // width: 300,
         margin: 10,
         // border: `4px solid black`
