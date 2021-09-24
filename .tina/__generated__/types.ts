@@ -234,7 +234,13 @@ export type PagesBlocksFeatures = {
   color?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocks = PagesBlocksHero | PagesBlocksFeatures;
+export type PagesBlocksAbout = {
+  __typename?: 'PagesBlocksAbout';
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout;
 
 export type Pages = {
   __typename?: 'Pages';
@@ -351,9 +357,15 @@ export type PagesBlocksFeaturesMutation = {
   color?: Maybe<Scalars['String']>;
 };
 
+export type PagesBlocksAboutMutation = {
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
 export type PagesBlocksMutation = {
   hero?: Maybe<PagesBlocksHeroMutation>;
   features?: Maybe<PagesBlocksFeaturesMutation>;
+  about?: Maybe<PagesBlocksAboutMutation>;
 };
 
 export type PagesMutation = {
