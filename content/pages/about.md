@@ -3,8 +3,7 @@ blocks:
   - title: Our Mission
     text: >
       To maintain our leading position of providing quality built Category B
-      approved Synthetic Trainers.
-
+      approved Synthetic Trainers. 
 
       The Company first began in 1995 trading as Support Pilot Services. It
       provided quality ground based IFR training using a LINK Airtrainer model
