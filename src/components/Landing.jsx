@@ -43,7 +43,7 @@ const Landing = (data) => {
 
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
-    console.log(data)
+    
     return (
         <Grid component="main" container className={classes.container} direction="row" justifyContent="center" alignItems="center">
             <Grid item xs={12} md={6}> 

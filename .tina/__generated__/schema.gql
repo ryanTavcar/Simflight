@@ -122,7 +122,23 @@ type PagesBlocksHero {
   color: String
 }
 
-union PagesBlocks = PagesBlocksHero
+type PagesBlocksFeaturesItemsImage {
+  src: String
+  alt: String
+}
+
+type PagesBlocksFeaturesItems {
+  title: String
+  text: String
+  image: PagesBlocksFeaturesItemsImage
+}
+
+type PagesBlocksFeatures {
+  items: [PagesBlocksFeaturesItems]
+  color: String
+}
+
+union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures
 
 type Pages {
   blocks: [PagesBlocks]
@@ -186,8 +202,25 @@ input PagesBlocksHeroMutation {
   color: String
 }
 
+input PagesBlocksFeaturesItemsImageMutation {
+  src: String
+  alt: String
+}
+
+input PagesBlocksFeaturesItemsMutation {
+  title: String
+  text: String
+  image: PagesBlocksFeaturesItemsImageMutation
+}
+
+input PagesBlocksFeaturesMutation {
+  items: [PagesBlocksFeaturesItemsMutation]
+  color: String
+}
+
 input PagesBlocksMutation {
   hero: PagesBlocksHeroMutation
+  features: PagesBlocksFeaturesMutation
 }
 
 input PagesMutation {
