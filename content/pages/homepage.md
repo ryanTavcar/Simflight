@@ -20,24 +20,30 @@ blocks:
   - items:
       - feature:
         title: Amazing Feature
-        text: >-
-          Aliquam blandit felis rhoncus, eleifend ipsum in, condimentum nibh.
-          Praesent ac faucibus risus, eu lacinia enim.
+        text: 
+          item1: Vestibulum ante ipsum primis in.
+          item2: Vestibulum ante ipsum primis in.
+          item3: Vestibulum ante ipsum primis in.
         image:
           src: /images/helicopter-feature.png
           alt: Helicopter hero image
 
       - feature:
         title: This Is a Feature
-        text: Vestibulum ante ipsum primis in faucibus orci luctus et ultrices.
+        text: 
+          item1: Vestibulum ante ipsum primis in.
+          item2: Vestibulum ante ipsum primis in.
+          item3: Vestibulum ante ipsum primis in.
         image:
           src: /images/helicopter-feature.png
           alt: Helicopter hero image
 
       - feature:
         title: Configurable Theme
-        text: >-
-          Edit global theme configuration with Tina. Change your theme's primary color, font, or icon set.
+        text: 
+          item1: Vestibulum ante ipsum primis in.
+          item2: Vestibulum ante ipsum primis in.
+          item3: Vestibulum ante ipsum primis in.
         image:
           src: /images/helicopter-feature.png
           alt: Helicopter hero image

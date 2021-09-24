@@ -135,9 +135,26 @@ const featureBlockSchema: TinaTemplate = {
           name: "title",
         },
         {
-          type: "string",
+          type: "object",
           label: "Text",
           name: "text",
+          fields: [
+            {
+              type: "string",
+              name: "item1",
+              label: "Item 1",
+            },
+            {
+              type: "string",
+              name: "item2",
+              label: "Item 2",
+            },
+            {
+              type: "string",
+              name: "item3",
+              label: "Item 3",
+            },
+          ],
         },
         {
           type: "object",

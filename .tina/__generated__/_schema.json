@@ -302,9 +302,50 @@
                       ]
                     },
                     {
-                      "type": "string",
+                      "type": "object",
                       "label": "Text",
                       "name": "text",
+                      "fields": [
+                        {
+                          "type": "string",
+                          "name": "item1",
+                          "label": "Item 1",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "features",
+                            "items",
+                            "text",
+                            "item1"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "item2",
+                          "label": "Item 2",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "features",
+                            "items",
+                            "text",
+                            "item2"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "item3",
+                          "label": "Item 3",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "features",
+                            "items",
+                            "text",
+                            "item3"
+                          ]
+                        }
+                      ],
                       "namespace": [
                         "pages",
                         "blocks",

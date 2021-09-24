@@ -122,6 +122,12 @@ type PagesBlocksHero {
   color: String
 }
 
+type PagesBlocksFeaturesItemsText {
+  item1: String
+  item2: String
+  item3: String
+}
+
 type PagesBlocksFeaturesItemsImage {
   src: String
   alt: String
@@ -129,7 +135,7 @@ type PagesBlocksFeaturesItemsImage {
 
 type PagesBlocksFeaturesItems {
   title: String
-  text: String
+  text: PagesBlocksFeaturesItemsText
   image: PagesBlocksFeaturesItemsImage
 }
 
@@ -202,6 +208,12 @@ input PagesBlocksHeroMutation {
   color: String
 }
 
+input PagesBlocksFeaturesItemsTextMutation {
+  item1: String
+  item2: String
+  item3: String
+}
+
 input PagesBlocksFeaturesItemsImageMutation {
   src: String
   alt: String
@@ -209,7 +221,7 @@ input PagesBlocksFeaturesItemsImageMutation {
 
 input PagesBlocksFeaturesItemsMutation {
   title: String
-  text: String
+  text: PagesBlocksFeaturesItemsTextMutation
   image: PagesBlocksFeaturesItemsImageMutation
 }
 
