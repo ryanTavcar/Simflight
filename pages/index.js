@@ -1,11 +1,11 @@
-import Head from 'next/head'
+import React from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Landing from '../src/components/Landing';
 import Container from '@material-ui/core/Container';
 import { useMediaQuery } from "@material-ui/core";
 import WhatWeDo from '../src/components/WhatWeDo';
 import HeadMeta from '../src/components/Head';
-import { getStaticPropsForTina, staticRequest } from "tinacms";
+import { getStaticPropsForTina } from "tinacms";
 
 const useStyles = makeStyles(theme => ({
   container: {
@@ -23,7 +23,6 @@ export default function Home(props) {
   const classes = useStyles();
   const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
   const isLaptop = useMediaQuery(theme => theme.breakpoints.down("md"));
-
 
   return (
     <Container maxWidth={isMobile ? 'sm' : isLaptop ? 'md' : 'lg'} className={classes.container}>
@@ -80,7 +79,7 @@ export const getStaticProps = async () => {
       }
     }
   `,
-  variables: {relativePath: "homepage.md"},
+  variables: {relativePath: "home.md"},
   }))
 
   return {

@@ -1,4 +1,5 @@
 import React, {useState, useEffect} from 'react';
+import '../src/styles/globals.scss'
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -6,7 +7,6 @@ import { ThemeProvider } from '@material-ui/core/styles';
 import CssBaseline from '@material-ui/core/CssBaseline';
 import {lightTheme, darkTheme} from '../src/util/theme';
 import Navbar from '../src/components/Navbar';
-import '../src/styles/globals.css'
 import Footer from '../src/components/Footer';
 
 import dynamic from "next/dynamic";
@@ -91,6 +91,7 @@ function MyApp({ Component, pageProps }) {
           >
             {(livePageProps) => (
               <>
+                <CssBaseline />
                 <Navbar lightOrDark={lightOrDark} handleLightOrDark={handleLightOrDark}/>
                 <Component {...livePageProps} />
                 <Footer/>
