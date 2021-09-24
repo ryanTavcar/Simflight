@@ -16,5 +16,37 @@ blocks:
       alt: Helicopter hero image
     color: default
     _template: hero
----
 
+  - items:
+      - feature:
+        title: Amazing Feature
+        text: 
+          item1: Vestibulum ante ipsum primis in.
+          item2: Vestibulum ante ipsum primis in.
+          item3: Vestibulum ante ipsum primis in.
+        image:
+          src: /images/helicopter-feature.png
+          alt: Helicopter hero image
+
+      - feature:
+        title: This Is a Feature
+        text: 
+          item1: Vestibulum ante ipsum primis in.
+          item2: Vestibulum ante ipsum primis in.
+          item3: Vestibulum ante ipsum primis in.
+        image:
+          src: /images/helicopter-feature.png
+          alt: Helicopter hero image
+
+      - feature:
+        title: Configurable Theme
+        text: 
+          item1: Vestibulum ante ipsum primis in.
+          item2: Vestibulum ante ipsum primis in.
+          item3: Vestibulum ante ipsum primis in.
+        image:
+          src: /images/helicopter-feature.png
+          alt: Helicopter hero image
+  
+    _template: features
+---

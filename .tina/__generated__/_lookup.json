@@ -29,7 +29,8 @@
     "type": "PagesBlocks",
     "resolveType": "unionData",
     "typeMap": {
-      "hero": "PagesBlocksHero"
+      "hero": "PagesBlocksHero",
+      "features": "PagesBlocksFeatures"
     }
   },
   "PagesDocument": {
