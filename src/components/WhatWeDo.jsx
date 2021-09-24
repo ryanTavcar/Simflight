@@ -39,7 +39,7 @@ const useStyles = makeStyles(theme => ({
         // border: '1px solid yellow',
     },
     cover: {
-        height: 200,
+        height: 215,
         // width: 300,
         margin: 10,
         // border: `4px solid black`
@@ -104,70 +104,62 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
-const product = {
-    id: 1,
-    name: 'simulators',
-    description1: 'test desciption about what we do',
-    description2: 'we build simulators',
-    description3: 'view our products',
-    image: '/images/helicopter-feature.png'
-}
-
-const WhatWeDo = () => {
-
+const WhatWeDo = (data) => {
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
+
+    const FeatureCard = ({feature}) => {
+        return (
+            <Card className={classes.card}>
+                {/*  see details */}
+                <CardContent className={classes.detailsContainer}>
+                    <Grid container direction="column">
+                        <Grid item xs={12} className={classes.name}>
+                            <Typography style={{color: 'black'}} variant="h6" align="center">
+                                <b>{feature.title}</b>
+                            </Typography>
+                        </Grid>
     
-    const TestCard = () => {
-        return <Card className={classes.card}>
-                    {/*  see details */}
-                    <CardContent className={classes.detailsContainer}>
-                        <Grid container direction="column">
-                            <Grid item xs={12} className={classes.name}>
-                                <Typography style={{color: 'black'}} variant="h6" align="center">
-                                    <b>{product.name}</b>
+                        {/* image */}
+                        <CardMedia className={classes.cover} image={feature.image.src} alt={feature.image.alt} />
+    
+                        <Grid item xs={12} className={classes.content}>
+                            <List>
+                                <ListItem style={{color: 'rgba(0, 0, 0, 0.54)'}}>
+                                    <ListItemText 
+                                        primary={feature.text.item1}
+                                    />
+                                </ListItem>
+                                <ListItem style={{color: 'rgba(0, 0, 0, 0.54)'}}>
+                                    <ListItemText 
+                                        primary={feature.text.item2}
+                                    />
+                                </ListItem>
+                                <ListItem style={{color: 'rgba(0, 0, 0, 0.54)'}}>
+                                    <ListItemText 
+                                        primary={feature.text.item3}
+                                    />
+                                </ListItem>
+                            </List>
+                        </Grid>
+                    </Grid>
+                </CardContent>
+                {/* <CardActions className={classes.cardAction}>
+                    <Grid container justifyContent="center">
+                        <Link 
+                            href={`/products/${encodeURIComponent(product.id)}`}
+                        >
+                            <Button variant="contained"  className={classes.button}>
+                                <Typography color="primary">
+                                    <b>see details</b>
                                 </Typography>
-                            </Grid>
-
-                            {/* image */}
-                            <CardMedia className={classes.cover} image={product.image} />
-
-                            <Grid item xs={12} className={classes.content}>
-                                <List>
-                                    <ListItem style={{color: 'rgba(0, 0, 0, 0.54)'}}>
-                                        <ListItemText 
-                                            primary={product.description1}
-                                        />
-                                    </ListItem>
-                                    <ListItem style={{color: 'rgba(0, 0, 0, 0.54)'}}>
-                                        <ListItemText 
-                                            primary={product.description2}
-                                        />
-                                    </ListItem>
-                                    <ListItem style={{color: 'rgba(0, 0, 0, 0.54)'}}>
-                                        <ListItemText 
-                                            primary={product.description3}
-                                        />
-                                    </ListItem>
-                                </List>
-                            </Grid>
-                        </Grid>
-                    </CardContent>
-                    {/* <CardActions className={classes.cardAction}>
-                        <Grid container justifyContent="center">
-                            <Link 
-                                href={`/products/${encodeURIComponent(product.id)}`}
-                            >
-                                <Button variant="contained"  className={classes.button}>
-                                    <Typography color="primary">
-                                        <b>see details</b>
-                                    </Typography>
-                                </Button>
-                            </Link>
-                        </Grid>
-                    </CardActions> */}
-                </Card>
-        }   
+                            </Button>
+                        </Link>
+                    </Grid>
+                </CardActions> */}
+            </Card>
+        )
+    }   
 
     return (
         <Grid container component="section" direction="row" justifyContent="flex-end" alignItems="flex-end" className={classes.container}>
@@ -178,28 +170,18 @@ const WhatWeDo = () => {
 
             <Grid container direction="row" justifyContent="center" alignItems="center" spacing={5} >
                 <Grid item xs={10}  md={4}>
-                    <TestCard/>
+                    <FeatureCard feature={data.items[0]} />
                 </Grid>
                 <Grid item xs={10}  md={4}>
-                    <TestCard/>
+                    <FeatureCard feature={data.items[1]} />
                 </Grid>
                 <Grid item xs={10}  md={4}>
-                    <TestCard/>
+                    <FeatureCard feature={data.items[2]} />
                 </Grid>
             </Grid>
 
         </Grid>
     );
-}
-
-export const getStaticProps = async (ctx) => {
-
-
-    return {
-        props:{
-            data:null
-        }
-    }
 }
 
 export default WhatWeDo;

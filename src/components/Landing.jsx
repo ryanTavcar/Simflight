@@ -8,6 +8,7 @@ import Grid from '@material-ui/core/Grid';
 import Box from '@material-ui/core/Box';
 import Button from '@material-ui/core/Button';
 import { makeStyles } from "@material-ui/core/styles";
+import { BiRightArrowAlt } from "react-icons/bi";
 
 const useStyles = makeStyles(theme => ({
     container: {
@@ -38,7 +39,7 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Landing = () => {
+const Landing = (data) => {
 
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
@@ -49,19 +50,20 @@ const Landing = () => {
                 <Grid container direction="column" alignItems={isMobile ? "center" : "flex-start"} spacing={5} className={classes.textContainer}>
                     <Grid item component="header">
                         <Typography className={classes.title} variant={isMobile ? 'h3' : 'h1'} component="h1">
-                            <b>Simflight</b>
+                            <b>{data.headline}</b>
                         </Typography>
                     </Grid>
                     <Grid item >
                         <Typography className={classes.subtitle} variant="subtitle2" component="h1">
-                            Sed ut perspiciatis unde omnis iste natus error sit voluptatem accusantium doloremque laudantium, totam rem aperiam, eaque ipsa quae ab illo inventore 
+                            {data.text}
                         </Typography>
                     </Grid>
                     <Grid item >
                         <Grid container direction="row" justifyContent={isMobile ? 'center' : 'flex-start'}>
-                            <Link href="/productsPage">
+                            <Link href={data.actions[0].link}>
                                 <Button color="primary" variant="contained" size="large">
-                                    See Products
+                                    {data.actions[0].label}
+                                    <BiRightArrowAlt />
                                 </Button>
                             </Link>
                         </Grid>
@@ -69,7 +71,7 @@ const Landing = () => {
                 </Grid>
             </Grid>
             <Grid item xs={12} md={6} >
-                <Image src="/images/helicopter-feature.png" alt="helipcopter feature" width="600" height="600" />
+                <Image src={data.image.src} alt={data.image.alt} width="600" height="600" />
             </Grid>
         </Grid>
     );
