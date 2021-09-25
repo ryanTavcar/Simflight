@@ -3,8 +3,8 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
-      "posts",
-      "pages"
+      "pages",
+      "fourOhFour"
     ]
   },
   "Node": {
@@ -43,5 +43,15 @@
     "type": "PagesConnection",
     "resolveType": "collectionDocumentList",
     "collection": "pages"
+  },
+  "FourOhFourDocument": {
+    "type": "FourOhFourDocument",
+    "resolveType": "collectionDocument",
+    "collection": "fourOhFour"
+  },
+  "FourOhFourConnection": {
+    "type": "FourOhFourConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "fourOhFour"
   }
 }
