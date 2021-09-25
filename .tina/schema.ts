@@ -119,6 +119,11 @@ const featureBlockSchema: TinaTemplate = {
   },
   fields: [
     {
+      type: "string",
+      label: "Headline",
+      name: "headline",
+    },
+    {
       type: "object",
       label: "Feature Items",
       name: "items",
@@ -129,6 +134,7 @@ const featureBlockSchema: TinaTemplate = {
         },
       },
       fields: [
+        
         {
           type: "string",
           label: "Title",
@@ -212,31 +218,90 @@ const aboutBlockSchema: TinaTemplate = {
       },
     },      
   ],
-}
+};
+
+// const fourOhFour: TinaField = {
+//   label: "404",
+//   name: "fourOhFour",
+//   ui: {
+//     defaultItem: {
+//       headline: "404 – Page Not Found",
+//       text: "Oops! It seems there's nothing here, how embarrassing.",
+//     },
+//   },
+//   fields: [
+//     {
+//       type: "string",
+//       label: "Headline",
+//       name: "headline",
+//     },
+//     {
+//       type: "string",
+//       label: "Text",
+//       name: "text",
+//     },
+//     {
+//       type: "object",
+//       label: "Image",
+//       name: "image",
+//       fields: [
+//         {
+//           name: "src",
+//           label: "Image Source",
+//           type: "image",
+//         },
+//         {
+//           name: "alt",
+//           label: "Alt Text",
+//           type: "string",
+//         },
+//       ],
+//     },
+//     {
+//       label: "Actions",
+//       name: "actions",
+//       type: "object",
+//       list: true,
+//       ui: {
+//         defaultItem: {
+//           label: "Action Label",
+//           type: "button",
+//           icon: true,
+//           link: "/",
+//         },
+//       },
+//       fields: [
+//         {
+//           label: "Label",
+//           name: "label",
+//           type: "string",
+//         },
+//         {
+//           label: "Type",
+//           name: "type",
+//           type: "string",
+//           options: [
+//             { label: "Button", value: "button" },
+//             { label: "Link", value: "link" },
+//           ],
+//         },
+//         {
+//           label: "Icon",
+//           name: "icon",
+//           type: "boolean",
+//         },
+//         {
+//           label: "Link",
+//           name: "link",
+//           type: "string",
+//         },
+//       ],
+//     },
+//   ]
+// };
 
 export default defineSchema({
   collections: [
-    {
-      label: "Blog Posts",
-      name: "posts",
-      path: "content/posts",
-      fields: [
-        {
-          type: "string",
-          label: "Title",
-          name: "title",
-        },
-        {
-          type: "string",
-          label: "Blog Post Body",
-          name: "body",
-          isBody: true,
-          ui: {
-            component: "textarea"
-          },
-        },
-      ],
-    },
     {
       label: "Pages",
       name: "pages",
@@ -250,6 +315,80 @@ export default defineSchema({
           templates: [heroBlockSchema, featureBlockSchema, aboutBlockSchema],
         },
       ],
+    },
+    {
+      label: "404",
+      name: "fourOhFour",
+      path: "content/fourOhFour",
+      fields: [
+        {
+          type: "string",
+          label: "Headline",
+          name: "headline",
+        },
+        {
+          type: "string",
+          label: "Text",
+          name: "text",
+        },
+        {
+          type: "object",
+          label: "Image",
+          name: "image",
+          fields: [
+            {
+              name: "src",
+              label: "Image Source",
+              type: "image",
+            },
+            {
+              name: "alt",
+              label: "Alt Text",
+              type: "string",
+            },
+          ],
+        },
+        {
+          label: "Actions",
+          name: "actions",
+          type: "object",
+          list: true,
+          ui: {
+            defaultItem: {
+              label: "Action Label",
+              type: "button",
+              icon: true,
+              link: "/",
+            },
+          },
+          fields: [
+            {
+              label: "Label",
+              name: "label",
+              type: "string",
+            },
+            {
+              label: "Type",
+              name: "type",
+              type: "string",
+              options: [
+                { label: "Button", value: "button" },
+                { label: "Link", value: "link" },
+              ],
+            },
+            {
+              label: "Icon",
+              name: "icon",
+              type: "boolean",
+            },
+            {
+              label: "Link",
+              name: "link",
+              type: "string",
+            },
+          ],
+        },
+      ]
     },
   ],
 });

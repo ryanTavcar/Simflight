@@ -1,5 +1,5 @@
 import React, {useState, useEffect} from 'react';
-import '../src/styles/globals.scss'
+import '../src/styles/globals.css'
 import PropTypes from 'prop-types';
 import Head from 'next/head';
 import { ThemeProvider } from '@material-ui/core/styles';
@@ -21,8 +21,8 @@ const NEXT_PUBLIC_HIDE_EDIT_BUTTON =
   process.env.NEXT_PUBLIC_HIDE_EDIT_BUTTON || 0;
 
 function MyApp({ Component, pageProps }) {
-  const [theme, setTheme] = useState(lightTheme);
-  const [lightOrDark, setLightOrDark] = useState('light');
+  const [theme, setTheme] = useState(darkTheme);
+  const [lightOrDark, setLightOrDark] = useState('');
 
   const handleLightOrDark = event => {
     const colorMode = lightOrDark === 'light' ? 'dark' : 'light';
@@ -33,6 +33,9 @@ function MyApp({ Component, pageProps }) {
   };
 
   useEffect(() => {
+    setTheme(lightTheme);
+    setLightOrDark('light');
+    
     // Remove the server-side injected CSS.
     const jssStyles = document.querySelector('#jss-server-side');
     if (jssStyles) {

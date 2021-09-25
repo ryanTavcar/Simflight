@@ -17,7 +17,8 @@ blocks:
     color: default
     _template: hero
 
-  - items:
+  - headline: What We Do
+    items:
       - feature:
         title: Amazing Feature
         text: 
@@ -47,6 +48,5 @@ blocks:
         image:
           src: /images/helicopter-feature.png
           alt: Helicopter hero image
-  
     _template: features
 ---
