@@ -39,11 +39,11 @@ const useStyles = makeStyles(theme => ({
     },
 }));
 
-const Landing = (data) => {
+const Hero = ({data}) => {
 
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
-    
+
     return (
         <Grid component="main" container className={classes.container} direction="row" justifyContent="center" alignItems="center">
             <Grid item xs={12} md={6}> 
@@ -59,13 +59,19 @@ const Landing = (data) => {
                         </Typography>
                     </Grid>
                     <Grid item >
-                        <Grid container direction="row" justifyContent={isMobile ? 'center' : 'flex-start'}>
-                            <Link href={data.actions[0].link}>
-                                <Button color="primary" variant="contained" size="large">
-                                    {data.actions[0].label}
-                                    <BiRightArrowAlt />
-                                </Button>
-                            </Link>
+                        <Grid container direction="row" justifyContent={isMobile ? 'center' : 'flex-start'} >
+                            {data.actions && 
+                                <Link href={data.actions[0].link}>
+                                    <Button color="primary" variant="contained" size="large">
+                                        {data.actions[0].label}
+                                        {data.actions[0].icon &&
+                                        <Grid container item xs={2} style={{marginLeft: '10px'}} >
+                                            <BiRightArrowAlt size={25} />
+                                        </Grid>
+                                        }
+                                    </Button>
+                                </Link>
+                            }
                         </Grid>
                     </Grid>
                 </Grid>
@@ -77,4 +83,4 @@ const Landing = (data) => {
     );
 }
 
-export default Landing;
+export default Hero;

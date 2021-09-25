@@ -104,7 +104,7 @@ const useStyles = makeStyles(theme => ({
     }
   }));
 
-const WhatWeDo = (data) => {
+const WhatWeDo = ({data}) => {
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
 
@@ -165,11 +165,11 @@ const WhatWeDo = (data) => {
         <Grid container component="section" direction="row" justifyContent="flex-end" alignItems="flex-end" className={classes.container}>
             {/* Heading */}
             <Grid item xs={12} md={6}>
-                <Typography className={classes.heading} variant="h2" color="textPrimary" gutterBottom align={isMobile ? "center" : "right"}><b>What We Do</b></Typography>
+                <Typography className={classes.heading} variant="h2" color="textPrimary" gutterBottom align={isMobile ? "center" : "right"}><b>{data.headline}</b></Typography>
             </Grid>
 
             <Grid container direction="row" justifyContent="center" alignItems="center" spacing={5} >
-                <Grid item xs={10}  md={4}>
+                <Grid item xs={10} md={4}>
                     <FeatureCard feature={data.items[0]} />
                 </Grid>
                 <Grid item xs={10}  md={4}>

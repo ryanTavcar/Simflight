@@ -1,27 +1,6 @@
 {
   "collections": [
     {
-      "label": "Blog Posts",
-      "name": "posts",
-      "path": "content/posts",
-      "fields": [
-        {
-          "type": "string",
-          "label": "Title",
-          "name": "title"
-        },
-        {
-          "type": "string",
-          "label": "Blog Post Body",
-          "name": "body",
-          "isBody": true,
-          "ui": {
-            "component": "textarea"
-          }
-        }
-      ]
-    },
-    {
       "label": "Pages",
       "name": "pages",
       "path": "content/pages",
@@ -180,6 +159,11 @@
               },
               "fields": [
                 {
+                  "type": "string",
+                  "label": "Headline",
+                  "name": "headline"
+                },
+                {
                   "type": "object",
                   "label": "Feature Items",
                   "name": "items",
@@ -286,6 +270,86 @@
                   }
                 }
               ]
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "label": "404",
+      "name": "fourOhFour",
+      "path": "content/fourOhFour",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Headline",
+          "name": "headline"
+        },
+        {
+          "type": "string",
+          "label": "Text",
+          "name": "text"
+        },
+        {
+          "type": "object",
+          "label": "Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image"
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "label": "Actions",
+          "name": "actions",
+          "type": "object",
+          "list": true,
+          "ui": {
+            "defaultItem": {
+              "label": "Action Label",
+              "type": "button",
+              "icon": true,
+              "link": "/"
+            }
+          },
+          "fields": [
+            {
+              "label": "Label",
+              "name": "label",
+              "type": "string"
+            },
+            {
+              "label": "Type",
+              "name": "type",
+              "type": "string",
+              "options": [
+                {
+                  "label": "Button",
+                  "value": "button"
+                },
+                {
+                  "label": "Link",
+                  "value": "link"
+                }
+              ]
+            },
+            {
+              "label": "Icon",
+              "name": "icon",
+              "type": "boolean"
+            },
+            {
+              "label": "Link",
+              "name": "link",
+              "type": "string"
             }
           ]
         }

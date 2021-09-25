@@ -45,10 +45,10 @@ type Query {
   node(id: String): Node!
   getDocument(collection: String, relativePath: String): DocumentNode!
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
-  getPostsDocument(relativePath: String): PostsDocument!
-  getPostsList(before: String, after: String, first: Int, last: Int): PostsConnection!
   getPagesDocument(relativePath: String): PagesDocument!
   getPagesList(before: String, after: String, first: Int, last: Int): PagesConnection!
+  getFourOhFourDocument(relativePath: String): FourOhFourDocument!
+  getFourOhFourList(before: String, after: String, first: Int, last: Int): FourOhFourConnection!
 }
 
 type DocumentConnectionEdges {
@@ -74,32 +74,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = PostsDocument | PagesDocument
-
-type Posts {
-  title: String
-  body: String
-}
-
-type PostsDocument implements Node & Document {
-  id: ID!
-  sys: SystemInfo!
-  data: Posts!
-  form: JSON!
-  values: JSON!
-  dataJSON: JSON!
-}
-
-type PostsConnectionEdges {
-  cursor: String
-  node: PostsDocument
-}
-
-type PostsConnection implements Connection {
-  pageInfo: PageInfo
-  totalCount: Int!
-  edges: [PostsConnectionEdges]
-}
+union DocumentNode = PagesDocument | FourOhFourDocument
 
 type PagesBlocksHeroActions {
   label: String
@@ -140,6 +115,7 @@ type PagesBlocksFeaturesItems {
 }
 
 type PagesBlocksFeatures {
+  headline: String
   items: [PagesBlocksFeaturesItems]
   color: String
 }
@@ -175,21 +151,55 @@ type PagesConnection implements Connection {
   edges: [PagesConnectionEdges]
 }
 
+type FourOhFourImage {
+  src: String
+  alt: String
+}
+
+type FourOhFourActions {
+  label: String
+  type: String
+  icon: Boolean
+  link: String
+}
+
+type FourOhFour {
+  headline: String
+  text: String
+  image: FourOhFourImage
+  actions: [FourOhFourActions]
+}
+
+type FourOhFourDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: FourOhFour!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type FourOhFourConnectionEdges {
+  cursor: String
+  node: FourOhFourDocument
+}
+
+type FourOhFourConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [FourOhFourConnectionEdges]
+}
+
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
-  updatePostsDocument(relativePath: String!, params: PostsMutation!): PostsDocument!
   updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
+  updateFourOhFourDocument(relativePath: String!, params: FourOhFourMutation!): FourOhFourDocument!
 }
 
 input DocumentMutation {
-  posts: PostsMutation
   pages: PagesMutation
-}
-
-input PostsMutation {
-  title: String
-  body: String
+  fourOhFour: FourOhFourMutation
 }
 
 input PagesBlocksHeroActionsMutation {
@@ -231,6 +241,7 @@ input PagesBlocksFeaturesItemsMutation {
 }
 
 input PagesBlocksFeaturesMutation {
+  headline: String
   items: [PagesBlocksFeaturesItemsMutation]
   color: String
 }
@@ -248,6 +259,25 @@ input PagesBlocksMutation {
 
 input PagesMutation {
   blocks: [PagesBlocksMutation]
+}
+
+input FourOhFourImageMutation {
+  src: String
+  alt: String
+}
+
+input FourOhFourActionsMutation {
+  label: String
+  type: String
+  icon: Boolean
+  link: String
+}
+
+input FourOhFourMutation {
+  headline: String
+  text: String
+  image: FourOhFourImageMutation
+  actions: [FourOhFourActionsMutation]
 }
 
 schema {
