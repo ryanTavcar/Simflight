@@ -220,6 +220,75 @@ const aboutBlockSchema: TinaTemplate = {
   ],
 };
 
+const defaultProduct = {
+  title: "product",
+  text: "This is where you might talk about the product, if this wasn't just filler text.",
+  image: {
+    src: "/images/helicopter-feature.png",
+    alt: "Helicopter hero image"
+  }
+}
+
+const productsBlockSchema: TinaTemplate = {
+  label: "Products",
+  name: "products",
+  ui: {
+    defaultItem: {
+      items: [defaultProduct, defaultProduct, defaultProduct]
+    }
+  },
+  fields: [
+    {
+      type: "object",
+      label: "product Items",
+      name: "items",
+      list: true,
+      ui: {
+        defaultItem: {
+          ...defaultProduct,
+        },
+      },
+      fields: [
+        {
+          type: "string",
+          label: "Title",
+          name: "title",
+        },
+        {
+          type: "string",
+          label: "Description",
+          name: "description",
+          ui: {
+            component: "textarea"
+          },
+        },
+        {
+          type: "object",
+          label: "Image",
+          name: "image",
+          fields: [
+            {
+              name: "src",
+              label: "Image Source",
+              type: "image",
+            },
+            {
+              name: "alt",
+              label: "Alt Text",
+              type: "string",
+            },
+          ],
+        },
+        {
+          type: "string",
+          label: "Keywords",
+          name: "keywords",
+        }
+      ],
+    },
+  ],
+};
+
 export default defineSchema({
   collections: [
     {
@@ -234,6 +303,54 @@ export default defineSchema({
           label: "Sections",
           templates: [heroBlockSchema, featureBlockSchema, aboutBlockSchema],
         },
+      ],
+    },
+    {
+      label: "Products List",
+      name: "products",
+      path: "content/products",
+      fields: [
+        {
+          type: "string",
+          label: "category",
+          name: "category",
+        },
+        {
+          type: "string",
+          label: "Title",
+          name: "title",
+        },
+        {
+          type: "string",
+          label: "Description",
+          name: "description",
+          ui: {
+            component: "textarea"
+          },
+        },
+        {
+          type: "object",
+          label: "Image",
+          name: "image",
+          fields: [
+            {
+              name: "src",
+              label: "Image Source",
+              type: "image",
+            },
+            {
+              name: "alt",
+              label: "Alt Text",
+              type: "string",
+            },
+          ],
+        },
+        {
+          type: "string",
+          label: "Keywords",
+          name: "keywords",
+          list: true,
+        }
       ],
     },
     {

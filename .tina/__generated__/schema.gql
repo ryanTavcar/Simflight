@@ -47,6 +47,8 @@ type Query {
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
   getPagesDocument(relativePath: String): PagesDocument!
   getPagesList(before: String, after: String, first: Int, last: Int): PagesConnection!
+  getProductsDocument(relativePath: String): ProductsDocument!
+  getProductsList(before: String, after: String, first: Int, last: Int): ProductsConnection!
   getFourOhFourDocument(relativePath: String): FourOhFourDocument!
   getFourOhFourList(before: String, after: String, first: Int, last: Int): FourOhFourConnection!
 }
@@ -74,7 +76,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = PagesDocument | FourOhFourDocument
+union DocumentNode = PagesDocument | ProductsDocument | FourOhFourDocument
 
 type PagesBlocksHeroActions {
   label: String
@@ -151,6 +153,39 @@ type PagesConnection implements Connection {
   edges: [PagesConnectionEdges]
 }
 
+type ProductsImage {
+  src: String
+  alt: String
+}
+
+type Products {
+  category: String
+  title: String
+  description: String
+  image: ProductsImage
+  keywords: [String]
+}
+
+type ProductsDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: Products!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type ProductsConnectionEdges {
+  cursor: String
+  node: ProductsDocument
+}
+
+type ProductsConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [ProductsConnectionEdges]
+}
+
 type FourOhFourImage {
   src: String
   alt: String
@@ -194,11 +229,13 @@ type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
+  updateProductsDocument(relativePath: String!, params: ProductsMutation!): ProductsDocument!
   updateFourOhFourDocument(relativePath: String!, params: FourOhFourMutation!): FourOhFourDocument!
 }
 
 input DocumentMutation {
   pages: PagesMutation
+  products: ProductsMutation
   fourOhFour: FourOhFourMutation
 }
 
@@ -259,6 +296,19 @@ input PagesBlocksMutation {
 
 input PagesMutation {
   blocks: [PagesBlocksMutation]
+}
+
+input ProductsImageMutation {
+  src: String
+  alt: String
+}
+
+input ProductsMutation {
+  category: String
+  title: String
+  description: String
+  image: ProductsImageMutation
+  keywords: [String]
 }
 
 input FourOhFourImageMutation {

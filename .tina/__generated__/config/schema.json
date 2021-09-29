@@ -276,6 +276,54 @@
       ]
     },
     {
+      "label": "Products List",
+      "name": "products",
+      "path": "content/products",
+      "fields": [
+        {
+          "type": "string",
+          "label": "category",
+          "name": "category"
+        },
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title"
+        },
+        {
+          "type": "string",
+          "label": "Description",
+          "name": "description",
+          "ui": {
+            "component": "textarea"
+          }
+        },
+        {
+          "type": "object",
+          "label": "Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image"
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Keywords",
+          "name": "keywords",
+          "list": true
+        }
+      ]
+    },
+    {
       "label": "404",
       "name": "fourOhFour",
       "path": "content/fourOhFour",

@@ -65,6 +65,8 @@ export type Query = {
   getDocumentList: DocumentConnection;
   getPagesDocument: PagesDocument;
   getPagesList: PagesConnection;
+  getProductsDocument: ProductsDocument;
+  getProductsList: ProductsConnection;
   getFourOhFourDocument: FourOhFourDocument;
   getFourOhFourList: FourOhFourConnection;
 };
@@ -100,6 +102,19 @@ export type QueryGetPagesDocumentArgs = {
 
 
 export type QueryGetPagesListArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGetProductsDocumentArgs = {
+  relativePath?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryGetProductsListArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
@@ -153,7 +168,7 @@ export type CollectionDocumentsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type DocumentNode = PagesDocument | FourOhFourDocument;
+export type DocumentNode = PagesDocument | ProductsDocument | FourOhFourDocument;
 
 export type PagesBlocksHeroActions = {
   __typename?: 'PagesBlocksHeroActions';
@@ -242,6 +257,44 @@ export type PagesConnection = Connection & {
   edges?: Maybe<Array<Maybe<PagesConnectionEdges>>>;
 };
 
+export type ProductsImage = {
+  __typename?: 'ProductsImage';
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type Products = {
+  __typename?: 'Products';
+  category?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<ProductsImage>;
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type ProductsDocument = Node & Document & {
+  __typename?: 'ProductsDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: Products;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type ProductsConnectionEdges = {
+  __typename?: 'ProductsConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<ProductsDocument>;
+};
+
+export type ProductsConnection = Connection & {
+  __typename?: 'ProductsConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<ProductsConnectionEdges>>>;
+};
+
 export type FourOhFourImage = {
   __typename?: 'FourOhFourImage';
   src?: Maybe<Scalars['String']>;
@@ -292,6 +345,7 @@ export type Mutation = {
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
   updatePagesDocument: PagesDocument;
+  updateProductsDocument: ProductsDocument;
   updateFourOhFourDocument: FourOhFourDocument;
 };
 
@@ -316,6 +370,12 @@ export type MutationUpdatePagesDocumentArgs = {
 };
 
 
+export type MutationUpdateProductsDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: ProductsMutation;
+};
+
+
 export type MutationUpdateFourOhFourDocumentArgs = {
   relativePath: Scalars['String'];
   params: FourOhFourMutation;
@@ -323,6 +383,7 @@ export type MutationUpdateFourOhFourDocumentArgs = {
 
 export type DocumentMutation = {
   pages?: Maybe<PagesMutation>;
+  products?: Maybe<ProductsMutation>;
   fourOhFour?: Maybe<FourOhFourMutation>;
 };
 
@@ -383,6 +444,19 @@ export type PagesBlocksMutation = {
 
 export type PagesMutation = {
   blocks?: Maybe<Array<Maybe<PagesBlocksMutation>>>;
+};
+
+export type ProductsImageMutation = {
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type ProductsMutation = {
+  category?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<ProductsImageMutation>;
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
 export type FourOhFourImageMutation = {
