@@ -60,98 +60,97 @@ const useStyles = makeStyles(theme => ({
   }));
 
 const ProductDetails = (props) => {
-    console.log('props', props)
 
-    // const {query: {id}, asPath} = useRouter();
+    const product = props.data.getProductsDocument.data
+
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
     const isLaptop = useMediaQuery(theme => theme.breakpoints.down("md"));
 
     return (
-        <div></div>
-        // <>
-        //             <HeadMeta title={product.name} description={product.description} url={asPath} keywords={product.keywords} />
+        <>
+        <HeadMeta title={product.title} description={product.description} keywords={product.keywords} />
 
-        //             <Container maxWidth={isMobile ? 'sm' : isLaptop ? 'md' : 'lg'} className={classes.container}>
-        //                 <Breadcrumbs aria-label="breadcrumb">
-        //                     <Link color="inherit" href="/" className={classes.link}>
-        //                         <Typography style={{fontSize: 12}}>
-        //                             <HomeIcon className={classes.icon} />
-        //                             Home
-        //                         </Typography>
-        //                     </Link>
+        <Container maxWidth={isMobile ? 'sm' : isLaptop ? 'md' : 'lg'} className={classes.container}>
+            <Breadcrumbs aria-label="breadcrumb">
+                <Link color="inherit" href="/" className={classes.link}>
+                    <Typography style={{fontSize: 12}}>
+                        <HomeIcon className={classes.icon} />
+                        Home
+                    </Typography>
+                </Link>
 
-        //                     <Link color="inherit" href="/productsPage/" className={classes.link}>
-        //                         <Typography style={{fontSize: 12}}>
-        //                             <WhatshotIcon className={classes.icon} />
-        //                             products
-        //                         </Typography>
-        //                     </Link>
+                <Link color="inherit" href="/productsPage/" className={classes.link}>
+                    <Typography style={{fontSize: 12}}>
+                        <WhatshotIcon className={classes.icon} />
+                        products
+                    </Typography>
+                </Link>
 
-        //                     <Link color="inherit" href={`/products/${id}`} className={classes.link}>
-        //                         <Typography color="textPrimary" style={{fontSize: 12}}>
-        //                             <GrainIcon className={classes.icon} />
-        //                             {product.name}
-        //                         </Typography>
-        //                     </Link>
-        //                 </Breadcrumbs>
+                <Link color="inherit" href={`/products/${product.filename}`} className={classes.link}>
+                    <Typography color="textPrimary" style={{fontSize: 12}}>
+                        <GrainIcon className={classes.icon} />
+                        {product.title}
+                    </Typography>
+                </Link>
+            </Breadcrumbs>
 
-        //                     <Grid component="main" container className={classes.productContainer} direction="row" spacing={5}>
-        //                         <Grid item xs={12} md={7} > 
-        //                             <Grid container direction="row" className={classes.imageContainer}>
-        //                                 {/* main image */}
-        //                                 <Grid item xs={12}> 
-        //                                     <Grid container direction="row" justifyContent="center" alignItems="center" style={{height: '100%'}}>
-        //                                         <Image src={product.image} alt="product image" width={400} height={400}  quality={65}   />
-        //                                     </Grid>
-        //                                 </Grid>
+                <Grid component="main" container className={classes.productContainer} direction="row" spacing={5}>
+                    <Grid item xs={12} md={7} > 
+                        <Grid container direction="row" className={classes.imageContainer}>
+                            {/* main image */}
+                            <Grid item xs={12}> 
+                                <Grid container direction="row" justifyContent="center" alignItems="center" style={{height: '100%'}}>
+                                    <Image src={product.image.src} alt="product image" width={400} height={400}  quality={65}   />
+                                </Grid>
+                            </Grid>
 
-        //                                 {/* supporting images */}
-        //                                 <Grid container direction="row" justifyContent="space-evenly" alignItems="center" className={classes.supportingImageContainer}>
-                                        
-        //                                     <Grid item> 
-        //                                         <Image src={product.image} alt="product image" width={150} height={150} layout="fixed" quality={65} />
-        //                                     </Grid>
-        //                                     <Grid item> 
-        //                                         <Image src={product.image} alt="product image" width={150} height={150} layout="fixed" quality={65} />
-        //                                     </Grid>
-        //                                     <Grid item> 
-        //                                         <Image src={product.image} alt="product image" width={150} height={150} layout="fixed" quality={65} />
-        //                                     </Grid>
-        //                                 </Grid>
-        //                             </Grid>
-        //                         </Grid>
+                            {/* supporting images */}
+                            <Grid container direction="row" justifyContent="space-evenly" alignItems="center" className={classes.supportingImageContainer}>
+                            
+                                <Grid item> 
+                                    <Image src={product.image.src} alt="product image" width={150} height={150} layout="fixed" quality={65} />
+                                </Grid>
+                                <Grid item> 
+                                    <Image src={product.image.src} alt="product image" width={150} height={150} layout="fixed" quality={65} />
+                                </Grid>
+                                <Grid item> 
+                                    <Image src={product.image.src} alt="product image" width={150} height={150} layout="fixed" quality={65} />
+                                </Grid>
+                            </Grid>
+                        </Grid>
+                    </Grid>
 
-        //                         <Grid item xs={12} md={5}> 
-        //                             <Grid container direction="column" className={classes.detailsContainer}>
-        //                                 <Grid item xs={12} style={{marginBottom: 20}}>
-        //                                     <Typography variant="h3" gutterBottom >
-        //                                         {product.name}
-        //                                     </Typography>
-        //                                 </Grid>
-        //                                 <Grid item xs={12} style={{marginBottom: 20}}>
-        //                                     <Typography variant="h4" gutterBottom >
-        //                                         <span className={classes.span}>from</span> ${product.price_starting_from}
-        //                                     </Typography>
-        //                                 </Grid>
-        //                                 <Grid item xs={12} style={{marginBottom: 20}}>
-        //                                     <Typography variant="body1" gutterBottom >
-        //                                         {product.description}
-        //                                     </Typography>
-        //                                 </Grid>
-        //                                 <Grid item xs={12} >
-        //                                     <Button variant="contained" size="large" color="secondary">
-        //                                         <Typography style={{color: 'white', padding: 5}}>
-        //                                             <b>download pricing guide</b>
-        //                                         </Typography>
-                                                
-        //                                     </Button>
-        //                                 </Grid>
-        //                             </Grid>
-        //                         </Grid>
-        //                     </Grid>
-        //                 </Container>
-        // </>
+                    <Grid item xs={12} md={5}> 
+                        <Grid container direction="column" className={classes.detailsContainer}>
+                            <Grid item xs={12} style={{marginBottom: 20}}>
+                                <Typography variant="h3" gutterBottom >
+                                    {product.title}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12} style={{marginBottom: 20}}>
+                                <Typography variant="h4" gutterBottom >
+                                    <span className={classes.span}>from</span> ${product.price_starting_from}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12} style={{marginBottom: 20}}>
+                                <Typography variant="body1" gutterBottom >
+                                    {product.description}
+                                </Typography>
+                            </Grid>
+                            <Grid item xs={12} >
+                                <Button variant="contained" size="large" color="secondary">
+                                    <Typography style={{color: 'white', padding: 5}}>
+                                        <b>download pricing guide</b>
+                                    </Typography>
+                                    
+                                </Button>
+                            </Grid>
+                        </Grid>
+                    </Grid>
+                </Grid>
+            </Container> 
+        </>
     );
 };
 
@@ -169,8 +168,8 @@ const ProductDetails = (props) => {
 //     }
 // }
 
-export const getStaticProps = async ({ params }) => {
-    console.log('params.filename', params.filename)
+export const getStaticProps = async({params}) => {
+    const filename =  params.filename.replace(/ /g,'')
     const tinaProps = (await getStaticPropsForTina({
       query: `#graphql
         query ProductsListQuery($relativePath: String!) {
@@ -188,7 +187,7 @@ export const getStaticProps = async ({ params }) => {
           }
         }
       `,
-      variables: { relativePath: `${params.filename}.md` },
+      variables: { relativePath: `${filename}.md` },
     }))
     return {
       props: {
@@ -214,14 +213,11 @@ export const getStaticPaths = async () => {
           }
         `,
     }));
-    // const paths = ProductListData.getProductsList.edges.map(product => {
-    //     return {params: {filename: product.node.sys.filename}}
-    // });
 
     return {
-        paths: ProductListData.getProductsList.edges.map(product => ({
-            params: {filename: product.node.sys.filename},
-        })),
+        paths: ProductListData.getProductsList.edges.map(product => {
+            return {params: {filename: product.node.sys.filename} }
+        }),
         fallback: 'blocking',
     }
 }
