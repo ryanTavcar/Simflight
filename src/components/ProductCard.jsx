@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const ProductCard = ({product}) => {
-    console.log('productCard', product)
+
     const classes = useStyles();
     const [productDescription, setProductDescription] = useState('');
 

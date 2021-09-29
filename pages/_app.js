@@ -54,7 +54,7 @@ function MyApp({ Component, pageProps }) {
         showEditButton={!Boolean(Number(NEXT_PUBLIC_HIDE_EDIT_BUTTON))}
         editMode={
           <TinaCMS
-            branch="main"
+            branch="tina"
             clientId={NEXT_PUBLIC_TINA_CLIENT_ID}
             isLocalClient={Boolean(Number(NEXT_PUBLIC_USE_LOCAL_CLIENT))}
             mediaStore={TinaCloudCloudinaryMediaStore}
@@ -76,7 +76,7 @@ function MyApp({ Component, pageProps }) {
                */
               filterCollections: (options) => {
                 return options.filter(
-                  (option) => option.label === "Product List"
+                  (option) => option.label === "Products List"
                 );
               },
             }}
