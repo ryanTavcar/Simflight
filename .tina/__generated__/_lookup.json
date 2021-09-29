@@ -4,6 +4,7 @@
     "resolveType": "multiCollectionDocumentList",
     "collections": [
       "pages",
+      "products",
       "fourOhFour"
     ]
   },
@@ -53,5 +54,63 @@
     "type": "FourOhFourConnection",
     "resolveType": "collectionDocumentList",
     "collection": "fourOhFour"
+  },
+  "ProductsProducts": {
+    "type": "ProductsProducts",
+    "resolveType": "unionData",
+    "typeMap": {
+      "products": "ProductsProductsProducts"
+    }
+  },
+  "ProductsDocument": {
+    "type": "ProductsDocument",
+    "resolveType": "collectionDocument",
+    "collection": "products"
+  },
+  "ProductsConnection": {
+    "type": "ProductsConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "products"
+  },
+  "ProductsBlocks": {
+    "type": "ProductsBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "products": "ProductsBlocksProducts"
+    }
+  },
+  "ProductsBlock": {
+    "type": "ProductsBlock",
+    "resolveType": "unionData",
+    "typeMap": {
+      "products": "ProductsBlockProducts"
+    }
+  },
+  "ProductzBlocks": {
+    "type": "ProductzBlocks",
+    "resolveType": "unionData",
+    "typeMap": {
+      "products": "ProductzBlocksProducts"
+    }
+  },
+  "ProductzDocument": {
+    "type": "ProductzDocument",
+    "resolveType": "collectionDocument",
+    "collection": "productz"
+  },
+  "ProductzConnection": {
+    "type": "ProductzConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "productz"
+  },
+  "ActionsDocument": {
+    "type": "ActionsDocument",
+    "resolveType": "collectionDocument",
+    "collection": "actions"
+  },
+  "ActionsConnection": {
+    "type": "ActionsConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "actions"
   }
 }

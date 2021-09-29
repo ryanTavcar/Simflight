@@ -12,7 +12,7 @@ import products from '../util/products'
 
 const useStyles = makeStyles(theme => ({
     card: {
-        height: 480,
+        height: 450,
         // minWidth: 275,
         // maxWidth: 400,
         boxShadow: "0px 2px 1px -1px rgba(0,0,0,0.2),0px 1px 1px 0px rgba(0,0,0,0.14),0px 1px 3px 0px rgba(0,0,0,0.12)",
@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const ProductCard = ({product}) => {
-
+    console.log('productCard', product)
     const classes = useStyles();
     const [productDescription, setProductDescription] = useState('');
 
@@ -103,11 +103,11 @@ const ProductCard = ({product}) => {
     return (
         <Card className={classes.card}>
             {/* image */}
-            <CardMedia className={classes.cover} image={product.image} title={product.title} />
+            <CardMedia className={classes.cover} image={product.image.src} title={product.title} />
             {/*  see details */}
             <CardActions className={classes.cardAction}>
                 <Grid container justifyContent="center">
-                    <Link href={`/products/${product.id}`}>
+                    <Link href={`/products/${product.title}`}>
                         <Button variant="contained"  className={classes.button}>
                             <Typography color="primary">
                                 <b>see details</b>
@@ -120,7 +120,7 @@ const ProductCard = ({product}) => {
                 <Grid container direction="row">
                     <Grid item xs={12} className={classes.name}>
                         <Typography color="textPrimary" variant="h6">
-                            <b>{product.name}</b>
+                            <b>{product.title}</b>
                         </Typography>
                     </Grid>
 
@@ -129,14 +129,14 @@ const ProductCard = ({product}) => {
                             {productDescription}
                         </Typography>
                     </Grid>
-
+{/* 
                     <Grid container direction="row">
                         <Grid item xs={12} className={classes.price}>
                             <Typography  variant="h4" color="textPrimary">
                                 <span className={classes.span}>from</span><b>${product.price_starting_from}</b>
                             </Typography>
                         </Grid>
-                    </Grid>
+                    </Grid> */}
                 </Grid>
             </CardContent>
         </Card>
