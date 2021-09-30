@@ -548,6 +548,82 @@
       ]
     },
     {
+      "label": "News List",
+      "name": "news",
+      "path": "content/news",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title",
+          "namespace": [
+            "news",
+            "title"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "excerpt",
+          "name": "excerpt",
+          "ui": {
+            "component": "textarea"
+          },
+          "namespace": [
+            "news",
+            "excerpt"
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Posted Date",
+          "name": "date",
+          "ui": {
+            "dateFormat": "DD MM YYYY",
+            "timeFormat": "hh:mm A"
+          },
+          "namespace": [
+            "news",
+            "date"
+          ]
+        },
+        {
+          "type": "image",
+          "name": "heroImg",
+          "label": "Hero Image",
+          "namespace": [
+            "news",
+            "heroImg"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Keywords",
+          "name": "keywords",
+          "list": true,
+          "namespace": [
+            "news",
+            "keywords"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Body",
+          "ui": {
+            "component": "markdown"
+          },
+          "name": "body",
+          "isBody": true,
+          "namespace": [
+            "news",
+            "body"
+          ]
+        }
+      ],
+      "namespace": [
+        "news"
+      ]
+    },
+    {
       "label": "404",
       "name": "fourOhFour",
       "path": "content/fourOhFour",

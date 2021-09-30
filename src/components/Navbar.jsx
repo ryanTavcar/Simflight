@@ -22,20 +22,24 @@ import {
 
 const menuItems = [
     {
-        text: 'Home',
-        pathname: '/'
-    },
-    {
         text: 'About',
-        pathname: '/aboutPage'
+        pathname: '/about'
     },
     {
         text: 'Products',
-        pathname: '/productsPage'
+        pathname: '/products'
+    },
+    {
+        text: 'Downloads',
+        pathname: '/downloads'
+    },
+    {
+        text: 'News',
+        pathname: '/news'
     },
     {
         text: 'Contact',
-        pathname: '/contactPage'
+        pathname: '/contact'
     },
 ];
 
@@ -92,10 +96,7 @@ const useStyles = makeStyles(theme =>({
       },
     },
     linkContainer: {
-        // width: 400,
-        // float: 'right',
         height: 20,
-        // border: '1px solid red'
     }
 }))
 
@@ -144,9 +145,11 @@ const Navbar = ({lightOrDark, handleLightOrDark}) => {
                     {/* tablet, laptop, desktop */}
                     <Hidden smDown >
                         <Grid item md={4} className={styles.linkContainer}>
-                            <Typography style={{fontFamily: 'Bungee', letterSpacing: 1}}>
-                                <b>Simflight</b>
-                            </Typography>
+                            <Link href='/'>
+                                <Typography style={{fontFamily: 'Bungee', letterSpacing: 1, cursor: 'pointer', width: 'fit-content'}}>
+                                    <b>Simflight</b>
+                                </Typography>
+                            </Link>
                             {/* <Image src='/images/simflight_logo_transparent_1.png' width='100' height='32' /> */}
                         </Grid>
                         <Grid item md={4} className={styles.linkContainer}>

@@ -5,6 +5,7 @@
     "collections": [
       "pages",
       "products",
+      "news",
       "fourOhFour"
     ]
   },
@@ -112,5 +113,15 @@
     "type": "ActionsConnection",
     "resolveType": "collectionDocumentList",
     "collection": "actions"
+  },
+  "NewsDocument": {
+    "type": "NewsDocument",
+    "resolveType": "collectionDocument",
+    "collection": "news"
+  },
+  "NewsConnection": {
+    "type": "NewsConnection",
+    "resolveType": "collectionDocumentList",
+    "collection": "news"
   }
 }

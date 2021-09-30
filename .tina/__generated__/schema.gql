@@ -49,6 +49,8 @@ type Query {
   getPagesList(before: String, after: String, first: Int, last: Int): PagesConnection!
   getProductsDocument(relativePath: String): ProductsDocument!
   getProductsList(before: String, after: String, first: Int, last: Int): ProductsConnection!
+  getNewsDocument(relativePath: String): NewsDocument!
+  getNewsList(before: String, after: String, first: Int, last: Int): NewsConnection!
   getFourOhFourDocument(relativePath: String): FourOhFourDocument!
   getFourOhFourList(before: String, after: String, first: Int, last: Int): FourOhFourConnection!
 }
@@ -76,7 +78,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = PagesDocument | ProductsDocument | FourOhFourDocument
+union DocumentNode = PagesDocument | ProductsDocument | NewsDocument | FourOhFourDocument
 
 type PagesBlocksHeroActions {
   label: String
@@ -186,6 +188,35 @@ type ProductsConnection implements Connection {
   edges: [ProductsConnectionEdges]
 }
 
+type News {
+  title: String
+  excerpt: String
+  date: String
+  heroImg: String
+  keywords: [String]
+  body: String
+}
+
+type NewsDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: News!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type NewsConnectionEdges {
+  cursor: String
+  node: NewsDocument
+}
+
+type NewsConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [NewsConnectionEdges]
+}
+
 type FourOhFourImage {
   src: String
   alt: String
@@ -230,12 +261,14 @@ type Mutation {
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
   updateProductsDocument(relativePath: String!, params: ProductsMutation!): ProductsDocument!
+  updateNewsDocument(relativePath: String!, params: NewsMutation!): NewsDocument!
   updateFourOhFourDocument(relativePath: String!, params: FourOhFourMutation!): FourOhFourDocument!
 }
 
 input DocumentMutation {
   pages: PagesMutation
   products: ProductsMutation
+  news: NewsMutation
   fourOhFour: FourOhFourMutation
 }
 
@@ -309,6 +342,15 @@ input ProductsMutation {
   description: String
   image: ProductsImageMutation
   keywords: [String]
+}
+
+input NewsMutation {
+  title: String
+  excerpt: String
+  date: String
+  heroImg: String
+  keywords: [String]
+  body: String
 }
 
 input FourOhFourImageMutation {

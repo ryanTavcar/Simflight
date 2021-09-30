@@ -324,6 +324,55 @@
       ]
     },
     {
+      "label": "News List",
+      "name": "news",
+      "path": "content/news",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title"
+        },
+        {
+          "type": "string",
+          "label": "excerpt",
+          "name": "excerpt",
+          "ui": {
+            "component": "textarea"
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Posted Date",
+          "name": "date",
+          "ui": {
+            "dateFormat": "DD MM YYYY",
+            "timeFormat": "hh:mm A"
+          }
+        },
+        {
+          "type": "image",
+          "name": "heroImg",
+          "label": "Hero Image"
+        },
+        {
+          "type": "string",
+          "label": "Keywords",
+          "name": "keywords",
+          "list": true
+        },
+        {
+          "type": "string",
+          "label": "Body",
+          "ui": {
+            "component": "markdown"
+          },
+          "name": "body",
+          "isBody": true
+        }
+      ]
+    },
+    {
       "label": "404",
       "name": "fourOhFour",
       "path": "content/fourOhFour",
