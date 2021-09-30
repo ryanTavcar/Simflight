@@ -188,11 +188,16 @@ type ProductsConnection implements Connection {
   edges: [ProductsConnectionEdges]
 }
 
+type NewsImage {
+  src: String
+  alt: String
+}
+
 type News {
   title: String
   excerpt: String
   date: String
-  heroImg: String
+  image: NewsImage
   keywords: [String]
   body: String
 }
@@ -344,11 +349,16 @@ input ProductsMutation {
   keywords: [String]
 }
 
+input NewsImageMutation {
+  src: String
+  alt: String
+}
+
 input NewsMutation {
   title: String
   excerpt: String
   date: String
-  heroImg: String
+  image: NewsImageMutation
   keywords: [String]
   body: String
 }

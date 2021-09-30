@@ -1,6 +1,5 @@
 import React from 'react';
 import { getStaticPropsForTina, staticRequest } from "tinacms";
-import News from '../../src/components/News';
 import { makeStyles } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 import {Container} from '@material-ui/core';
@@ -10,12 +9,7 @@ import Article from '../../src/components/Article';
 const useStyles = makeStyles(theme => ({
     container: {
       // border: '1px solid red',
-      // height: '100vh',
-      // minHeight: 'calc(100vh - 170px)',
       padding: 0,
-      [theme.breakpoints.down('sm')]: {
-        marginTop: 50
-      }
     }
 }));
 
@@ -24,7 +18,7 @@ const NewsPost = (props) => {
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
     const isLaptop = useMediaQuery(theme => theme.breakpoints.down("md"));
-
+  console.log(props.data.getNewsDocument)
     return (
         <>
             {props.data && props.data.getNewsDocument ?
@@ -46,7 +40,10 @@ export const getStaticProps = async ({ params }) => {
             data {
               title
               date
-              heroImg
+              image {
+                src
+                alt
+              }
               body
             }
           }

@@ -310,12 +310,18 @@ export type ProductsConnection = Connection & {
   edges?: Maybe<Array<Maybe<ProductsConnectionEdges>>>;
 };
 
+export type NewsImage = {
+  __typename?: 'NewsImage';
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
 export type News = {
   __typename?: 'News';
   title?: Maybe<Scalars['String']>;
   excerpt?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
-  heroImg?: Maybe<Scalars['String']>;
+  image?: Maybe<NewsImage>;
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   body?: Maybe<Scalars['String']>;
 };
@@ -515,11 +521,16 @@ export type ProductsMutation = {
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
 };
 
+export type NewsImageMutation = {
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
 export type NewsMutation = {
   title?: Maybe<Scalars['String']>;
   excerpt?: Maybe<Scalars['String']>;
   date?: Maybe<Scalars['String']>;
-  heroImg?: Maybe<Scalars['String']>;
+  image?: Maybe<NewsImageMutation>;
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   body?: Maybe<Scalars['String']>;
 };

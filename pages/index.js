@@ -11,13 +11,10 @@ import { getStaticPropsForTina } from "tinacms";
 
 const useStyles = makeStyles(theme => ({
   container: {
-    // border: '1px solid red',
-    // height: '100vh',
     // minHeight: 'calc(100vh - 170px)',
     padding: 0,
-    [theme.breakpoints.down('sm')]: {
-      marginTop: 50
-    }
+    overflow: 'hidden',
+    // marginTop: 50,
   }
 }));
 

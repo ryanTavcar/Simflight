@@ -346,14 +346,25 @@
           "label": "Posted Date",
           "name": "date",
           "ui": {
-            "dateFormat": "DD MM YYYY",
-            "timeFormat": "hh:mm A"
+            "dateFormat": "DD MM YYYY"
           }
         },
         {
-          "type": "image",
-          "name": "heroImg",
-          "label": "Hero Image"
+          "type": "object",
+          "label": "Hero Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image"
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string"
+            }
+          ]
         },
         {
           "type": "string",

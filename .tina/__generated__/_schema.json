@@ -578,8 +578,7 @@
           "label": "Posted Date",
           "name": "date",
           "ui": {
-            "dateFormat": "DD MM YYYY",
-            "timeFormat": "hh:mm A"
+            "dateFormat": "DD MM YYYY"
           },
           "namespace": [
             "news",
@@ -587,12 +586,34 @@
           ]
         },
         {
-          "type": "image",
-          "name": "heroImg",
+          "type": "object",
           "label": "Hero Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image",
+              "namespace": [
+                "news",
+                "image",
+                "src"
+              ]
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string",
+              "namespace": [
+                "news",
+                "image",
+                "alt"
+              ]
+            }
+          ],
           "namespace": [
             "news",
-            "heroImg"
+            "image"
           ]
         },
         {

@@ -2,10 +2,8 @@ import React, {useState} from 'react';
 import Link from "next/link";
 import { Grid, Paper, Typography } from '@material-ui/core';
 import Markdown from "react-markdown";
-import { FormatDate } from '../util/helper';
 import { makeStyles } from "@material-ui/core/styles";
 import { BsArrowRight } from "react-icons/bs";
-import { position } from 'dom-helpers';
 
 
 const useStyles = makeStyles(theme => ({
@@ -24,27 +22,34 @@ const useStyles = makeStyles(theme => ({
             color: theme.palette.primary.main,
             alignItems: 'center',
             marginLeft: 10
+        },
+        [theme.breakpoints.down('sm')] :{
+            margin: '10px 0px',
+            '&:hover .icon': {
+                display: 'none',
+            }
         }
     },
     gridItem: {
         margin: '5px 0px',
-        // border: '1px solid red',
+        [theme.breakpoints.down('sm')] :{
+            margin: '10px 0px',
+        }
     },
 }));
 
-const News = ({data}) => {
+const NewsList = ({data}) => {
     const classes = useStyles();
-    // const [icon, setIcon] = useState(false);
+
     return (
         <>
-            {data.map((newsData, index) => {
+            {data.map(newsData => {
                 const news = newsData.node;
-                const formatDate = FormatDate(news);
                 return (
                     <Link key={news.sys.filename} href={`/news/${news.sys.filename}`} passHref>
                         <a key={news.id}>
                             <Grid container justifyContent="center" alignItems="center" className={classes.container}>
-                                <Grid item item xs={11} sm={12}>
+                                <Grid item xs={11} sm={12}>
                                     <Paper elevation={3} className={classes.paper}>
                                         <Grid container direction="column">
 
@@ -63,12 +68,12 @@ const News = ({data}) => {
 
                                             <Grid item xs={12} className={classes.gridItem}>
                                                 <Typography variant="subtitle2" component="h3">
-                                                    {formatDate}
+                                                    {news.values.date}
                                                 </Typography>
                                             </Grid>
 
                                             <Grid item xs={12} className={classes.gridItem}>
-                                                <Typography variant="body1" component="h3">
+                                                <Typography variant="body2" component="h3" color="textSecondary">
                                                     {news.values.excerpt}
                                                 </Typography>
                                             </Grid>
@@ -86,4 +91,4 @@ const News = ({data}) => {
     );
 }
 
-export default News;
+export default NewsList;

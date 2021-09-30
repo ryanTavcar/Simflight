@@ -45,7 +45,6 @@ const menuItems = [
 
 const useStyles = makeStyles(theme =>({
     navbar: {
-        // minHeight: 40,
         // border: '1px solid red'
     },
     menuButton: {
@@ -55,22 +54,12 @@ const useStyles = makeStyles(theme =>({
         flexGrow: 1,
       },
     navlink: {
-      color: '#000',
-      cursor: 'pointer',
-      textDecoration: 'none',
-      'a:visited': {
         color: '#000',
-      },
-        // border: '1px solid red',
-
-    },
-    drawer: {
-      [theme.breakpoints.up('sm')]: {
-        // width: '100%',
-        // flexShrink: 0,
-        // height: 30,
-        // border: '1px solid red',
-      },
+        cursor: 'pointer',
+        textDecoration: 'none',
+        'a:visited': {
+            color: '#000',
+        },
     },
     drawerPaper: {
       width: 300,
@@ -144,19 +133,19 @@ const Navbar = ({lightOrDark, handleLightOrDark}) => {
 
                     {/* tablet, laptop, desktop */}
                     <Hidden smDown >
-                        <Grid item md={4} className={styles.linkContainer}>
-                            <Link href='/'>
+                        <Grid item md={3} className={styles.linkContainer}>
+                            <Link href='/' passHref>
                                 <Typography style={{fontFamily: 'Bungee', letterSpacing: 1, cursor: 'pointer', width: 'fit-content'}}>
                                     <b>Simflight</b>
                                 </Typography>
                             </Link>
                             {/* <Image src='/images/simflight_logo_transparent_1.png' width='100' height='32' /> */}
                         </Grid>
-                        <Grid item md={4} className={styles.linkContainer}>
+                        <Grid item md={6} className={styles.linkContainer}>
                             <Grid container direction="row" alignItems="center" justifyContent="space-evenly">
                                 {menuItems.map(item => (
                                     <Grid item key={item.text}>
-                                        <Link href={item.pathname} className={styles.navlink}>
+                                        <Link href={item.pathname} className={styles.navlink} passHref>
                                             <Typography color="textPrimary" style={{cursor: 'pointer'}}>
                                                 {item.text}
                                             </Typography>
@@ -165,7 +154,7 @@ const Navbar = ({lightOrDark, handleLightOrDark}) => {
                                 ))}
                             </Grid>
                         </Grid>
-                            <Grid item md={4} className={styles.linkContainer}>
+                            <Grid item md={3} className={styles.linkContainer}>
                                 <Grid container direction="row" justifyContent="flex-end" >
                                     <Button size="small" onClick={() => handleLightOrDark()}>
                                         {lightOrDark}

@@ -17,9 +17,9 @@ const useStyles = makeStyles(theme => ({
         width: '100%',
         marginBottom: 50,
         marginTop: 50,
-        [theme.breakpoints.between('sm', 'md')]: {
-            minHeight: 0,
-        }
+        // [theme.breakpoints.between('sm', 'md')]: {
+        //     minHeight: 0,
+        // }
     },
     title : {
         fontFamily: 'Bungee',
@@ -56,7 +56,7 @@ const Hero = ({data}) => {
                     <Grid item >
                         <Grid container direction="row" justifyContent={isMobile ? 'center' : 'flex-start'} >
                             {data.actions && 
-                                <Link href={data.actions[0].link}>
+                                <Link href={data.actions[0].link} passHref>
                                     <Button color="primary" variant="contained" size="large">
                                         {data.actions[0].label}
                                         {data.actions[0].icon &&

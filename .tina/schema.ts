@@ -377,13 +377,24 @@ export default defineSchema({
           name: "date",
           ui: {
             dateFormat: "DD MM YYYY",
-            timeFormat: "hh:mm A",
           },
         },
         {
-          type: "image",
-          name: "heroImg",
+          type: "object",
           label: "Hero Image",
+          name: "image",
+          fields: [
+            {
+              name: "src",
+              label: "Image Source",
+              type: "image",
+            },
+            {
+              name: "alt",
+              label: "Alt Text",
+              type: "string",
+            },
+          ],
         },
         {
           type: "string",

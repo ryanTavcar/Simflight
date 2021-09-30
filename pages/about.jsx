@@ -7,6 +7,7 @@ import {Container,
   ImageList,
   ImageListItem
  } from '@material-ui/core';
+import Image from 'next/image';
 import { makeStyles } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
 import { getStaticPropsForTina } from "tinacms";
@@ -39,44 +40,44 @@ const useStyles = makeStyles(theme => ({
 const itemData = [
   {
     id: 1,
-    img: 'images/me-aaron.gif',
+    img: '/images/me-aaron.gif',
     title: 'Me and my son',
   },
   {
     id: 2,
-    img: 'images/b3.jpg',
+    img: '/images/b3.jpg',
     title: 'Me and my crew',
   },
   {
     id: 5,
-    img: 'images/me-aaron.gif',
+    img: '/images/me-aaron.gif',
     title: 'Me and my son',
     rows: 2
   },
   {
     id: 4,
-    img: 'images/airwing.jpg',
+    img: '/images/airwing.jpg',
     title: 'Police Airwing',
     cols: 2,
   },
   {
     id: 3,
-    img: 'images/dad.jpg',
+    img: '/images/dad.jpg',
     title: 'Me',
   },
   {
     id: 6,
-    img: 'images/b3.jpg',
+    img: '/images/b3.jpg',
     title: 'Me and my crew',
   },
   {
     id: 7,
-    img: 'images/dad.jpg',
+    img: '/images/dad.jpg',
     title: 'Me',
   },
   {
     id: 8,
-    img: 'images/airwing.jpg',
+    img: '/images/airwing.jpg',
     title: 'Police Airwing',
   },
 ]
@@ -117,7 +118,7 @@ const About = (props) => {
               <ImageList rowHeight={160} className={classes.imageList} cols={3} gap={6}>
                 {itemData.map((item) => (
                   <ImageListItem key={item.id} cols={item.cols || 1} rows={item.rows || 1}>
-                    <img src={item.img} alt={item.title} />
+                    <Image src={item.img} alt={item.title} layout="fill"/>
                   </ImageListItem>
                 ))}
               </ImageList>

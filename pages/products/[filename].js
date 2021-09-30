@@ -73,21 +73,21 @@ const ProductDetails = (props) => {
 
         <Container maxWidth={isMobile ? 'sm' : isLaptop ? 'md' : 'lg'} className={classes.container}>
             <Breadcrumbs aria-label="breadcrumb">
-                <Link color="inherit" href="/" className={classes.link}>
+                <Link color="inherit" href="/" className={classes.link} passHref>
                     <Typography style={{fontSize: 12}}>
                         <HomeIcon className={classes.icon} />
                         Home
                     </Typography>
                 </Link>
 
-                <Link color="inherit" href="/productsPage/" className={classes.link}>
+                <Link color="inherit" href="/productsPage/" className={classes.link} passHref>
                     <Typography style={{fontSize: 12}}>
                         <WhatshotIcon className={classes.icon} />
                         products
                     </Typography>
                 </Link>
 
-                <Link color="inherit" href={`/products/${product.filename}`} className={classes.link}>
+                <Link color="inherit" href={`/products/${product.filename}`} className={classes.link} passHref>
                     <Typography color="textPrimary" style={{fontSize: 12}}>
                         <GrainIcon className={classes.icon} />
                         {product.title}

@@ -1,7 +1,7 @@
 import React from "react";
 import Hero from "./Hero";
 import WhatWeDo from "./WhatWeDo";
-import News from './News';
+// import NewsList from './News';
 
 const Blocks = (props) => {
 console.log(props)
@@ -22,12 +22,12 @@ console.log(props)
                       <WhatWeDo data={block} />
                     </React.Fragment>
                   );
-                case "PagesBlocksNews":
-                  return (
-                    <React.Fragment key={i + block.__typename}>
-                      <News data={block} />
-                    </React.Fragment>
-                  );
+                // case "PagesBlocksNews":
+                //   return (
+                //     <React.Fragment key={i + block.__typename}>
+                //       <News data={block} />
+                //     </React.Fragment>
+                //   );
                 default:
                   return null;
               }
