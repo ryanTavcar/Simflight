@@ -41,7 +41,7 @@ const useStyles = makeStyles(theme => ({
 
 
 const Products = (props) => {
-    
+    console.log(props)
     const products = props.data.getProductsList.edges;
     const classes = useStyles();
     const [prods, setProds] = useState([])
