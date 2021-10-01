@@ -276,6 +276,114 @@
       ]
     },
     {
+      "label": "Products List",
+      "name": "products",
+      "path": "content/products",
+      "fields": [
+        {
+          "type": "string",
+          "label": "category",
+          "name": "category"
+        },
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title"
+        },
+        {
+          "type": "string",
+          "label": "Description",
+          "name": "description",
+          "ui": {
+            "component": "textarea"
+          }
+        },
+        {
+          "type": "object",
+          "label": "Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image"
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Keywords",
+          "name": "keywords",
+          "list": true
+        }
+      ]
+    },
+    {
+      "label": "News List",
+      "name": "news",
+      "path": "content/news",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title"
+        },
+        {
+          "type": "string",
+          "label": "excerpt",
+          "name": "excerpt",
+          "ui": {
+            "component": "textarea"
+          }
+        },
+        {
+          "type": "datetime",
+          "label": "Posted Date",
+          "name": "date",
+          "ui": {
+            "dateFormat": "DD MM YYYY"
+          }
+        },
+        {
+          "type": "object",
+          "label": "Hero Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image"
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string"
+            }
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Keywords",
+          "name": "keywords",
+          "list": true
+        },
+        {
+          "type": "string",
+          "label": "Body",
+          "ui": {
+            "component": "markdown"
+          },
+          "name": "body",
+          "isBody": true
+        }
+      ]
+    },
+    {
       "label": "404",
       "name": "fourOhFour",
       "path": "content/fourOhFour",

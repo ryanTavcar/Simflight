@@ -20,7 +20,8 @@ const useStyles = makeStyles(theme => ({
     container: {
     //   border: '1px solid orange',
       flexGrow: 1,
-      marginBottom: 100,
+      marginBottom: 50,
+      marginTop: 50,
     },
     heading: {
         // border: '1px solid red',
@@ -164,9 +165,9 @@ const WhatWeDo = ({data}) => {
     return (
         <Grid container component="section" direction="row" justifyContent="flex-end" alignItems="flex-end" className={classes.container}>
             {/* Heading */}
-            <Grid item xs={12} md={6}>
+            {/* <Grid item xs={12} md={6}>
                 <Typography className={classes.heading} variant="h2" color="textPrimary" gutterBottom align={isMobile ? "center" : "right"}><b>{data.headline}</b></Typography>
-            </Grid>
+            </Grid> */}
 
             <Grid container direction="row" justifyContent="center" alignItems="center" spacing={5} >
                 <Grid item xs={10} md={4}>

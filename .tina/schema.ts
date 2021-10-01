@@ -220,85 +220,74 @@ const aboutBlockSchema: TinaTemplate = {
   ],
 };
 
-// const fourOhFour: TinaField = {
-//   label: "404",
-//   name: "fourOhFour",
-//   ui: {
-//     defaultItem: {
-//       headline: "404 – Page Not Found",
-//       text: "Oops! It seems there's nothing here, how embarrassing.",
-//     },
-//   },
-//   fields: [
-//     {
-//       type: "string",
-//       label: "Headline",
-//       name: "headline",
-//     },
-//     {
-//       type: "string",
-//       label: "Text",
-//       name: "text",
-//     },
-//     {
-//       type: "object",
-//       label: "Image",
-//       name: "image",
-//       fields: [
-//         {
-//           name: "src",
-//           label: "Image Source",
-//           type: "image",
-//         },
-//         {
-//           name: "alt",
-//           label: "Alt Text",
-//           type: "string",
-//         },
-//       ],
-//     },
-//     {
-//       label: "Actions",
-//       name: "actions",
-//       type: "object",
-//       list: true,
-//       ui: {
-//         defaultItem: {
-//           label: "Action Label",
-//           type: "button",
-//           icon: true,
-//           link: "/",
-//         },
-//       },
-//       fields: [
-//         {
-//           label: "Label",
-//           name: "label",
-//           type: "string",
-//         },
-//         {
-//           label: "Type",
-//           name: "type",
-//           type: "string",
-//           options: [
-//             { label: "Button", value: "button" },
-//             { label: "Link", value: "link" },
-//           ],
-//         },
-//         {
-//           label: "Icon",
-//           name: "icon",
-//           type: "boolean",
-//         },
-//         {
-//           label: "Link",
-//           name: "link",
-//           type: "string",
-//         },
-//       ],
-//     },
-//   ]
-// };
+const defaultProduct = {
+  title: "product",
+  text: "This is where you might talk about the product, if this wasn't just filler text.",
+  image: {
+    src: "/images/helicopter-feature.png",
+    alt: "Helicopter hero image"
+  }
+}
+
+const productsBlockSchema: TinaTemplate = {
+  label: "Products",
+  name: "products",
+  ui: {
+    defaultItem: {
+      items: [defaultProduct, defaultProduct, defaultProduct]
+    }
+  },
+  fields: [
+    {
+      type: "object",
+      label: "product Items",
+      name: "items",
+      list: true,
+      ui: {
+        defaultItem: {
+          ...defaultProduct,
+        },
+      },
+      fields: [
+        {
+          type: "string",
+          label: "Title",
+          name: "title",
+        },
+        {
+          type: "string",
+          label: "Description",
+          name: "description",
+          ui: {
+            component: "textarea"
+          },
+        },
+        {
+          type: "object",
+          label: "Image",
+          name: "image",
+          fields: [
+            {
+              name: "src",
+              label: "Image Source",
+              type: "image",
+            },
+            {
+              name: "alt",
+              label: "Alt Text",
+              type: "string",
+            },
+          ],
+        },
+        {
+          type: "string",
+          label: "Keywords",
+          name: "keywords",
+        }
+      ],
+    },
+  ],
+};
 
 export default defineSchema({
   collections: [
@@ -313,6 +302,114 @@ export default defineSchema({
           name: "blocks",
           label: "Sections",
           templates: [heroBlockSchema, featureBlockSchema, aboutBlockSchema],
+        },
+      ],
+    },
+    {
+      label: "Products List",
+      name: "products",
+      path: "content/products",
+      fields: [
+        {
+          type: "string",
+          label: "category",
+          name: "category",
+        },
+        {
+          type: "string",
+          label: "Title",
+          name: "title",
+        },
+        {
+          type: "string",
+          label: "Description",
+          name: "description",
+          ui: {
+            component: "textarea"
+          },
+        },
+        {
+          type: "object",
+          label: "Image",
+          name: "image",
+          fields: [
+            {
+              name: "src",
+              label: "Image Source",
+              type: "image",
+            },
+            {
+              name: "alt",
+              label: "Alt Text",
+              type: "string",
+            },
+          ],
+        },
+        {
+          type: "string",
+          label: "Keywords",
+          name: "keywords",
+          list: true,
+        }
+      ],
+    },
+    {
+      label: "News List",
+      name: "news",
+      path: "content/news",
+      fields: [
+        {
+          type: "string",
+          label: "Title",
+          name: "title",
+        },
+        {
+          type: "string",
+          label: "excerpt",
+          name: "excerpt",
+          ui: {
+            component: "textarea"
+          },
+        },
+        {
+          type: "datetime",
+          label: "Posted Date",
+          name: "date",
+          ui: {
+            dateFormat: "DD MM YYYY",
+          },
+        },
+        {
+          type: "object",
+          label: "Hero Image",
+          name: "image",
+          fields: [
+            {
+              name: "src",
+              label: "Image Source",
+              type: "image",
+            },
+            {
+              name: "alt",
+              label: "Alt Text",
+              type: "string",
+            },
+          ],
+        },
+        {
+          type: "string",
+          label: "Keywords",
+          name: "keywords",
+          list: true,
+        },
+        {
+          type: "string",
+          label: "Body",
+          ui: {
+            component: "markdown",
+          },
+          name: "body",
+          isBody: true,
         },
       ],
     },

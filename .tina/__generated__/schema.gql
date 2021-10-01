@@ -47,6 +47,10 @@ type Query {
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
   getPagesDocument(relativePath: String): PagesDocument!
   getPagesList(before: String, after: String, first: Int, last: Int): PagesConnection!
+  getProductsDocument(relativePath: String): ProductsDocument!
+  getProductsList(before: String, after: String, first: Int, last: Int): ProductsConnection!
+  getNewsDocument(relativePath: String): NewsDocument!
+  getNewsList(before: String, after: String, first: Int, last: Int): NewsConnection!
   getFourOhFourDocument(relativePath: String): FourOhFourDocument!
   getFourOhFourList(before: String, after: String, first: Int, last: Int): FourOhFourConnection!
 }
@@ -74,7 +78,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = PagesDocument | FourOhFourDocument
+union DocumentNode = PagesDocument | ProductsDocument | NewsDocument | FourOhFourDocument
 
 type PagesBlocksHeroActions {
   label: String
@@ -151,6 +155,73 @@ type PagesConnection implements Connection {
   edges: [PagesConnectionEdges]
 }
 
+type ProductsImage {
+  src: String
+  alt: String
+}
+
+type Products {
+  category: String
+  title: String
+  description: String
+  image: ProductsImage
+  keywords: [String]
+}
+
+type ProductsDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: Products!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type ProductsConnectionEdges {
+  cursor: String
+  node: ProductsDocument
+}
+
+type ProductsConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [ProductsConnectionEdges]
+}
+
+type NewsImage {
+  src: String
+  alt: String
+}
+
+type News {
+  title: String
+  excerpt: String
+  date: String
+  image: NewsImage
+  keywords: [String]
+  body: String
+}
+
+type NewsDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: News!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type NewsConnectionEdges {
+  cursor: String
+  node: NewsDocument
+}
+
+type NewsConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [NewsConnectionEdges]
+}
+
 type FourOhFourImage {
   src: String
   alt: String
@@ -194,11 +265,15 @@ type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
+  updateProductsDocument(relativePath: String!, params: ProductsMutation!): ProductsDocument!
+  updateNewsDocument(relativePath: String!, params: NewsMutation!): NewsDocument!
   updateFourOhFourDocument(relativePath: String!, params: FourOhFourMutation!): FourOhFourDocument!
 }
 
 input DocumentMutation {
   pages: PagesMutation
+  products: ProductsMutation
+  news: NewsMutation
   fourOhFour: FourOhFourMutation
 }
 
@@ -259,6 +334,33 @@ input PagesBlocksMutation {
 
 input PagesMutation {
   blocks: [PagesBlocksMutation]
+}
+
+input ProductsImageMutation {
+  src: String
+  alt: String
+}
+
+input ProductsMutation {
+  category: String
+  title: String
+  description: String
+  image: ProductsImageMutation
+  keywords: [String]
+}
+
+input NewsImageMutation {
+  src: String
+  alt: String
+}
+
+input NewsMutation {
+  title: String
+  excerpt: String
+  date: String
+  image: NewsImageMutation
+  keywords: [String]
+  body: String
 }
 
 input FourOhFourImageMutation {

@@ -467,6 +467,184 @@
       ]
     },
     {
+      "label": "Products List",
+      "name": "products",
+      "path": "content/products",
+      "fields": [
+        {
+          "type": "string",
+          "label": "category",
+          "name": "category",
+          "namespace": [
+            "products",
+            "category"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title",
+          "namespace": [
+            "products",
+            "title"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Description",
+          "name": "description",
+          "ui": {
+            "component": "textarea"
+          },
+          "namespace": [
+            "products",
+            "description"
+          ]
+        },
+        {
+          "type": "object",
+          "label": "Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image",
+              "namespace": [
+                "products",
+                "image",
+                "src"
+              ]
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string",
+              "namespace": [
+                "products",
+                "image",
+                "alt"
+              ]
+            }
+          ],
+          "namespace": [
+            "products",
+            "image"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Keywords",
+          "name": "keywords",
+          "list": true,
+          "namespace": [
+            "products",
+            "keywords"
+          ]
+        }
+      ],
+      "namespace": [
+        "products"
+      ]
+    },
+    {
+      "label": "News List",
+      "name": "news",
+      "path": "content/news",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title",
+          "namespace": [
+            "news",
+            "title"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "excerpt",
+          "name": "excerpt",
+          "ui": {
+            "component": "textarea"
+          },
+          "namespace": [
+            "news",
+            "excerpt"
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Posted Date",
+          "name": "date",
+          "ui": {
+            "dateFormat": "DD MM YYYY"
+          },
+          "namespace": [
+            "news",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "label": "Hero Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image",
+              "namespace": [
+                "news",
+                "image",
+                "src"
+              ]
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string",
+              "namespace": [
+                "news",
+                "image",
+                "alt"
+              ]
+            }
+          ],
+          "namespace": [
+            "news",
+            "image"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Keywords",
+          "name": "keywords",
+          "list": true,
+          "namespace": [
+            "news",
+            "keywords"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Body",
+          "ui": {
+            "component": "markdown"
+          },
+          "name": "body",
+          "isBody": true,
+          "namespace": [
+            "news",
+            "body"
+          ]
+        }
+      ],
+      "namespace": [
+        "news"
+      ]
+    },
+    {
       "label": "404",
       "name": "fourOhFour",
       "path": "content/fourOhFour",

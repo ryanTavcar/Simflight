@@ -13,26 +13,21 @@ import { BiRightArrowAlt } from "react-icons/bi";
 const useStyles = makeStyles(theme => ({
     container: {
         minHeight: 'calc(100vh - 170px)',
+        // border: '1px solid red',
         width: '100%',
-        marginBottom: 100,
-        [theme.breakpoints.between('sm', 'md')]: {
-            minHeight: 0,
-        }
+        marginBottom: 50,
+        marginTop: 50,
+        // [theme.breakpoints.between('sm', 'md')]: {
+        //     minHeight: 0,
+        // }
     },
     title : {
-        // border: '1px solid red',
-        // fontFamily: 'Merriweather sans',
-        // fontFamily: 'maven pro',
-        // fontFamily: 'Bungee Shade',
         fontFamily: 'Bungee',
         letterSpacing: 1,
     },
     subtitle: {
-        // border: '1px solid red',
-    //   margin: '2rem 0'
     },
     textContainer: {
-        // border: '1px solid red',
         [theme.breakpoints.down('sm')] : {
             padding: 20
         }
@@ -61,7 +56,7 @@ const Hero = ({data}) => {
                     <Grid item >
                         <Grid container direction="row" justifyContent={isMobile ? 'center' : 'flex-start'} >
                             {data.actions && 
-                                <Link href={data.actions[0].link}>
+                                <Link href={data.actions[0].link} passHref>
                                     <Button color="primary" variant="contained" size="large">
                                         {data.actions[0].label}
                                         {data.actions[0].icon &&
@@ -76,7 +71,7 @@ const Hero = ({data}) => {
                     </Grid>
                 </Grid>
             </Grid>
-            <Grid item xs={12} md={6} >
+            <Grid item xs={12} md={6}>
                 <Image src={data.image.src} alt={data.image.alt} width="600" height="600" />
             </Grid>
         </Grid>
