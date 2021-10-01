@@ -21,29 +21,33 @@ const useStyles = makeStyles(theme => ({
 }));
 
 const downloadData = [
-    {
+    {   
+        id: 1,
         title: 'Elite Download Dummy Text',
         date: '30-10-2021',
         excerpt: 'This is test text for the download list',
     },
     {
+        id: 2,
         title: 'Elite Download Dummy Text',
         date: '30-10-2021',
         excerpt: 'This is test text for the download list',
     },
     {
+        id: 3,
         title: 'Elite Download Dummy Text',
         date: '30-10-2021',
         excerpt: 'This is test text for the download list',
     },
     {
+        id: 4,
         title: 'Elite Download Dummy Text',
         date: '30-10-2021',
         excerpt: 'This is test text for the download list',
     },
 ]
 
-const download = () => {
+const Download = () => {
 
     const classes = useStyles();
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
@@ -69,4 +73,4 @@ const download = () => {
     );
 }
 
-export default download;
+export default Download;
