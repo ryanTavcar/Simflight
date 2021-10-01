@@ -20,6 +20,8 @@ const useStyles = makeStyles(theme => ({
   },
 }))
 
+// Youtube Link: simflight Aus
+// Facebook Link: Simops Simflight
 const Footer = () => {
 
   const classes = useStyles();
