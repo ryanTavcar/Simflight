@@ -7528,6 +7528,13 @@ next@9.4.2:
     webpack "4.43.0"
     webpack-sources "1.4.3"
 
+nextjs-cors@^2.0.0:
+  version "2.0.0"
+  resolved "https://registry.yarnpkg.com/nextjs-cors/-/nextjs-cors-2.0.0.tgz#ac9d1800200079f1f1dc301f18b4a30bd943d069"
+  integrity sha512-CiGgn52pmRB6jCcvu9CNtTxdiWwYeQDNT/k3RMpcUW0B8whEBdZWTYRL1ltl+Wpc4chUFGawPaMBJb8XFnVUiQ==
+  dependencies:
+    cors "^2.8.5"
+
 no-case@^3.0.4:
   version "3.0.4"
   resolved "https://registry.yarnpkg.com/no-case/-/no-case-3.0.4.tgz#d361fd5c9800f558551a8369fc0dcd4662b6124d"

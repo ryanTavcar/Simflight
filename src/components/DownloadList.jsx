@@ -48,7 +48,7 @@ const DownloadList = ({data}) => {
         <>
         {data.map(download => {
             return (
-                <Grid container justifyContent="center" alignItems="center" className={classes.container}>
+                <Grid key={download.id} container justifyContent="center" alignItems="center" className={classes.container}>
                     <Grid item xs={11} sm={12}>
                         <Paper elevation={3} className={classes.paper}>
                             <Grid container direction="row">
