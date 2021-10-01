@@ -3,8 +3,7 @@
     "type": "DocumentConnection",
     "resolveType": "multiCollectionDocumentList",
     "collections": [
-      "posts",
-      "pages"
+      "posts"
     ]
   },
   "Node": {
@@ -24,22 +23,5 @@
     "type": "PostsConnection",
     "resolveType": "collectionDocumentList",
     "collection": "posts"
-  },
-  "PagesBlocks": {
-    "type": "PagesBlocks",
-    "resolveType": "unionData",
-    "typeMap": {
-      "hero": "PagesBlocksHero"
-    }
-  },
-  "PagesDocument": {
-    "type": "PagesDocument",
-    "resolveType": "collectionDocument",
-    "collection": "pages"
-  },
-  "PagesConnection": {
-    "type": "PagesConnection",
-    "resolveType": "collectionDocumentList",
-    "collection": "pages"
   }
 }

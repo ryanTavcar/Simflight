@@ -47,8 +47,6 @@ type Query {
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
   getPostsDocument(relativePath: String): PostsDocument!
   getPostsList(before: String, after: String, first: Int, last: Int): PostsConnection!
-  getPagesDocument(relativePath: String): PagesDocument!
-  getPagesList(before: String, after: String, first: Int, last: Int): PagesConnection!
 }
 
 type DocumentConnectionEdges {
@@ -74,7 +72,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = PostsDocument | PagesDocument
+union DocumentNode = PostsDocument
 
 type Posts {
   title: String
@@ -101,97 +99,19 @@ type PostsConnection implements Connection {
   edges: [PostsConnectionEdges]
 }
 
-type PagesBlocksHeroActions {
-  label: String
-  type: String
-  icon: Boolean
-  link: String
-}
-
-type PagesBlocksHeroImage {
-  src: String
-  alt: String
-}
-
-type PagesBlocksHero {
-  tagline: String
-  headline: String
-  text: String
-  actions: [PagesBlocksHeroActions]
-  image: PagesBlocksHeroImage
-  color: String
-}
-
-union PagesBlocks = PagesBlocksHero
-
-type Pages {
-  blocks: [PagesBlocks]
-}
-
-type PagesDocument implements Node & Document {
-  id: ID!
-  sys: SystemInfo!
-  data: Pages!
-  form: JSON!
-  values: JSON!
-  dataJSON: JSON!
-}
-
-type PagesConnectionEdges {
-  cursor: String
-  node: PagesDocument
-}
-
-type PagesConnection implements Connection {
-  pageInfo: PageInfo
-  totalCount: Int!
-  edges: [PagesConnectionEdges]
-}
-
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePostsDocument(relativePath: String!, params: PostsMutation!): PostsDocument!
-  updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
 }
 
 input DocumentMutation {
   posts: PostsMutation
-  pages: PagesMutation
 }
 
 input PostsMutation {
   title: String
   body: String
-}
-
-input PagesBlocksHeroActionsMutation {
-  label: String
-  type: String
-  icon: Boolean
-  link: String
-}
-
-input PagesBlocksHeroImageMutation {
-  src: String
-  alt: String
-}
-
-input PagesBlocksHeroMutation {
-  tagline: String
-  headline: String
-  text: String
-  actions: [PagesBlocksHeroActionsMutation]
-  image: PagesBlocksHeroImageMutation
-  color: String
-}
-
-input PagesBlocksMutation {
-  hero: PagesBlocksHeroMutation
-}
-
-input PagesMutation {
-  blocks: [PagesBlocksMutation]
 }
 
 schema {

@@ -65,8 +65,6 @@ export type Query = {
   getDocumentList: DocumentConnection;
   getPostsDocument: PostsDocument;
   getPostsList: PostsConnection;
-  getPagesDocument: PagesDocument;
-  getPagesList: PagesConnection;
 };
 
 
@@ -100,19 +98,6 @@ export type QueryGetPostsDocumentArgs = {
 
 
 export type QueryGetPostsListArgs = {
-  before?: Maybe<Scalars['String']>;
-  after?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-};
-
-
-export type QueryGetPagesDocumentArgs = {
-  relativePath?: Maybe<Scalars['String']>;
-};
-
-
-export type QueryGetPagesListArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
@@ -153,7 +138,7 @@ export type CollectionDocumentsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type DocumentNode = PostsDocument | PagesDocument;
+export type DocumentNode = PostsDocument;
 
 export type Posts = {
   __typename?: 'Posts';
@@ -184,66 +169,11 @@ export type PostsConnection = Connection & {
   edges?: Maybe<Array<Maybe<PostsConnectionEdges>>>;
 };
 
-export type PagesBlocksHeroActions = {
-  __typename?: 'PagesBlocksHeroActions';
-  label?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  icon?: Maybe<Scalars['Boolean']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksHeroImage = {
-  __typename?: 'PagesBlocksHeroImage';
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksHero = {
-  __typename?: 'PagesBlocksHero';
-  tagline?: Maybe<Scalars['String']>;
-  headline?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-  actions?: Maybe<Array<Maybe<PagesBlocksHeroActions>>>;
-  image?: Maybe<PagesBlocksHeroImage>;
-  color?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocks = PagesBlocksHero;
-
-export type Pages = {
-  __typename?: 'Pages';
-  blocks?: Maybe<Array<Maybe<PagesBlocks>>>;
-};
-
-export type PagesDocument = Node & Document & {
-  __typename?: 'PagesDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: Pages;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
-};
-
-export type PagesConnectionEdges = {
-  __typename?: 'PagesConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<PagesDocument>;
-};
-
-export type PagesConnection = Connection & {
-  __typename?: 'PagesConnection';
-  pageInfo?: Maybe<PageInfo>;
-  totalCount: Scalars['Int'];
-  edges?: Maybe<Array<Maybe<PagesConnectionEdges>>>;
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
   updatePostsDocument: PostsDocument;
-  updatePagesDocument: PagesDocument;
 };
 
 
@@ -266,48 +196,12 @@ export type MutationUpdatePostsDocumentArgs = {
   params: PostsMutation;
 };
 
-
-export type MutationUpdatePagesDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: PagesMutation;
-};
-
 export type DocumentMutation = {
   posts?: Maybe<PostsMutation>;
-  pages?: Maybe<PagesMutation>;
 };
 
 export type PostsMutation = {
   title?: Maybe<Scalars['String']>;
   body?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksHeroActionsMutation = {
-  label?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  icon?: Maybe<Scalars['Boolean']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksHeroImageMutation = {
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksHeroMutation = {
-  tagline?: Maybe<Scalars['String']>;
-  headline?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-  actions?: Maybe<Array<Maybe<PagesBlocksHeroActionsMutation>>>;
-  image?: Maybe<PagesBlocksHeroImageMutation>;
-  color?: Maybe<Scalars['String']>;
-};
-
-export type PagesBlocksMutation = {
-  hero?: Maybe<PagesBlocksHeroMutation>;
-};
-
-export type PagesMutation = {
-  blocks?: Maybe<Array<Maybe<PagesBlocksMutation>>>;
 };
 
