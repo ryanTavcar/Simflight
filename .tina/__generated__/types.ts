@@ -63,8 +63,14 @@ export type Query = {
   node: Node;
   getDocument: DocumentNode;
   getDocumentList: DocumentConnection;
-  getPostsDocument: PostsDocument;
-  getPostsList: PostsConnection;
+  getPagesDocument: PagesDocument;
+  getPagesList: PagesConnection;
+  getProductsDocument: ProductsDocument;
+  getProductsList: ProductsConnection;
+  getNewsDocument: NewsDocument;
+  getNewsList: NewsConnection;
+  getFourOhFourDocument: FourOhFourDocument;
+  getFourOhFourList: FourOhFourConnection;
 };
 
 
@@ -92,12 +98,51 @@ export type QueryGetDocumentListArgs = {
 };
 
 
-export type QueryGetPostsDocumentArgs = {
+export type QueryGetPagesDocumentArgs = {
   relativePath?: Maybe<Scalars['String']>;
 };
 
 
-export type QueryGetPostsListArgs = {
+export type QueryGetPagesListArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGetProductsDocumentArgs = {
+  relativePath?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryGetProductsListArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGetNewsDocumentArgs = {
+  relativePath?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryGetNewsListArgs = {
+  before?: Maybe<Scalars['String']>;
+  after?: Maybe<Scalars['String']>;
+  first?: Maybe<Scalars['Int']>;
+  last?: Maybe<Scalars['Int']>;
+};
+
+
+export type QueryGetFourOhFourDocumentArgs = {
+  relativePath?: Maybe<Scalars['String']>;
+};
+
+
+export type QueryGetFourOhFourListArgs = {
   before?: Maybe<Scalars['String']>;
   after?: Maybe<Scalars['String']>;
   first?: Maybe<Scalars['Int']>;
@@ -138,42 +183,225 @@ export type CollectionDocumentsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type DocumentNode = PostsDocument;
+export type DocumentNode = PagesDocument | ProductsDocument | NewsDocument | FourOhFourDocument;
 
-export type Posts = {
-  __typename?: 'Posts';
-  title?: Maybe<Scalars['String']>;
-  body?: Maybe<Scalars['String']>;
+export type PagesBlocksHeroActions = {
+  __typename?: 'PagesBlocksHeroActions';
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['Boolean']>;
+  link?: Maybe<Scalars['String']>;
 };
 
-export type PostsDocument = Node & Document & {
-  __typename?: 'PostsDocument';
+export type PagesBlocksHeroImage = {
+  __typename?: 'PagesBlocksHeroImage';
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksHero = {
+  __typename?: 'PagesBlocksHero';
+  tagline?: Maybe<Scalars['String']>;
+  headline?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  actions?: Maybe<Array<Maybe<PagesBlocksHeroActions>>>;
+  image?: Maybe<PagesBlocksHeroImage>;
+  color?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksFeaturesItemsText = {
+  __typename?: 'PagesBlocksFeaturesItemsText';
+  item1?: Maybe<Scalars['String']>;
+  item2?: Maybe<Scalars['String']>;
+  item3?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksFeaturesItemsImage = {
+  __typename?: 'PagesBlocksFeaturesItemsImage';
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksFeaturesItems = {
+  __typename?: 'PagesBlocksFeaturesItems';
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<PagesBlocksFeaturesItemsText>;
+  image?: Maybe<PagesBlocksFeaturesItemsImage>;
+};
+
+export type PagesBlocksFeatures = {
+  __typename?: 'PagesBlocksFeatures';
+  headline?: Maybe<Scalars['String']>;
+  items?: Maybe<Array<Maybe<PagesBlocksFeaturesItems>>>;
+  color?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksAbout = {
+  __typename?: 'PagesBlocksAbout';
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout;
+
+export type Pages = {
+  __typename?: 'Pages';
+  blocks?: Maybe<Array<Maybe<PagesBlocks>>>;
+};
+
+export type PagesDocument = Node & Document & {
+  __typename?: 'PagesDocument';
   id: Scalars['ID'];
   sys: SystemInfo;
-  data: Posts;
+  data: Pages;
   form: Scalars['JSON'];
   values: Scalars['JSON'];
   dataJSON: Scalars['JSON'];
 };
 
-export type PostsConnectionEdges = {
-  __typename?: 'PostsConnectionEdges';
+export type PagesConnectionEdges = {
+  __typename?: 'PagesConnectionEdges';
   cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<PostsDocument>;
+  node?: Maybe<PagesDocument>;
 };
 
-export type PostsConnection = Connection & {
-  __typename?: 'PostsConnection';
+export type PagesConnection = Connection & {
+  __typename?: 'PagesConnection';
   pageInfo?: Maybe<PageInfo>;
   totalCount: Scalars['Int'];
-  edges?: Maybe<Array<Maybe<PostsConnectionEdges>>>;
+  edges?: Maybe<Array<Maybe<PagesConnectionEdges>>>;
+};
+
+export type ProductsImage = {
+  __typename?: 'ProductsImage';
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type Products = {
+  __typename?: 'Products';
+  category?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<ProductsImage>;
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type ProductsDocument = Node & Document & {
+  __typename?: 'ProductsDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: Products;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type ProductsConnectionEdges = {
+  __typename?: 'ProductsConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<ProductsDocument>;
+};
+
+export type ProductsConnection = Connection & {
+  __typename?: 'ProductsConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<ProductsConnectionEdges>>>;
+};
+
+export type NewsImage = {
+  __typename?: 'NewsImage';
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type News = {
+  __typename?: 'News';
+  title?: Maybe<Scalars['String']>;
+  excerpt?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['String']>;
+  image?: Maybe<NewsImage>;
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
+  body?: Maybe<Scalars['String']>;
+};
+
+export type NewsDocument = Node & Document & {
+  __typename?: 'NewsDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: News;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type NewsConnectionEdges = {
+  __typename?: 'NewsConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<NewsDocument>;
+};
+
+export type NewsConnection = Connection & {
+  __typename?: 'NewsConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<NewsConnectionEdges>>>;
+};
+
+export type FourOhFourImage = {
+  __typename?: 'FourOhFourImage';
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type FourOhFourActions = {
+  __typename?: 'FourOhFourActions';
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['Boolean']>;
+  link?: Maybe<Scalars['String']>;
+};
+
+export type FourOhFour = {
+  __typename?: 'FourOhFour';
+  headline?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  image?: Maybe<FourOhFourImage>;
+  actions?: Maybe<Array<Maybe<FourOhFourActions>>>;
+};
+
+export type FourOhFourDocument = Node & Document & {
+  __typename?: 'FourOhFourDocument';
+  id: Scalars['ID'];
+  sys: SystemInfo;
+  data: FourOhFour;
+  form: Scalars['JSON'];
+  values: Scalars['JSON'];
+  dataJSON: Scalars['JSON'];
+};
+
+export type FourOhFourConnectionEdges = {
+  __typename?: 'FourOhFourConnectionEdges';
+  cursor?: Maybe<Scalars['String']>;
+  node?: Maybe<FourOhFourDocument>;
+};
+
+export type FourOhFourConnection = Connection & {
+  __typename?: 'FourOhFourConnection';
+  pageInfo?: Maybe<PageInfo>;
+  totalCount: Scalars['Int'];
+  edges?: Maybe<Array<Maybe<FourOhFourConnectionEdges>>>;
 };
 
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
   updateDocument: DocumentNode;
-  updatePostsDocument: PostsDocument;
+  updatePagesDocument: PagesDocument;
+  updateProductsDocument: ProductsDocument;
+  updateNewsDocument: NewsDocument;
+  updateFourOhFourDocument: FourOhFourDocument;
 };
 
 
@@ -191,17 +419,138 @@ export type MutationUpdateDocumentArgs = {
 };
 
 
-export type MutationUpdatePostsDocumentArgs = {
+export type MutationUpdatePagesDocumentArgs = {
   relativePath: Scalars['String'];
-  params: PostsMutation;
+  params: PagesMutation;
+};
+
+
+export type MutationUpdateProductsDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: ProductsMutation;
+};
+
+
+export type MutationUpdateNewsDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: NewsMutation;
+};
+
+
+export type MutationUpdateFourOhFourDocumentArgs = {
+  relativePath: Scalars['String'];
+  params: FourOhFourMutation;
 };
 
 export type DocumentMutation = {
-  posts?: Maybe<PostsMutation>;
+  pages?: Maybe<PagesMutation>;
+  products?: Maybe<ProductsMutation>;
+  news?: Maybe<NewsMutation>;
+  fourOhFour?: Maybe<FourOhFourMutation>;
 };
 
-export type PostsMutation = {
+export type PagesBlocksHeroActionsMutation = {
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['Boolean']>;
+  link?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksHeroImageMutation = {
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksHeroMutation = {
+  tagline?: Maybe<Scalars['String']>;
+  headline?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  actions?: Maybe<Array<Maybe<PagesBlocksHeroActionsMutation>>>;
+  image?: Maybe<PagesBlocksHeroImageMutation>;
+  color?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksFeaturesItemsTextMutation = {
+  item1?: Maybe<Scalars['String']>;
+  item2?: Maybe<Scalars['String']>;
+  item3?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksFeaturesItemsImageMutation = {
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksFeaturesItemsMutation = {
   title?: Maybe<Scalars['String']>;
+  text?: Maybe<PagesBlocksFeaturesItemsTextMutation>;
+  image?: Maybe<PagesBlocksFeaturesItemsImageMutation>;
+};
+
+export type PagesBlocksFeaturesMutation = {
+  headline?: Maybe<Scalars['String']>;
+  items?: Maybe<Array<Maybe<PagesBlocksFeaturesItemsMutation>>>;
+  color?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksAboutMutation = {
+  title?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksMutation = {
+  hero?: Maybe<PagesBlocksHeroMutation>;
+  features?: Maybe<PagesBlocksFeaturesMutation>;
+  about?: Maybe<PagesBlocksAboutMutation>;
+};
+
+export type PagesMutation = {
+  blocks?: Maybe<Array<Maybe<PagesBlocksMutation>>>;
+};
+
+export type ProductsImageMutation = {
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type ProductsMutation = {
+  category?: Maybe<Scalars['String']>;
+  title?: Maybe<Scalars['String']>;
+  description?: Maybe<Scalars['String']>;
+  image?: Maybe<ProductsImageMutation>;
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
+};
+
+export type NewsImageMutation = {
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type NewsMutation = {
+  title?: Maybe<Scalars['String']>;
+  excerpt?: Maybe<Scalars['String']>;
+  date?: Maybe<Scalars['String']>;
+  image?: Maybe<NewsImageMutation>;
+  keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   body?: Maybe<Scalars['String']>;
+};
+
+export type FourOhFourImageMutation = {
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type FourOhFourActionsMutation = {
+  label?: Maybe<Scalars['String']>;
+  type?: Maybe<Scalars['String']>;
+  icon?: Maybe<Scalars['Boolean']>;
+  link?: Maybe<Scalars['String']>;
+};
+
+export type FourOhFourMutation = {
+  headline?: Maybe<Scalars['String']>;
+  text?: Maybe<Scalars['String']>;
+  image?: Maybe<FourOhFourImageMutation>;
+  actions?: Maybe<Array<Maybe<FourOhFourActionsMutation>>>;
 };
 

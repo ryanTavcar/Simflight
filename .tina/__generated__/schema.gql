@@ -45,8 +45,14 @@ type Query {
   node(id: String): Node!
   getDocument(collection: String, relativePath: String): DocumentNode!
   getDocumentList(before: String, after: String, first: Int, last: Int): DocumentConnection!
-  getPostsDocument(relativePath: String): PostsDocument!
-  getPostsList(before: String, after: String, first: Int, last: Int): PostsConnection!
+  getPagesDocument(relativePath: String): PagesDocument!
+  getPagesList(before: String, after: String, first: Int, last: Int): PagesConnection!
+  getProductsDocument(relativePath: String): ProductsDocument!
+  getProductsList(before: String, after: String, first: Int, last: Int): ProductsConnection!
+  getNewsDocument(relativePath: String): NewsDocument!
+  getNewsList(before: String, after: String, first: Int, last: Int): NewsConnection!
+  getFourOhFourDocument(relativePath: String): FourOhFourDocument!
+  getFourOhFourList(before: String, after: String, first: Int, last: Int): FourOhFourConnection!
 }
 
 type DocumentConnectionEdges {
@@ -72,46 +78,308 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = PostsDocument
+union DocumentNode = PagesDocument | ProductsDocument | NewsDocument | FourOhFourDocument
 
-type Posts {
-  title: String
-  body: String
+type PagesBlocksHeroActions {
+  label: String
+  type: String
+  icon: Boolean
+  link: String
 }
 
-type PostsDocument implements Node & Document {
+type PagesBlocksHeroImage {
+  src: String
+  alt: String
+}
+
+type PagesBlocksHero {
+  tagline: String
+  headline: String
+  text: String
+  actions: [PagesBlocksHeroActions]
+  image: PagesBlocksHeroImage
+  color: String
+}
+
+type PagesBlocksFeaturesItemsText {
+  item1: String
+  item2: String
+  item3: String
+}
+
+type PagesBlocksFeaturesItemsImage {
+  src: String
+  alt: String
+}
+
+type PagesBlocksFeaturesItems {
+  title: String
+  text: PagesBlocksFeaturesItemsText
+  image: PagesBlocksFeaturesItemsImage
+}
+
+type PagesBlocksFeatures {
+  headline: String
+  items: [PagesBlocksFeaturesItems]
+  color: String
+}
+
+type PagesBlocksAbout {
+  title: String
+  text: String
+}
+
+union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout
+
+type Pages {
+  blocks: [PagesBlocks]
+}
+
+type PagesDocument implements Node & Document {
   id: ID!
   sys: SystemInfo!
-  data: Posts!
+  data: Pages!
   form: JSON!
   values: JSON!
   dataJSON: JSON!
 }
 
-type PostsConnectionEdges {
+type PagesConnectionEdges {
   cursor: String
-  node: PostsDocument
+  node: PagesDocument
 }
 
-type PostsConnection implements Connection {
+type PagesConnection implements Connection {
   pageInfo: PageInfo
   totalCount: Int!
-  edges: [PostsConnectionEdges]
+  edges: [PagesConnectionEdges]
+}
+
+type ProductsImage {
+  src: String
+  alt: String
+}
+
+type Products {
+  category: String
+  title: String
+  description: String
+  image: ProductsImage
+  keywords: [String]
+}
+
+type ProductsDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: Products!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type ProductsConnectionEdges {
+  cursor: String
+  node: ProductsDocument
+}
+
+type ProductsConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [ProductsConnectionEdges]
+}
+
+type NewsImage {
+  src: String
+  alt: String
+}
+
+type News {
+  title: String
+  excerpt: String
+  date: String
+  image: NewsImage
+  keywords: [String]
+  body: String
+}
+
+type NewsDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: News!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type NewsConnectionEdges {
+  cursor: String
+  node: NewsDocument
+}
+
+type NewsConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [NewsConnectionEdges]
+}
+
+type FourOhFourImage {
+  src: String
+  alt: String
+}
+
+type FourOhFourActions {
+  label: String
+  type: String
+  icon: Boolean
+  link: String
+}
+
+type FourOhFour {
+  headline: String
+  text: String
+  image: FourOhFourImage
+  actions: [FourOhFourActions]
+}
+
+type FourOhFourDocument implements Node & Document {
+  id: ID!
+  sys: SystemInfo!
+  data: FourOhFour!
+  form: JSON!
+  values: JSON!
+  dataJSON: JSON!
+}
+
+type FourOhFourConnectionEdges {
+  cursor: String
+  node: FourOhFourDocument
+}
+
+type FourOhFourConnection implements Connection {
+  pageInfo: PageInfo
+  totalCount: Int!
+  edges: [FourOhFourConnectionEdges]
 }
 
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
-  updatePostsDocument(relativePath: String!, params: PostsMutation!): PostsDocument!
+  updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
+  updateProductsDocument(relativePath: String!, params: ProductsMutation!): ProductsDocument!
+  updateNewsDocument(relativePath: String!, params: NewsMutation!): NewsDocument!
+  updateFourOhFourDocument(relativePath: String!, params: FourOhFourMutation!): FourOhFourDocument!
 }
 
 input DocumentMutation {
-  posts: PostsMutation
+  pages: PagesMutation
+  products: ProductsMutation
+  news: NewsMutation
+  fourOhFour: FourOhFourMutation
 }
 
-input PostsMutation {
+input PagesBlocksHeroActionsMutation {
+  label: String
+  type: String
+  icon: Boolean
+  link: String
+}
+
+input PagesBlocksHeroImageMutation {
+  src: String
+  alt: String
+}
+
+input PagesBlocksHeroMutation {
+  tagline: String
+  headline: String
+  text: String
+  actions: [PagesBlocksHeroActionsMutation]
+  image: PagesBlocksHeroImageMutation
+  color: String
+}
+
+input PagesBlocksFeaturesItemsTextMutation {
+  item1: String
+  item2: String
+  item3: String
+}
+
+input PagesBlocksFeaturesItemsImageMutation {
+  src: String
+  alt: String
+}
+
+input PagesBlocksFeaturesItemsMutation {
   title: String
+  text: PagesBlocksFeaturesItemsTextMutation
+  image: PagesBlocksFeaturesItemsImageMutation
+}
+
+input PagesBlocksFeaturesMutation {
+  headline: String
+  items: [PagesBlocksFeaturesItemsMutation]
+  color: String
+}
+
+input PagesBlocksAboutMutation {
+  title: String
+  text: String
+}
+
+input PagesBlocksMutation {
+  hero: PagesBlocksHeroMutation
+  features: PagesBlocksFeaturesMutation
+  about: PagesBlocksAboutMutation
+}
+
+input PagesMutation {
+  blocks: [PagesBlocksMutation]
+}
+
+input ProductsImageMutation {
+  src: String
+  alt: String
+}
+
+input ProductsMutation {
+  category: String
+  title: String
+  description: String
+  image: ProductsImageMutation
+  keywords: [String]
+}
+
+input NewsImageMutation {
+  src: String
+  alt: String
+}
+
+input NewsMutation {
+  title: String
+  excerpt: String
+  date: String
+  image: NewsImageMutation
+  keywords: [String]
   body: String
+}
+
+input FourOhFourImageMutation {
+  src: String
+  alt: String
+}
+
+input FourOhFourActionsMutation {
+  label: String
+  type: String
+  icon: Boolean
+  link: String
+}
+
+input FourOhFourMutation {
+  headline: String
+  text: String
+  image: FourOhFourImageMutation
+  actions: [FourOhFourActionsMutation]
 }
 
 schema {

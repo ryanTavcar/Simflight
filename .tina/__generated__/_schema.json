@@ -1,35 +1,776 @@
 {
   "collections": [
     {
-      "label": "Blog Posts",
-      "name": "posts",
-      "path": "content/posts",
+      "label": "Pages",
+      "name": "pages",
+      "path": "content/pages",
+      "fields": [
+        {
+          "type": "object",
+          "list": true,
+          "name": "blocks",
+          "label": "Sections",
+          "templates": [
+            {
+              "name": "hero",
+              "label": "Hero",
+              "ui": {
+                "defaultItem": {
+                  "tagline": "Here's some text above the other text",
+                  "headline": "This Big Text is Totally Awesome",
+                  "text": "Phasellus scelerisque, libero eu finibus rutrum, risus risus accumsan libero, nec molestie urna dui a leo."
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Tagline",
+                  "name": "tagline",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "hero",
+                    "tagline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Headline",
+                  "name": "headline",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "hero",
+                    "headline"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Text",
+                  "name": "text",
+                  "ui": {
+                    "component": "markdown"
+                  },
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "hero",
+                    "text"
+                  ]
+                },
+                {
+                  "label": "Actions",
+                  "name": "actions",
+                  "type": "object",
+                  "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "label": "Action Label",
+                      "type": "button",
+                      "icon": true,
+                      "link": "/"
+                    }
+                  },
+                  "fields": [
+                    {
+                      "label": "Label",
+                      "name": "label",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "hero",
+                        "actions",
+                        "label"
+                      ]
+                    },
+                    {
+                      "label": "Type",
+                      "name": "type",
+                      "type": "string",
+                      "options": [
+                        {
+                          "label": "Button",
+                          "value": "button"
+                        },
+                        {
+                          "label": "Link",
+                          "value": "link"
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "hero",
+                        "actions",
+                        "type"
+                      ]
+                    },
+                    {
+                      "label": "Icon",
+                      "name": "icon",
+                      "type": "boolean",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "hero",
+                        "actions",
+                        "icon"
+                      ]
+                    },
+                    {
+                      "label": "Link",
+                      "name": "link",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "hero",
+                        "actions",
+                        "link"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "hero",
+                    "actions"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Image",
+                  "name": "image",
+                  "fields": [
+                    {
+                      "name": "src",
+                      "label": "Image Source",
+                      "type": "image",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "hero",
+                        "image",
+                        "src"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Alt Text",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "hero",
+                        "image",
+                        "alt"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "hero",
+                    "image"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Color",
+                  "name": "color",
+                  "options": [
+                    {
+                      "label": "Default",
+                      "value": "default"
+                    },
+                    {
+                      "label": "Tint",
+                      "value": "tint"
+                    },
+                    {
+                      "label": "Primary",
+                      "value": "primary"
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "hero",
+                    "color"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "hero"
+              ]
+            },
+            {
+              "name": "features",
+              "label": "Features",
+              "ui": {
+                "defaultItem": {
+                  "items": [
+                    {
+                      "title": "Simulators",
+                      "text": "This is where you might talk about the feature, if this wasn't just filler text.",
+                      "image": {
+                        "src": "/images/helicopter-feature.png",
+                        "alt": "Helicopter hero image"
+                      }
+                    },
+                    {
+                      "title": "Simulators",
+                      "text": "This is where you might talk about the feature, if this wasn't just filler text.",
+                      "image": {
+                        "src": "/images/helicopter-feature.png",
+                        "alt": "Helicopter hero image"
+                      }
+                    },
+                    {
+                      "title": "Simulators",
+                      "text": "This is where you might talk about the feature, if this wasn't just filler text.",
+                      "image": {
+                        "src": "/images/helicopter-feature.png",
+                        "alt": "Helicopter hero image"
+                      }
+                    }
+                  ]
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Headline",
+                  "name": "headline",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "features",
+                    "headline"
+                  ]
+                },
+                {
+                  "type": "object",
+                  "label": "Feature Items",
+                  "name": "items",
+                  "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "title": "Simulators",
+                      "text": "This is where you might talk about the feature, if this wasn't just filler text.",
+                      "image": {
+                        "src": "/images/helicopter-feature.png",
+                        "alt": "Helicopter hero image"
+                      }
+                    }
+                  },
+                  "fields": [
+                    {
+                      "type": "string",
+                      "label": "Title",
+                      "name": "title",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "features",
+                        "items",
+                        "title"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "label": "Text",
+                      "name": "text",
+                      "fields": [
+                        {
+                          "type": "string",
+                          "name": "item1",
+                          "label": "Item 1",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "features",
+                            "items",
+                            "text",
+                            "item1"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "item2",
+                          "label": "Item 2",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "features",
+                            "items",
+                            "text",
+                            "item2"
+                          ]
+                        },
+                        {
+                          "type": "string",
+                          "name": "item3",
+                          "label": "Item 3",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "features",
+                            "items",
+                            "text",
+                            "item3"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "features",
+                        "items",
+                        "text"
+                      ]
+                    },
+                    {
+                      "type": "object",
+                      "label": "Image",
+                      "name": "image",
+                      "fields": [
+                        {
+                          "name": "src",
+                          "label": "Image Source",
+                          "type": "image",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "features",
+                            "items",
+                            "image",
+                            "src"
+                          ]
+                        },
+                        {
+                          "name": "alt",
+                          "label": "Alt Text",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "features",
+                            "items",
+                            "image",
+                            "alt"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "features",
+                        "items",
+                        "image"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "features",
+                    "items"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Color",
+                  "name": "color",
+                  "options": [
+                    {
+                      "label": "Default",
+                      "value": "default"
+                    },
+                    {
+                      "label": "Tint",
+                      "value": "tint"
+                    },
+                    {
+                      "label": "Primary",
+                      "value": "primary"
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "features",
+                    "color"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "features"
+              ]
+            },
+            {
+              "label": "About",
+              "name": "about",
+              "ui": {
+                "defaultItem": {
+                  "title": "Our Mission",
+                  "text": "To maintain our leading position of providing quality built Category B approved Synthetic Trainers. The Company first began in 1995 trading as Support Pilot Services. It provided quality ground based IFR training using a LINK Airtrainer model AT-67. This trainer was first built in the early sixties and used for many years by Ansett Australia for airline pilot training. It has two axii of motion in pitch and roll and uses vacuum tubes yet is an excellent IFR trainer. It is still used by the company today. Support Pilot Services still trades today selling Mike (lip) lights to the Australasian market as an exclusive agent for Seitz Scientific Industries, USA."
+                }
+              },
+              "fields": [
+                {
+                  "type": "string",
+                  "label": "Title",
+                  "name": "title",
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "about",
+                    "title"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Text",
+                  "name": "text",
+                  "ui": {
+                    "component": "textarea"
+                  },
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "about",
+                    "text"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "about"
+              ]
+            }
+          ],
+          "namespace": [
+            "pages",
+            "blocks"
+          ]
+        }
+      ],
+      "namespace": [
+        "pages"
+      ]
+    },
+    {
+      "label": "Products List",
+      "name": "products",
+      "path": "content/products",
+      "fields": [
+        {
+          "type": "string",
+          "label": "category",
+          "name": "category",
+          "namespace": [
+            "products",
+            "category"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Title",
+          "name": "title",
+          "namespace": [
+            "products",
+            "title"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Description",
+          "name": "description",
+          "ui": {
+            "component": "textarea"
+          },
+          "namespace": [
+            "products",
+            "description"
+          ]
+        },
+        {
+          "type": "object",
+          "label": "Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image",
+              "namespace": [
+                "products",
+                "image",
+                "src"
+              ]
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string",
+              "namespace": [
+                "products",
+                "image",
+                "alt"
+              ]
+            }
+          ],
+          "namespace": [
+            "products",
+            "image"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Keywords",
+          "name": "keywords",
+          "list": true,
+          "namespace": [
+            "products",
+            "keywords"
+          ]
+        }
+      ],
+      "namespace": [
+        "products"
+      ]
+    },
+    {
+      "label": "News List",
+      "name": "news",
+      "path": "content/news",
       "fields": [
         {
           "type": "string",
           "label": "Title",
           "name": "title",
           "namespace": [
-            "posts",
+            "news",
             "title"
           ]
         },
         {
           "type": "string",
-          "label": "Blog Post Body",
-          "name": "body",
-          "isBody": true,
+          "label": "excerpt",
+          "name": "excerpt",
           "ui": {
             "component": "textarea"
           },
           "namespace": [
-            "posts",
+            "news",
+            "excerpt"
+          ]
+        },
+        {
+          "type": "datetime",
+          "label": "Posted Date",
+          "name": "date",
+          "ui": {
+            "dateFormat": "DD MM YYYY"
+          },
+          "namespace": [
+            "news",
+            "date"
+          ]
+        },
+        {
+          "type": "object",
+          "label": "Hero Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image",
+              "namespace": [
+                "news",
+                "image",
+                "src"
+              ]
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string",
+              "namespace": [
+                "news",
+                "image",
+                "alt"
+              ]
+            }
+          ],
+          "namespace": [
+            "news",
+            "image"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Keywords",
+          "name": "keywords",
+          "list": true,
+          "namespace": [
+            "news",
+            "keywords"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Body",
+          "ui": {
+            "component": "markdown"
+          },
+          "name": "body",
+          "isBody": true,
+          "namespace": [
+            "news",
             "body"
           ]
         }
       ],
       "namespace": [
-        "posts"
+        "news"
+      ]
+    },
+    {
+      "label": "404",
+      "name": "fourOhFour",
+      "path": "content/fourOhFour",
+      "fields": [
+        {
+          "type": "string",
+          "label": "Headline",
+          "name": "headline",
+          "namespace": [
+            "fourOhFour",
+            "headline"
+          ]
+        },
+        {
+          "type": "string",
+          "label": "Text",
+          "name": "text",
+          "namespace": [
+            "fourOhFour",
+            "text"
+          ]
+        },
+        {
+          "type": "object",
+          "label": "Image",
+          "name": "image",
+          "fields": [
+            {
+              "name": "src",
+              "label": "Image Source",
+              "type": "image",
+              "namespace": [
+                "fourOhFour",
+                "image",
+                "src"
+              ]
+            },
+            {
+              "name": "alt",
+              "label": "Alt Text",
+              "type": "string",
+              "namespace": [
+                "fourOhFour",
+                "image",
+                "alt"
+              ]
+            }
+          ],
+          "namespace": [
+            "fourOhFour",
+            "image"
+          ]
+        },
+        {
+          "label": "Actions",
+          "name": "actions",
+          "type": "object",
+          "list": true,
+          "ui": {
+            "defaultItem": {
+              "label": "Action Label",
+              "type": "button",
+              "icon": true,
+              "link": "/"
+            }
+          },
+          "fields": [
+            {
+              "label": "Label",
+              "name": "label",
+              "type": "string",
+              "namespace": [
+                "fourOhFour",
+                "actions",
+                "label"
+              ]
+            },
+            {
+              "label": "Type",
+              "name": "type",
+              "type": "string",
+              "options": [
+                {
+                  "label": "Button",
+                  "value": "button"
+                },
+                {
+                  "label": "Link",
+                  "value": "link"
+                }
+              ],
+              "namespace": [
+                "fourOhFour",
+                "actions",
+                "type"
+              ]
+            },
+            {
+              "label": "Icon",
+              "name": "icon",
+              "type": "boolean",
+              "namespace": [
+                "fourOhFour",
+                "actions",
+                "icon"
+              ]
+            },
+            {
+              "label": "Link",
+              "name": "link",
+              "type": "string",
+              "namespace": [
+                "fourOhFour",
+                "actions",
+                "link"
+              ]
+            }
+          ],
+          "namespace": [
+            "fourOhFour",
+            "actions"
+          ]
+        }
+      ],
+      "namespace": [
+        "fourOhFour"
       ]
     }
   ],

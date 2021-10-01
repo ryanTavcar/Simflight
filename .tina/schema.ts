@@ -1,7 +1,3 @@
-<<<<<<< HEAD
-
-import { defineSchema } from "@tinacms/cli";
-=======
 import { defineSchema } from "@tinacms/cli";
 import type { TinaCollection, TinaTemplate, TinaField } from "@tinacms/cli";
 
@@ -292,19 +288,10 @@ const productsBlockSchema: TinaTemplate = {
     },
   ],
 };
->>>>>>> tina
 
 export default defineSchema({
   collections: [
     {
-<<<<<<< HEAD
-      label: "Blog Posts",
-      name: "posts",
-      path: "content/posts",
-      fields: [
-        {
-          type: "string",
-=======
       label: "Pages",
       name: "pages",
       path: "content/pages",
@@ -330,28 +317,17 @@ export default defineSchema({
         },
         {
           type: "string",
->>>>>>> tina
           label: "Title",
           name: "title",
         },
         {
           type: "string",
-<<<<<<< HEAD
-          label: "Blog Post Body",
-          name: "body",
-          isBody: true,
-=======
           label: "Description",
           name: "description",
->>>>>>> tina
           ui: {
             component: "textarea"
           },
         },
-<<<<<<< HEAD
-      ],
-    },
-=======
         {
           type: "object",
           label: "Image",
@@ -511,6 +487,5 @@ export default defineSchema({
         },
       ]
     },
->>>>>>> tina
   ],
 });
