@@ -41,19 +41,20 @@ const useStyles = makeStyles(theme => ({
 
 
 const Products = (props) => {
-    console.log(props)
     const products = props.data.getProductsList.edges;
     const classes = useStyles();
     const [prods, setProds] = useState([])
     const isMobile = useMediaQuery(theme => theme.breakpoints.down("sm"));
 
     const handleProducts = (model) => {
-        const productData= products.map(productData => productData.node.data);
+        const productData= products.map(productData => {
+            return {...productData.node.data, ...productData.node.sys}
+        });
         
         switch (model) {
             case 'ELITE':
                 const eliteProducts = productData.filter(product => product.category === 'elite')
-                return setProds(eliteProducts);
+                return setProds(eliteProducts, ...products);
             case 'IGATE':
                 const igateProducts = productData.filter(product => product.category === 'igate')
                 return setProds(igateProducts);
@@ -68,7 +69,7 @@ const Products = (props) => {
                         product.category === 'hardware'
                     )
                 })
-                return setProds(allProducts);
+                return setProds(allProducts, ...products);
             default:
                 return setProds(allProducts);
         }

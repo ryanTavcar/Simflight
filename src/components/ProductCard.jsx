@@ -83,7 +83,7 @@ const useStyles = makeStyles(theme => ({
 }))
 
 const ProductCard = ({product}) => {
-
+    console.log(product)
     const classes = useStyles();
     const [productDescription, setProductDescription] = useState('');
 
@@ -107,7 +107,7 @@ const ProductCard = ({product}) => {
             {/*  see details */}
             <CardActions className={classes.cardAction}>
                 <Grid container justifyContent="center">
-                    <Link href={`/products/${product.title}`}>
+                    <Link href={`/products/${product.filename}`}>
                         <Button variant="contained"  className={classes.button}>
                             <Typography color="primary">
                                 <b>see details</b>
