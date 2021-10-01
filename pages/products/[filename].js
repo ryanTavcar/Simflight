@@ -60,7 +60,7 @@ const useStyles = makeStyles(theme => ({
   }));
 
 const ProductDetails = (props) => {
-
+    console.log(props)
     const product = props.data.getProductsDocument.data
 
     const classes = useStyles();
@@ -153,20 +153,6 @@ const ProductDetails = (props) => {
         </>
     );
 };
-
-// export const getStaticProps = async ({params}) => {
-
-//     // const res = await fetch(`${server}/api/products/${params.id}`)
-//     // const product = await res.json()
-//     const {all} = products
-//     const filtered = all.filter((product) => product.id === params.id )
-//     return {
-//       props: {
-//         product: filtered[0]
-//         // product
-//       },
-//     }
-// }
 
 export const getStaticProps = async({params}) => {
     const filename =  params.filename.replace(/ /g,'')

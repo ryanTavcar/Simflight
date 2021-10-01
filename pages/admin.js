@@ -74,7 +74,7 @@ const GoToEditPage = () => {
     const signin = async () => {
         const password = values.password
         try {
-            const {status} = await axios.post(server + "/api/users/", { email, password });
+            const {status} = await axios.post("/api/users/", { email, password });
             console.log(status)
             if (status === 200) {
                 setUserInfo(true)
