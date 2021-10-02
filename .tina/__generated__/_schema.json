@@ -454,6 +454,141 @@
                 "blocks",
                 "about"
               ]
+            },
+            {
+              "name": "videoGallery",
+              "label": "Video Gallery",
+              "ui": {
+                "defaultItem": {
+                  "items": [
+                    {
+                      "image": {
+                        "src": "/images/helicopter-feature.png",
+                        "alt": "Helicopter hero image"
+                      }
+                    },
+                    {
+                      "image": {
+                        "src": "/images/helicopter-feature.png",
+                        "alt": "Helicopter hero image"
+                      }
+                    },
+                    {
+                      "image": {
+                        "src": "/images/helicopter-feature.png",
+                        "alt": "Helicopter hero image"
+                      }
+                    }
+                  ]
+                }
+              },
+              "fields": [
+                {
+                  "type": "object",
+                  "label": "Video Items",
+                  "name": "videoItems",
+                  "list": true,
+                  "ui": {
+                    "defaultItem": {
+                      "image": {
+                        "src": "/images/helicopter-feature.png",
+                        "alt": "Helicopter hero image"
+                      }
+                    }
+                  },
+                  "fields": [
+                    {
+                      "type": "object",
+                      "label": "Video",
+                      "name": "video",
+                      "fields": [
+                        {
+                          "name": "thumb",
+                          "label": "Thumbnail",
+                          "type": "image",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "videoGallery",
+                            "videoItems",
+                            "video",
+                            "thumb"
+                          ]
+                        },
+                        {
+                          "name": "src",
+                          "label": "Image Source",
+                          "type": "image",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "videoGallery",
+                            "videoItems",
+                            "video",
+                            "src"
+                          ]
+                        },
+                        {
+                          "name": "alt",
+                          "label": "Alt Text",
+                          "type": "string",
+                          "namespace": [
+                            "pages",
+                            "blocks",
+                            "videoGallery",
+                            "videoItems",
+                            "video",
+                            "alt"
+                          ]
+                        }
+                      ],
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "videoGallery",
+                        "videoItems",
+                        "video"
+                      ]
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "videoGallery",
+                    "videoItems"
+                  ]
+                },
+                {
+                  "type": "string",
+                  "label": "Color",
+                  "name": "color",
+                  "options": [
+                    {
+                      "label": "Default",
+                      "value": "default"
+                    },
+                    {
+                      "label": "Tint",
+                      "value": "tint"
+                    },
+                    {
+                      "label": "Primary",
+                      "value": "primary"
+                    }
+                  ],
+                  "namespace": [
+                    "pages",
+                    "blocks",
+                    "videoGallery",
+                    "color"
+                  ]
+                }
+              ],
+              "namespace": [
+                "pages",
+                "blocks",
+                "videoGallery"
+              ]
             }
           ],
           "namespace": [
@@ -642,135 +777,6 @@
       ],
       "namespace": [
         "news"
-      ]
-    },
-    {
-      "label": "404",
-      "name": "fourOhFour",
-      "path": "content/fourOhFour",
-      "fields": [
-        {
-          "type": "string",
-          "label": "Headline",
-          "name": "headline",
-          "namespace": [
-            "fourOhFour",
-            "headline"
-          ]
-        },
-        {
-          "type": "string",
-          "label": "Text",
-          "name": "text",
-          "namespace": [
-            "fourOhFour",
-            "text"
-          ]
-        },
-        {
-          "type": "object",
-          "label": "Image",
-          "name": "image",
-          "fields": [
-            {
-              "name": "src",
-              "label": "Image Source",
-              "type": "image",
-              "namespace": [
-                "fourOhFour",
-                "image",
-                "src"
-              ]
-            },
-            {
-              "name": "alt",
-              "label": "Alt Text",
-              "type": "string",
-              "namespace": [
-                "fourOhFour",
-                "image",
-                "alt"
-              ]
-            }
-          ],
-          "namespace": [
-            "fourOhFour",
-            "image"
-          ]
-        },
-        {
-          "label": "Actions",
-          "name": "actions",
-          "type": "object",
-          "list": true,
-          "ui": {
-            "defaultItem": {
-              "label": "Action Label",
-              "type": "button",
-              "icon": true,
-              "link": "/"
-            }
-          },
-          "fields": [
-            {
-              "label": "Label",
-              "name": "label",
-              "type": "string",
-              "namespace": [
-                "fourOhFour",
-                "actions",
-                "label"
-              ]
-            },
-            {
-              "label": "Type",
-              "name": "type",
-              "type": "string",
-              "options": [
-                {
-                  "label": "Button",
-                  "value": "button"
-                },
-                {
-                  "label": "Link",
-                  "value": "link"
-                }
-              ],
-              "namespace": [
-                "fourOhFour",
-                "actions",
-                "type"
-              ]
-            },
-            {
-              "label": "Icon",
-              "name": "icon",
-              "type": "boolean",
-              "namespace": [
-                "fourOhFour",
-                "actions",
-                "icon"
-              ]
-            },
-            {
-              "label": "Link",
-              "name": "link",
-              "type": "string",
-              "namespace": [
-                "fourOhFour",
-                "actions",
-                "link"
-              ]
-            }
-          ],
-          "namespace": [
-            "fourOhFour",
-            "actions"
-          ]
-        }
-      ],
-      "namespace": [
-        "fourOhFour"
       ]
     }
   ],

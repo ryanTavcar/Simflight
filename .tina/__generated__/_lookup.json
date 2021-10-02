@@ -5,8 +5,7 @@
     "collections": [
       "pages",
       "products",
-      "news",
-      "fourOhFour"
+      "news"
     ]
   },
   "Node": {
@@ -33,7 +32,8 @@
     "typeMap": {
       "hero": "PagesBlocksHero",
       "features": "PagesBlocksFeatures",
-      "about": "PagesBlocksAbout"
+      "about": "PagesBlocksAbout",
+      "videoGallery": "PagesBlocksVideoGallery"
     }
   },
   "PagesDocument": {

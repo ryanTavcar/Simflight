@@ -51,8 +51,6 @@ type Query {
   getProductsList(before: String, after: String, first: Int, last: Int): ProductsConnection!
   getNewsDocument(relativePath: String): NewsDocument!
   getNewsList(before: String, after: String, first: Int, last: Int): NewsConnection!
-  getFourOhFourDocument(relativePath: String): FourOhFourDocument!
-  getFourOhFourList(before: String, after: String, first: Int, last: Int): FourOhFourConnection!
 }
 
 type DocumentConnectionEdges {
@@ -78,7 +76,7 @@ type Collection {
   documents(before: String, after: String, first: Int, last: Int): DocumentConnection!
 }
 
-union DocumentNode = PagesDocument | ProductsDocument | NewsDocument | FourOhFourDocument
+union DocumentNode = PagesDocument | ProductsDocument | NewsDocument
 
 type PagesBlocksHeroActions {
   label: String
@@ -129,7 +127,22 @@ type PagesBlocksAbout {
   text: String
 }
 
-union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout
+type PagesBlocksVideoGalleryVideoItemsVideo {
+  thumb: String
+  src: String
+  alt: String
+}
+
+type PagesBlocksVideoGalleryVideoItems {
+  video: PagesBlocksVideoGalleryVideoItemsVideo
+}
+
+type PagesBlocksVideoGallery {
+  videoItems: [PagesBlocksVideoGalleryVideoItems]
+  color: String
+}
+
+union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout | PagesBlocksVideoGallery
 
 type Pages {
   blocks: [PagesBlocks]
@@ -222,59 +235,18 @@ type NewsConnection implements Connection {
   edges: [NewsConnectionEdges]
 }
 
-type FourOhFourImage {
-  src: String
-  alt: String
-}
-
-type FourOhFourActions {
-  label: String
-  type: String
-  icon: Boolean
-  link: String
-}
-
-type FourOhFour {
-  headline: String
-  text: String
-  image: FourOhFourImage
-  actions: [FourOhFourActions]
-}
-
-type FourOhFourDocument implements Node & Document {
-  id: ID!
-  sys: SystemInfo!
-  data: FourOhFour!
-  form: JSON!
-  values: JSON!
-  dataJSON: JSON!
-}
-
-type FourOhFourConnectionEdges {
-  cursor: String
-  node: FourOhFourDocument
-}
-
-type FourOhFourConnection implements Connection {
-  pageInfo: PageInfo
-  totalCount: Int!
-  edges: [FourOhFourConnectionEdges]
-}
-
 type Mutation {
   addPendingDocument(collection: String!, relativePath: String!, template: String): DocumentNode!
   updateDocument(collection: String!, relativePath: String!, params: DocumentMutation!): DocumentNode!
   updatePagesDocument(relativePath: String!, params: PagesMutation!): PagesDocument!
   updateProductsDocument(relativePath: String!, params: ProductsMutation!): ProductsDocument!
   updateNewsDocument(relativePath: String!, params: NewsMutation!): NewsDocument!
-  updateFourOhFourDocument(relativePath: String!, params: FourOhFourMutation!): FourOhFourDocument!
 }
 
 input DocumentMutation {
   pages: PagesMutation
   products: ProductsMutation
   news: NewsMutation
-  fourOhFour: FourOhFourMutation
 }
 
 input PagesBlocksHeroActionsMutation {
@@ -326,10 +298,26 @@ input PagesBlocksAboutMutation {
   text: String
 }
 
+input PagesBlocksVideoGalleryVideoItemsVideoMutation {
+  thumb: String
+  src: String
+  alt: String
+}
+
+input PagesBlocksVideoGalleryVideoItemsMutation {
+  video: PagesBlocksVideoGalleryVideoItemsVideoMutation
+}
+
+input PagesBlocksVideoGalleryMutation {
+  videoItems: [PagesBlocksVideoGalleryVideoItemsMutation]
+  color: String
+}
+
 input PagesBlocksMutation {
   hero: PagesBlocksHeroMutation
   features: PagesBlocksFeaturesMutation
   about: PagesBlocksAboutMutation
+  videoGallery: PagesBlocksVideoGalleryMutation
 }
 
 input PagesMutation {
@@ -361,25 +349,6 @@ input NewsMutation {
   image: NewsImageMutation
   keywords: [String]
   body: String
-}
-
-input FourOhFourImageMutation {
-  src: String
-  alt: String
-}
-
-input FourOhFourActionsMutation {
-  label: String
-  type: String
-  icon: Boolean
-  link: String
-}
-
-input FourOhFourMutation {
-  headline: String
-  text: String
-  image: FourOhFourImageMutation
-  actions: [FourOhFourActionsMutation]
 }
 
 schema {

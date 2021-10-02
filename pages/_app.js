@@ -75,9 +75,7 @@ function MyApp({ Component, pageProps }) {
                * Only allows documents to be created to the `Blog Posts` Collection
                */
               filterCollections: (options) => {
-                return options.filter(
-                  (option) => option.label === "Products List"
-                );
+                return options.filter(option => option.label === "Products List" || option.label === "News List");
               },
             }}
             /**

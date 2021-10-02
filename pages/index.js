@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
 import Hero from '../src/components/Hero';
 import Blocks from '../src/components/Blocks';
@@ -17,6 +17,7 @@ const useStyles = makeStyles(theme => ({
     // marginTop: 50,
   }
 }));
+
 
 export default function Home(props) {
   const classes = useStyles();
@@ -73,6 +74,17 @@ export const getStaticProps = async () => {
                 }
               }
             }
+
+            ... on PagesBlocksVideoGallery {
+              videoItems {
+                video {
+                  thumb
+                  src
+                  alt
+                }
+              }
+            }
+
           }
         }
       }

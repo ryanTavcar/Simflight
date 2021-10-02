@@ -31,18 +31,18 @@ const useStyles = makeStyles(theme => ({
     },
     imageContainer: {
         // border: '1px solid orange',
-        background: "radial-gradient(circle, rgba(45,68,146,1) 36%, rgba(74,45,146,1) 70%)",
+        // background: "radial-gradient(circle, rgba(45,68,146,1) 36%, rgba(74,45,146,1) 70%)",
         position: 'relative',
         height: '100%',
-    },
-    supportingImageContainer: {
-        // height: '100%',
-        // border: '3px solid orange',
-
+        paddingBottom: '15%',
     },
     detailsContainer: {
         // border: '1px solid orange',
-
+        paddingBottom: '20%',
+        minHeight: 'calc(100vh - 170px)',
+        [theme.breakpoints.down('sm')]: {
+            paddingBottom: '40%',
+        }
     },
     span: {
         fontSize: 16, 
@@ -60,7 +60,6 @@ const useStyles = makeStyles(theme => ({
   }));
 
 const ProductDetails = (props) => {
-    console.log(props)
     const product = props.data.getProductsDocument.data
 
     const classes = useStyles();
@@ -80,7 +79,7 @@ const ProductDetails = (props) => {
                     </Typography>
                 </Link>
 
-                <Link color="inherit" href="/productsPage/" className={classes.link} passHref>
+                <Link color="inherit" href="/products/" className={classes.link} passHref>
                     <Typography style={{fontSize: 12}}>
                         <WhatshotIcon className={classes.icon} />
                         products
@@ -104,25 +103,11 @@ const ProductDetails = (props) => {
                                     <Image src={product.image.src} alt="product image" width={400} height={400}  quality={65}   />
                                 </Grid>
                             </Grid>
-
-                            {/* supporting images */}
-                            <Grid container direction="row" justifyContent="space-evenly" alignItems="center" className={classes.supportingImageContainer}>
-                            
-                                <Grid item> 
-                                    <Image src={product.image.src} alt="product image" width={150} height={150} layout="fixed" quality={65} />
-                                </Grid>
-                                <Grid item> 
-                                    <Image src={product.image.src} alt="product image" width={150} height={150} layout="fixed" quality={65} />
-                                </Grid>
-                                <Grid item> 
-                                    <Image src={product.image.src} alt="product image" width={150} height={150} layout="fixed" quality={65} />
-                                </Grid>
-                            </Grid>
                         </Grid>
                     </Grid>
 
                     <Grid item xs={12} md={5}> 
-                        <Grid container direction="column" className={classes.detailsContainer}>
+                        <Grid container direction="column" justifyContent="center" className={classes.detailsContainer}>
                             <Grid item xs={12} style={{marginBottom: 20}}>
                                 <Typography variant="h3" gutterBottom >
                                     {product.title}
