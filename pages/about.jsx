@@ -1,5 +1,4 @@
-  
-import React from 'react';
+  import React from 'react';
 import {Container, 
   Typography, 
   Grid, 
@@ -7,6 +6,7 @@ import {Container,
   ImageList,
   ImageListItem
  } from '@material-ui/core';
+import Markdown from "react-markdown";
 import Image from 'next/image';
 import { makeStyles } from "@material-ui/core/styles";
 import { useMediaQuery } from "@material-ui/core";
@@ -99,7 +99,7 @@ const About = (props) => {
 
           <Grid item  xs={8}>
             <Typography variant="body1" component="h6">
-              {data.text}
+              <Markdown>{data.text}</Markdown>
             </Typography>
           </Grid>
         </Grid>

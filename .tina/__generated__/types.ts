@@ -69,8 +69,6 @@ export type Query = {
   getProductsList: ProductsConnection;
   getNewsDocument: NewsDocument;
   getNewsList: NewsConnection;
-  getFourOhFourDocument: FourOhFourDocument;
-  getFourOhFourList: FourOhFourConnection;
 };
 
 
@@ -136,19 +134,6 @@ export type QueryGetNewsListArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-
-export type QueryGetFourOhFourDocumentArgs = {
-  relativePath?: Maybe<Scalars['String']>;
-};
-
-
-export type QueryGetFourOhFourListArgs = {
-  before?: Maybe<Scalars['String']>;
-  after?: Maybe<Scalars['String']>;
-  first?: Maybe<Scalars['Int']>;
-  last?: Maybe<Scalars['Int']>;
-};
-
 export type DocumentConnectionEdges = {
   __typename?: 'DocumentConnectionEdges';
   cursor?: Maybe<Scalars['String']>;
@@ -183,7 +168,7 @@ export type CollectionDocumentsArgs = {
   last?: Maybe<Scalars['Int']>;
 };
 
-export type DocumentNode = PagesDocument | ProductsDocument | NewsDocument | FourOhFourDocument;
+export type DocumentNode = PagesDocument | ProductsDocument | NewsDocument;
 
 export type PagesBlocksHeroActions = {
   __typename?: 'PagesBlocksHeroActions';
@@ -349,51 +334,6 @@ export type NewsConnection = Connection & {
   edges?: Maybe<Array<Maybe<NewsConnectionEdges>>>;
 };
 
-export type FourOhFourImage = {
-  __typename?: 'FourOhFourImage';
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
-};
-
-export type FourOhFourActions = {
-  __typename?: 'FourOhFourActions';
-  label?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  icon?: Maybe<Scalars['Boolean']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type FourOhFour = {
-  __typename?: 'FourOhFour';
-  headline?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-  image?: Maybe<FourOhFourImage>;
-  actions?: Maybe<Array<Maybe<FourOhFourActions>>>;
-};
-
-export type FourOhFourDocument = Node & Document & {
-  __typename?: 'FourOhFourDocument';
-  id: Scalars['ID'];
-  sys: SystemInfo;
-  data: FourOhFour;
-  form: Scalars['JSON'];
-  values: Scalars['JSON'];
-  dataJSON: Scalars['JSON'];
-};
-
-export type FourOhFourConnectionEdges = {
-  __typename?: 'FourOhFourConnectionEdges';
-  cursor?: Maybe<Scalars['String']>;
-  node?: Maybe<FourOhFourDocument>;
-};
-
-export type FourOhFourConnection = Connection & {
-  __typename?: 'FourOhFourConnection';
-  pageInfo?: Maybe<PageInfo>;
-  totalCount: Scalars['Int'];
-  edges?: Maybe<Array<Maybe<FourOhFourConnectionEdges>>>;
-};
-
 export type Mutation = {
   __typename?: 'Mutation';
   addPendingDocument: DocumentNode;
@@ -401,7 +341,6 @@ export type Mutation = {
   updatePagesDocument: PagesDocument;
   updateProductsDocument: ProductsDocument;
   updateNewsDocument: NewsDocument;
-  updateFourOhFourDocument: FourOhFourDocument;
 };
 
 
@@ -436,17 +375,10 @@ export type MutationUpdateNewsDocumentArgs = {
   params: NewsMutation;
 };
 
-
-export type MutationUpdateFourOhFourDocumentArgs = {
-  relativePath: Scalars['String'];
-  params: FourOhFourMutation;
-};
-
 export type DocumentMutation = {
   pages?: Maybe<PagesMutation>;
   products?: Maybe<ProductsMutation>;
   news?: Maybe<NewsMutation>;
-  fourOhFour?: Maybe<FourOhFourMutation>;
 };
 
 export type PagesBlocksHeroActionsMutation = {
@@ -533,24 +465,5 @@ export type NewsMutation = {
   image?: Maybe<NewsImageMutation>;
   keywords?: Maybe<Array<Maybe<Scalars['String']>>>;
   body?: Maybe<Scalars['String']>;
-};
-
-export type FourOhFourImageMutation = {
-  src?: Maybe<Scalars['String']>;
-  alt?: Maybe<Scalars['String']>;
-};
-
-export type FourOhFourActionsMutation = {
-  label?: Maybe<Scalars['String']>;
-  type?: Maybe<Scalars['String']>;
-  icon?: Maybe<Scalars['Boolean']>;
-  link?: Maybe<Scalars['String']>;
-};
-
-export type FourOhFourMutation = {
-  headline?: Maybe<Scalars['String']>;
-  text?: Maybe<Scalars['String']>;
-  image?: Maybe<FourOhFourImageMutation>;
-  actions?: Maybe<Array<Maybe<FourOhFourActionsMutation>>>;
 };
 

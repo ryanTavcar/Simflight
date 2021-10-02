@@ -15,20 +15,8 @@ const useStyles = makeStyles(theme => ({
         display: 'flex',
         flexDirection: 'column',
         padding: '1rem',
-        '& .icon': {
-            display: 'none'
-        },
-        '&:hover .icon': {
-            display: 'flex',
-            color: theme.palette.primary.main,
-            alignItems: 'center',
-            marginLeft: 10
-        },
         [theme.breakpoints.down('sm')] :{
             margin: '10px 0px',
-            '&:hover .icon': {
-                display: 'none',
-            }
         }
     },
     gridItem: {
@@ -59,9 +47,6 @@ const DownloadList = ({data}) => {
                                             <Typography variant="h5" component="h1">
                                                 {download.title} {" "}
                                             </Typography>
-                                        </Grid>
-                                        <Grid item className='icon'>
-                                            <BsArrowRight size={35}/>
                                         </Grid>
                                     </Grid>
                                 </Grid>
