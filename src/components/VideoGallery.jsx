@@ -54,7 +54,7 @@ const VideoGallery = ({data}) => {
       }, [video]);
 
     useEffect(() => {
-        setVideo(videoData[0].video.src)
+        setVideo(videoData[0].src)
       }, []);
 
     return (
@@ -65,8 +65,8 @@ const VideoGallery = ({data}) => {
 
             <section >
                 <List className={classes.imageList}>
-                    {videoData.map((item) => {
-                        const video = item.video;
+                    {videoData.map((video) => {
+                        // const video = item.video;
                         return (
                             <ListItem key={video.src} className={classes.listItem}>
                             <Image src={video.thumb} layout="fill" alt={video.alt} onClick={() => changeVideo(video.src) }/>

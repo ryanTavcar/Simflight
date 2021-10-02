@@ -238,7 +238,7 @@ const videoGalleryBlockSchema: TinaTemplate = {
   fields: [
     {
       type: "object",
-      label: "Video Items",
+      label: "Video",
       name: "videoItems",
       list: true,
       ui: {
@@ -248,37 +248,20 @@ const videoGalleryBlockSchema: TinaTemplate = {
       },
       fields: [
         {
-          type: "object",
-          label: "Video",
-          name: "video",
-          fields: [
-            {
-              name: "thumb",
-              label: "Thumbnail",
-              type: "image",
-            },
-            {
-              name: "src",
-              label: "Image Source",
-              type: "image",
-            },
-            {
-              name: "alt",
-              label: "Alt Text",
-              type: "string",
-            },
-          ],
+          name: "thumb",
+          label: "Thumbnail",
+          type: "image",
         },
-      ],
-    },
-    {
-      type: "string",
-      label: "Color",
-      name: "color",
-      options: [
-        { label: "Default", value: "default" },
-        { label: "Tint", value: "tint" },
-        { label: "Primary", value: "primary" },
+        {
+          name: "src",
+          label: "Image Source",
+          type: "image",
+        },
+        {
+          name: "alt",
+          label: "Alt Text",
+          type: "string",
+        },
       ],
     },
   ],

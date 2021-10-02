@@ -127,19 +127,14 @@ type PagesBlocksAbout {
   text: String
 }
 
-type PagesBlocksVideoGalleryVideoItemsVideo {
+type PagesBlocksVideoGalleryVideoItems {
   thumb: String
   src: String
   alt: String
 }
 
-type PagesBlocksVideoGalleryVideoItems {
-  video: PagesBlocksVideoGalleryVideoItemsVideo
-}
-
 type PagesBlocksVideoGallery {
   videoItems: [PagesBlocksVideoGalleryVideoItems]
-  color: String
 }
 
 union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout | PagesBlocksVideoGallery
@@ -298,19 +293,14 @@ input PagesBlocksAboutMutation {
   text: String
 }
 
-input PagesBlocksVideoGalleryVideoItemsVideoMutation {
+input PagesBlocksVideoGalleryVideoItemsMutation {
   thumb: String
   src: String
   alt: String
 }
 
-input PagesBlocksVideoGalleryVideoItemsMutation {
-  video: PagesBlocksVideoGalleryVideoItemsVideoMutation
-}
-
 input PagesBlocksVideoGalleryMutation {
   videoItems: [PagesBlocksVideoGalleryVideoItemsMutation]
-  color: String
 }
 
 input PagesBlocksMutation {

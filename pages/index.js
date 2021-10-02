@@ -77,11 +77,9 @@ export const getStaticProps = async () => {
 
             ... on PagesBlocksVideoGallery {
               videoItems {
-                video {
                   thumb
                   src
                   alt
-                }
               }
             }
 

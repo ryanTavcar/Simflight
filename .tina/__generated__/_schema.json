@@ -485,7 +485,7 @@
               "fields": [
                 {
                   "type": "object",
-                  "label": "Video Items",
+                  "label": "Video",
                   "name": "videoItems",
                   "list": true,
                   "ui": {
@@ -498,56 +498,39 @@
                   },
                   "fields": [
                     {
-                      "type": "object",
-                      "label": "Video",
-                      "name": "video",
-                      "fields": [
-                        {
-                          "name": "thumb",
-                          "label": "Thumbnail",
-                          "type": "image",
-                          "namespace": [
-                            "pages",
-                            "blocks",
-                            "videoGallery",
-                            "videoItems",
-                            "video",
-                            "thumb"
-                          ]
-                        },
-                        {
-                          "name": "src",
-                          "label": "Image Source",
-                          "type": "image",
-                          "namespace": [
-                            "pages",
-                            "blocks",
-                            "videoGallery",
-                            "videoItems",
-                            "video",
-                            "src"
-                          ]
-                        },
-                        {
-                          "name": "alt",
-                          "label": "Alt Text",
-                          "type": "string",
-                          "namespace": [
-                            "pages",
-                            "blocks",
-                            "videoGallery",
-                            "videoItems",
-                            "video",
-                            "alt"
-                          ]
-                        }
-                      ],
+                      "name": "thumb",
+                      "label": "Thumbnail",
+                      "type": "image",
                       "namespace": [
                         "pages",
                         "blocks",
                         "videoGallery",
                         "videoItems",
-                        "video"
+                        "thumb"
+                      ]
+                    },
+                    {
+                      "name": "src",
+                      "label": "Image Source",
+                      "type": "image",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "videoGallery",
+                        "videoItems",
+                        "src"
+                      ]
+                    },
+                    {
+                      "name": "alt",
+                      "label": "Alt Text",
+                      "type": "string",
+                      "namespace": [
+                        "pages",
+                        "blocks",
+                        "videoGallery",
+                        "videoItems",
+                        "alt"
                       ]
                     }
                   ],
@@ -556,31 +539,6 @@
                     "blocks",
                     "videoGallery",
                     "videoItems"
-                  ]
-                },
-                {
-                  "type": "string",
-                  "label": "Color",
-                  "name": "color",
-                  "options": [
-                    {
-                      "label": "Default",
-                      "value": "default"
-                    },
-                    {
-                      "label": "Tint",
-                      "value": "tint"
-                    },
-                    {
-                      "label": "Primary",
-                      "value": "primary"
-                    }
-                  ],
-                  "namespace": [
-                    "pages",
-                    "blocks",
-                    "videoGallery",
-                    "color"
                   ]
                 }
               ],

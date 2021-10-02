@@ -1786,7 +1786,7 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksVideoGalleryVideoItemsVideo"
+        "value": "PagesBlocksVideoGalleryVideoItems"
       },
       "fields": [
         {
@@ -1842,32 +1842,6 @@
       "directives": [],
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksVideoGalleryVideoItems"
-      },
-      "fields": [
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "video"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "PagesBlocksVideoGalleryVideoItemsVideo"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "ObjectTypeDefinition",
-      "interfaces": [],
-      "directives": [],
-      "name": {
-        "kind": "Name",
         "value": "PagesBlocksVideoGallery"
       },
       "fields": [
@@ -1886,21 +1860,6 @@
                 "kind": "Name",
                 "value": "PagesBlocksVideoGalleryVideoItems"
               }
-            }
-          }
-        },
-        {
-          "kind": "FieldDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "color"
-          },
-          "arguments": [],
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
             }
           }
         }
@@ -3773,7 +3732,7 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksVideoGalleryVideoItemsVideoMutation"
+        "value": "PagesBlocksVideoGalleryVideoItemsMutation"
       },
       "fields": [
         {
@@ -3824,29 +3783,6 @@
       "kind": "InputObjectTypeDefinition",
       "name": {
         "kind": "Name",
-        "value": "PagesBlocksVideoGalleryVideoItemsMutation"
-      },
-      "fields": [
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "video"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "PagesBlocksVideoGalleryVideoItemsVideoMutation"
-            }
-          }
-        }
-      ]
-    },
-    {
-      "kind": "InputObjectTypeDefinition",
-      "name": {
-        "kind": "Name",
         "value": "PagesBlocksVideoGalleryMutation"
       },
       "fields": [
@@ -3864,20 +3800,6 @@
                 "kind": "Name",
                 "value": "PagesBlocksVideoGalleryVideoItemsMutation"
               }
-            }
-          }
-        },
-        {
-          "kind": "InputValueDefinition",
-          "name": {
-            "kind": "Name",
-            "value": "color"
-          },
-          "type": {
-            "kind": "NamedType",
-            "name": {
-              "kind": "Name",
-              "value": "String"
             }
           }
         }

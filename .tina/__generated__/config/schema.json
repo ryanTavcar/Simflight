@@ -301,7 +301,7 @@
               "fields": [
                 {
                   "type": "object",
-                  "label": "Video Items",
+                  "label": "Video",
                   "name": "videoItems",
                   "list": true,
                   "ui": {
@@ -314,45 +314,19 @@
                   },
                   "fields": [
                     {
-                      "type": "object",
-                      "label": "Video",
-                      "name": "video",
-                      "fields": [
-                        {
-                          "name": "thumb",
-                          "label": "Thumbnail",
-                          "type": "image"
-                        },
-                        {
-                          "name": "src",
-                          "label": "Image Source",
-                          "type": "image"
-                        },
-                        {
-                          "name": "alt",
-                          "label": "Alt Text",
-                          "type": "string"
-                        }
-                      ]
-                    }
-                  ]
-                },
-                {
-                  "type": "string",
-                  "label": "Color",
-                  "name": "color",
-                  "options": [
-                    {
-                      "label": "Default",
-                      "value": "default"
+                      "name": "thumb",
+                      "label": "Thumbnail",
+                      "type": "image"
                     },
                     {
-                      "label": "Tint",
-                      "value": "tint"
+                      "name": "src",
+                      "label": "Image Source",
+                      "type": "image"
                     },
                     {
-                      "label": "Primary",
-                      "value": "primary"
+                      "name": "alt",
+                      "label": "Alt Text",
+                      "type": "string"
                     }
                   ]
                 }
