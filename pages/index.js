@@ -1,10 +1,8 @@
 import React, {useState} from 'react';
 import { makeStyles } from "@material-ui/core/styles";
-import Hero from '../src/components/Hero';
 import Blocks from '../src/components/Blocks';
 import Container from '@material-ui/core/Container';
 import { useMediaQuery } from "@material-ui/core";
-import WhatWeDo from '../src/components/WhatWeDo';
 import HeadMeta from '../src/components/Head';
 import { getStaticPropsForTina } from "tinacms";
 
