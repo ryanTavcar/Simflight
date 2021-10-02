@@ -127,7 +127,22 @@ type PagesBlocksAbout {
   text: String
 }
 
-union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout
+type PagesBlocksVideoGalleryVideoItemsVideo {
+  thumb: String
+  src: String
+  alt: String
+}
+
+type PagesBlocksVideoGalleryVideoItems {
+  video: PagesBlocksVideoGalleryVideoItemsVideo
+}
+
+type PagesBlocksVideoGallery {
+  videoItems: [PagesBlocksVideoGalleryVideoItems]
+  color: String
+}
+
+union PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout | PagesBlocksVideoGallery
 
 type Pages {
   blocks: [PagesBlocks]
@@ -283,10 +298,26 @@ input PagesBlocksAboutMutation {
   text: String
 }
 
+input PagesBlocksVideoGalleryVideoItemsVideoMutation {
+  thumb: String
+  src: String
+  alt: String
+}
+
+input PagesBlocksVideoGalleryVideoItemsMutation {
+  video: PagesBlocksVideoGalleryVideoItemsVideoMutation
+}
+
+input PagesBlocksVideoGalleryMutation {
+  videoItems: [PagesBlocksVideoGalleryVideoItemsMutation]
+  color: String
+}
+
 input PagesBlocksMutation {
   hero: PagesBlocksHeroMutation
   features: PagesBlocksFeaturesMutation
   about: PagesBlocksAboutMutation
+  videoGallery: PagesBlocksVideoGalleryMutation
 }
 
 input PagesMutation {

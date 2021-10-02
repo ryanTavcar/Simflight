@@ -32,7 +32,8 @@
     "typeMap": {
       "hero": "PagesBlocksHero",
       "features": "PagesBlocksFeatures",
-      "about": "PagesBlocksAbout"
+      "about": "PagesBlocksAbout",
+      "videoGallery": "PagesBlocksVideoGallery"
     }
   },
   "PagesDocument": {

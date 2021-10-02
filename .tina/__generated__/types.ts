@@ -227,7 +227,25 @@ export type PagesBlocksAbout = {
   text?: Maybe<Scalars['String']>;
 };
 
-export type PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout;
+export type PagesBlocksVideoGalleryVideoItemsVideo = {
+  __typename?: 'PagesBlocksVideoGalleryVideoItemsVideo';
+  thumb?: Maybe<Scalars['String']>;
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksVideoGalleryVideoItems = {
+  __typename?: 'PagesBlocksVideoGalleryVideoItems';
+  video?: Maybe<PagesBlocksVideoGalleryVideoItemsVideo>;
+};
+
+export type PagesBlocksVideoGallery = {
+  __typename?: 'PagesBlocksVideoGallery';
+  videoItems?: Maybe<Array<Maybe<PagesBlocksVideoGalleryVideoItems>>>;
+  color?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocks = PagesBlocksHero | PagesBlocksFeatures | PagesBlocksAbout | PagesBlocksVideoGallery;
 
 export type Pages = {
   __typename?: 'Pages';
@@ -430,10 +448,26 @@ export type PagesBlocksAboutMutation = {
   text?: Maybe<Scalars['String']>;
 };
 
+export type PagesBlocksVideoGalleryVideoItemsVideoMutation = {
+  thumb?: Maybe<Scalars['String']>;
+  src?: Maybe<Scalars['String']>;
+  alt?: Maybe<Scalars['String']>;
+};
+
+export type PagesBlocksVideoGalleryVideoItemsMutation = {
+  video?: Maybe<PagesBlocksVideoGalleryVideoItemsVideoMutation>;
+};
+
+export type PagesBlocksVideoGalleryMutation = {
+  videoItems?: Maybe<Array<Maybe<PagesBlocksVideoGalleryVideoItemsMutation>>>;
+  color?: Maybe<Scalars['String']>;
+};
+
 export type PagesBlocksMutation = {
   hero?: Maybe<PagesBlocksHeroMutation>;
   features?: Maybe<PagesBlocksFeaturesMutation>;
   about?: Maybe<PagesBlocksAboutMutation>;
+  videoGallery?: Maybe<PagesBlocksVideoGalleryMutation>;
 };
 
 export type PagesMutation = {

@@ -220,53 +220,43 @@ const aboutBlockSchema: TinaTemplate = {
   ],
 };
 
-const defaultProduct = {
-  title: "product",
-  text: "This is where you might talk about the product, if this wasn't just filler text.",
+const defaultVideo = {
   image: {
     src: "/images/helicopter-feature.png",
     alt: "Helicopter hero image"
   }
 }
 
-const productsBlockSchema: TinaTemplate = {
-  label: "Products",
-  name: "products",
+const videoGalleryBlockSchema: TinaTemplate = {
+  name: "videoGallery",
+  label: "Video Gallery",
   ui: {
     defaultItem: {
-      items: [defaultProduct, defaultProduct, defaultProduct]
+      items: [defaultVideo, defaultVideo, defaultVideo]
     }
   },
   fields: [
     {
       type: "object",
-      label: "product Items",
-      name: "items",
+      label: "Video Items",
+      name: "videoItems",
       list: true,
       ui: {
         defaultItem: {
-          ...defaultProduct,
+          ...defaultVideo,
         },
       },
       fields: [
         {
-          type: "string",
-          label: "Title",
-          name: "title",
-        },
-        {
-          type: "string",
-          label: "Description",
-          name: "description",
-          ui: {
-            component: "textarea"
-          },
-        },
-        {
           type: "object",
-          label: "Image",
-          name: "image",
+          label: "Video",
+          name: "video",
           fields: [
+            {
+              name: "thumb",
+              label: "Thumbnail",
+              type: "image",
+            },
             {
               name: "src",
               label: "Image Source",
@@ -279,15 +269,20 @@ const productsBlockSchema: TinaTemplate = {
             },
           ],
         },
-        {
-          type: "string",
-          label: "Keywords",
-          name: "keywords",
-        }
+      ],
+    },
+    {
+      type: "string",
+      label: "Color",
+      name: "color",
+      options: [
+        { label: "Default", value: "default" },
+        { label: "Tint", value: "tint" },
+        { label: "Primary", value: "primary" },
       ],
     },
   ],
-};
+}
 
 export default defineSchema({
   collections: [
@@ -301,7 +296,7 @@ export default defineSchema({
           list: true,
           name: "blocks",
           label: "Sections",
-          templates: [heroBlockSchema, featureBlockSchema, aboutBlockSchema],
+          templates: [heroBlockSchema, featureBlockSchema, aboutBlockSchema, videoGalleryBlockSchema],
         },
       ],
     },

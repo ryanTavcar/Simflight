@@ -1,10 +1,10 @@
 import React from "react";
 import Hero from "./Hero";
 import WhatWeDo from "./WhatWeDo";
-// import NewsList from './News';
+import VideoGallery from './VideoGallery';
 
 const Blocks = (props) => {
-console.log(props)
+// console.log(props)
     return (
         <>
         {props.blocks
@@ -22,12 +22,12 @@ console.log(props)
                       <WhatWeDo data={block} />
                     </React.Fragment>
                   );
-                // case "PagesBlocksNews":
-                //   return (
-                //     <React.Fragment key={i + block.__typename}>
-                //       <News data={block} />
-                //     </React.Fragment>
-                //   );
+                case "PagesBlocksVideoGallery":
+                  return (
+                    <React.Fragment key={i + block.__typename}>
+                      <VideoGallery data={block}/>
+                    </React.Fragment>
+                  );
                 default:
                   return null;
               }
